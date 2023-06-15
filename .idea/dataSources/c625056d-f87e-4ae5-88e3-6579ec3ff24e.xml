@@ -1209,8 +1209,8 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8_unicode_ci</CollationName>
     </table>
-    <column id="336" parent="335" name="user_id">
-      <AutoIncrement>100</AutoIncrement>
+    <column id="336" parent="335" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <Comment>UserID</Comment>
       <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
@@ -1263,26 +1263,26 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <DasType>datetime|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="345" parent="335" name="credito">
+    <column id="345" parent="335" name="credit">
       <Comment>Credit</Comment>
       <DasType>int(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>10</Position>
     </column>
-    <column id="346" parent="335" name="credito_mensile">
+    <column id="346" parent="335" name="credit_monthly">
       <Comment>Monthly Credit</Comment>
       <DasType>int(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>11</Position>
     </column>
-    <column id="347" parent="335" name="credito_annuale">
+    <column id="347" parent="335" name="credit_annual">
       <Comment>Annual Credit</Comment>
       <DasType>int(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>12</Position>
     </column>
     <index id="348" parent="335" name="PRIMARY">
-      <ColNames>user_id</ColNames>
+      <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
