@@ -1,10 +1,10 @@
-package com.pinklemonllc.pinklemonllcbackend;
+package com.pinklemon.pinklemon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PinkLemonLlcBackendApplicationTests {
+class PinklemonApplicationTests {
 
 	@Test
 	void contextLoads() {

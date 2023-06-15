@@ -1,13 +1,13 @@
-package com.pinklemonllc.pinklemonllcbackend;
+package com.pinklemon.pinklemon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PinkLemonLlcBackendApplication {
+public class PinklemonApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PinkLemonLlcBackendApplication.class, args);
+		SpringApplication.run(PinklemonApplication.class, args);
 	}
 
 }
