@@ -1,6 +1,9 @@
 package com.pinklemon.pinklemon.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
@@ -8,29 +11,37 @@ import org.springframework.data.annotation.Id;
 public class Utente {
     @jakarta.persistence.Id
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
-    @Column
+    @Column(nullable = true)
     private String name;
 
-    @Column
+    @Column(nullable = true)
     private String surname;
 
-    @Column
+    @Column(nullable = false)
     private String username;
 
-    @Column
+    @Column(nullable = false)
     private String password;
-    @Column (unique = true)
+    @Column (unique = true, nullable = false)
     private String email;
 
-    @Column
+    @Column(nullable = true)
     private int credito;
 
-    @Column
+    @Column(nullable = true)
     private int credito_mensile;
 
-    @Column
+    @Column(nullable = true)
     private int credito_annuale;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
