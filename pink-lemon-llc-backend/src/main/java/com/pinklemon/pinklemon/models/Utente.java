@@ -17,6 +17,14 @@ public class Utente {
     @GeneratedValue
     private Long id;
 
+    public Utente() {
+
+    }
+    public Utente(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
     @Column(nullable = true)
     private String name;
 
