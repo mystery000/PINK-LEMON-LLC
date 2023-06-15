@@ -8,7 +8,7 @@ create table Utentes (
   password          varchar(100)    not null                   comment 'Password',
   role              smallint        default 0                  comment 'User Role (0: User 1: System User)',
   deleted           boolean         default false              comment 'Deleted User (true: Yes, false: No)',
-  create_time       datetime                                   comment 'Created Time',
+  created_time       datetime                                   comment 'Created Time',
   credit            int(4)          default 0                  comment 'Credit',
   credit_monthly    int(4)          default 0                  comment 'Monthly Credit',
   credit_annual     int(4)          default 0                  comment 'Annual Credit',
