@@ -3,7 +3,7 @@
 
 ### About us
 
-Hi Leonardo
+Hi.
 
 Can we discuss on Skype?
 

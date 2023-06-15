@@ -1,0 +1,1 @@
+INSERT INTO utentes VALUES (1, "Root", "Mohamed", "Fassel", "lkostyrka17@gmail.com", "123123123", 10,5,8);
