@@ -1,30 +1,30 @@
-package com.pinklemon.pinklemon.models;
+package com.pinklemon.pinklemon.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import java.util.Date;
-
 @Entity
 @Table(name="Utentes")
 public class Utente {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(nullable = true)
+    @Column
     private String name;
 
-    @Column(nullable = true)
+    @Column
     private String surname;
 
-    @Column(nullable = false)
+    @Column
     private String username;
 
-    @Column(nullable = false)
+    @Column
     private String password;
     @Column (unique = true, nullable = false)
     private String email;
@@ -38,13 +38,13 @@ public class Utente {
     @Column
     private Date created_time;
 
-    @Column(nullable = true)
+    @Column
     private int credit;
 
-    @Column(nullable = true)
+    @Column
     private int credit_monthly;
 
-    @Column(nullable = true)
+    @Column
     private int credit_annual;
 
     /**

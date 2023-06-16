@@ -1,7 +1,7 @@
-package com.pinklemon.pinklemon.services;
+package com.pinklemon.pinklemon.service;
 
-import com.pinklemon.pinklemon.models.Utente;
-import com.pinklemon.pinklemon.repositories.UtenteRepository;
+import com.pinklemon.pinklemon.model.Utente;
+import com.pinklemon.pinklemon.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

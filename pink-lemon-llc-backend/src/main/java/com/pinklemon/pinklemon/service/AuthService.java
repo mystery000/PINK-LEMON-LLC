@@ -1,8 +1,7 @@
-package com.pinklemon.pinklemon.services;
+package com.pinklemon.pinklemon.service;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-
 }

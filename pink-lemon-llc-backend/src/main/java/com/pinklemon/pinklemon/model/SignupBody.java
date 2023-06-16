@@ -1,4 +1,4 @@
-package com.pinklemon.pinklemon.models;
+package com.pinklemon.pinklemon.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

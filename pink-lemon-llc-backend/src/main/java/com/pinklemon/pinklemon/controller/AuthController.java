@@ -1,8 +1,8 @@
-package com.pinklemon.pinklemon.controllers;
+package com.pinklemon.pinklemon.controller;
 
-import com.pinklemon.pinklemon.models.LoginBody;
-import com.pinklemon.pinklemon.models.SignupBody;
-import com.pinklemon.pinklemon.services.AuthService;
+import com.pinklemon.pinklemon.model.LoginBody;
+import com.pinklemon.pinklemon.model.SignupBody;
+import com.pinklemon.pinklemon.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
