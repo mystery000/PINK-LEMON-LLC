@@ -1265,19 +1265,19 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     </column>
     <column id="345" parent="335" name="credit">
       <Comment>Credit</Comment>
-      <DasType>int(4)|0s</DasType>
+      <DasType>bigint(10)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>10</Position>
     </column>
     <column id="346" parent="335" name="credit_monthly">
       <Comment>Monthly Credit</Comment>
-      <DasType>int(4)|0s</DasType>
+      <DasType>bigint(10)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>11</Position>
     </column>
     <column id="347" parent="335" name="credit_annual">
       <Comment>Annual Credit</Comment>
-      <DasType>int(4)|0s</DasType>
+      <DasType>bigint(10)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>12</Position>
     </column>

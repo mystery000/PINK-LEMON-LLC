@@ -1,8 +1,11 @@
 package com.pinklemon.pinklemon.controllers;
 
-import com.pinklemon.pinklemon.services.UtenteService;
+import com.pinklemon.pinklemon.models.LoginBody;
+import com.pinklemon.pinklemon.models.SignupBody;
+import com.pinklemon.pinklemon.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,16 +18,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
-    private UtenteService utenteService;
+    private AuthService authService;
 
     /**
      * Login Method
      *
-     * @param loginBody LoginInfo
+     * @param loginBody Login Information
      * @return Result
      */
     @PostMapping("/login")
-    public String login() {
+    public String login(@RequestBody LoginBody loginBody) {
+        System.out.println(loginBody.toString());
         return "Logged in Successfully.";
     }
+    /**
+     * Login Method
+     *
+     * @param signupBody Signup Information
+     * @return Result
+     */
+    @PostMapping("/signup")
+    public String signup(@RequestBody SignupBody signupBody) {
+        System.out.println(signupBody.toString());
+        return "Registered Successfully!";
+    }
+
 }

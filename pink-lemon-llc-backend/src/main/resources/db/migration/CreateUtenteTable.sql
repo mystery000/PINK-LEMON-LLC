@@ -9,9 +9,9 @@ create table Utentes (
   role              smallint        default 0                  comment 'User Role (0: User 1: System User)',
   deleted           boolean         default false              comment 'Deleted User (true: Yes, false: No)',
   created_time      datetime                                   comment 'Created Time',
-  credit            int(4)          default 0                  comment 'Credit',
-  credit_monthly    int(4)          default 0                  comment 'Monthly Credit',
-  credit_annual     int(4)          default 0                  comment 'Annual Credit',
+  credit            bigint(10)      default 0                  comment 'Credit',
+  credit_monthly    bigint(10)      default 0                  comment 'Monthly Credit',
+  credit_annual     bigint(10)      default 0                  comment 'Annual Credit',
   primary key (id)
 ) engine=innodb auto_increment=100 comment = 'User Information Form';
 
