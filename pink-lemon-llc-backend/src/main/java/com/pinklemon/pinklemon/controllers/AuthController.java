@@ -42,5 +42,4 @@ public class AuthController {
         System.out.println(signupBody.toString());
         return "Registered Successfully!";
     }
-
 }

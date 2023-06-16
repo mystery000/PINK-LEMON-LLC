@@ -1,24 +1,33 @@
 
 # PINK-LEMON-LLC
 
-### About us
+## What is it?
+This source code is an Security Spring Boot backend for Pink Lemon LLC.
 
-Hi.
+Tested with
+* Docker 19.03
+* Ubuntu 22.04
+* Java 17
+* Spring Boot 3.1.0
+* Gradle
 
-Can we discuss on Skype?
+For explanation, please visit this article - [Docker and Spring Boot](https://mkyong.com/docker/docker-spring-boot-examples/)
 
-I'll explain shortly why we need to talk about it.
+## How to run this?
+```bash
+$ git clone https://github.com/mystery000/PINK-LEMON-LLC
+$ cd docker-spring-boot
+$ mvn clean package
+$ java -jar target/spring-boot-web.jar
 
-As a freelancer, I am required to follow their policies.
+  access http://localhost:8080
 
-They will immediately disable my account if I make a mistake while conversing with a client.
+//dockerize
 
-Let's think we have contract on freelancer now.
+// create a docker image
+$ sudo docker build -t spring-boot:1.0 .
+// run it
+$ sudo docker run -d -p 8080:8080 -t spring-boot:1.0
 
-Our contract will be terminated at that point by the freelancing platform. It will have an unanticipated impact on the development of our project.
-
-So, to avoid this problem, I believe we should communicate over another platform, such as Skype.
-
-If you agree, please join *https://join.skype.com/invite/xo5EPn7knKFx* or search **live:.cid.55ed0bb104b24bb**
-
-Thank you.
+  access http://localhost:8080
+```

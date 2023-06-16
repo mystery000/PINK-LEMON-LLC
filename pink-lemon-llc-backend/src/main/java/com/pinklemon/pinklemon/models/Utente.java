@@ -4,7 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import java.util.Date;
@@ -12,19 +12,9 @@ import java.util.Date;
 @Entity
 @Table(name="Utentes")
 public class Utente {
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue
     private Long id;
-
-    public Utente() {
-
-    }
-    public Utente(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
     @Column(nullable = true)
     private String name;
 
@@ -56,6 +46,18 @@ public class Utente {
 
     @Column(nullable = true)
     private int credit_annual;
+
+    /**
+     * Avoid this "No default constructor for entity"
+     */
+    public Utente() {
+
+    }
+    public Utente(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public void setId(Long id) {
         this.id = id;

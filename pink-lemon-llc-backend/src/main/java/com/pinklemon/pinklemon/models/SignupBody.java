@@ -1,5 +1,8 @@
 package com.pinklemon.pinklemon.models;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**
  * User Register Object
  *
@@ -101,5 +104,19 @@ public class SignupBody {
 
     public void setCredit_annual(int credit_annual) {
         this.credit_annual = credit_annual;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("name", getName())
+                .append("surname", getSurname())
+                .append("username", getUsername())
+                .append("email", getEmail())
+                .append("password", getPassword())
+                .append("credit", getCredit())
+                .append("credit_monthly", getCredit_monthly())
+                .append("credit_annual", getCredit_annual())
+                .toString();
     }
 }

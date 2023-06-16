@@ -1,5 +1,7 @@
 package com.pinklemon.pinklemon.models;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 /**
  * User Register Object
  *
@@ -29,5 +31,12 @@ public class LoginBody {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("email", getEmail())
+                .append("password", getPassword())
+                .toString();
     }
 }
