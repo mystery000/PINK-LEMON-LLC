@@ -5,7 +5,6 @@ import com.pinklemon.pinklemon.utills.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -38,7 +37,6 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests((authorize) -> authorize
                         // Public Endpoints
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/login").permitAll()
                         // Private Endpoints
                         .anyRequest().hasAuthority(Role.ROLE_USER))
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
