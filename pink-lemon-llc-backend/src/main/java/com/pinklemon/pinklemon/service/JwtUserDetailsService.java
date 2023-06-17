@@ -19,6 +19,6 @@ public class JwtUserDetailsService implements UserDetailsService {
     public JwtUserDetails loadUserByUsername(final String email) {
         final Utente utente = utenteRepository.findByEmail(email);
         final List<SimpleGrantedAuthority> roles = Collections.singletonList(new SimpleGrantedAuthority(utente.getRole()));
-        return new JwtUserDetails(utente.getId(), utente.getUsername(), utente.getPassword(), roles);
+        return new JwtUserDetails(utente.getId(), utente.getEmail(), utente.getPassword(), roles);
     }
 }
