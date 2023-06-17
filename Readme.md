@@ -2,14 +2,14 @@
 # PINK-LEMON-LLC
 
 ## What is it?
-This source code is an Security Spring Boot backend for Pink Lemon LLC.
+This source code is backend using Spring Security framework for Pink Lemon LLC.
 
 Tested with
 * Docker 19.03
 * Ubuntu 22.04
 * Java 17
 * Spring Boot 3.1.0
-* Gradle
+* Maven
 
 For explanation, please visit this article - [Docker and Spring Boot](https://mkyong.com/docker/docker-spring-boot-examples/)
 
