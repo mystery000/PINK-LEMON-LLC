@@ -1,9 +1,11 @@
 package com.pinklemon.pinklemon.config;
 
+import com.pinklemon.pinklemon.constant.Role;
 import com.pinklemon.pinklemon.utills.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -34,9 +36,11 @@ public class SpringSecurityConfig {
         return http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/", "/api/auth").permitAll()
-                        .requestMatchers("/api/utente").permitAll()
-                        .anyRequest().hasAuthority("ROLE_USER"))
+                        // Public Endpoints
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/login").permitAll()
+                        // Private Endpoints
+                        .anyRequest().hasAuthority(Role.ROLE_USER))
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

@@ -33,7 +33,7 @@ public class Utente {
     private boolean deleted;
 
     @Column
-    private int role;
+    private String role;
 
     @Column
     private Date created_time;
@@ -111,11 +111,11 @@ public class Utente {
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
-    public int getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(String role) {
         this.role = role;
     }
     public Date getCreated_time() {

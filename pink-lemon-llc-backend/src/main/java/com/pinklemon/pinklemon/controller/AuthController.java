@@ -43,6 +43,7 @@ public class AuthController {
      */
     @PostMapping("/login")
     public AuthenticationResponse login(@RequestBody final LoginBody loginBody) {
+        System.out.println(loginBody.toString());
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword()));
         } catch(final BadCredentialsException ex) {

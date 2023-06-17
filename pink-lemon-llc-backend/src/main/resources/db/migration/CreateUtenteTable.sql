@@ -6,7 +6,7 @@ create table utentes (
   username          varchar(30)     not null                   comment 'UserName',
   email             varchar(50)     not null                   comment 'Email',
   password          varchar(100)    not null                   comment 'Password',
-  role              smallint        default 0                  comment 'User Role (0: User 1: System User)',
+  role              varchar(30)     default 'ROLE_USER'        comment 'User Role (ROLE_ADMIN, ROLE_USER)',
   deleted           boolean         default false              comment 'Deleted User (true: Yes, false: No)',
   created_time      datetime                                   comment 'Created Time',
   credit            bigint(10)      default 0                  comment 'Credit',
@@ -16,4 +16,4 @@ create table utentes (
 ) engine=innodb auto_increment=100 comment = 'User Information Form';
 
 
-insert into Utentes values(1, 'Mohamed', 'Fassel', 'ARTHLO', 'lkostyrka17@gmail.com', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', 1, false, sysdate(), 200, 120, 1200)
+insert into Utentes values(1, 'Mohamed', 'Fassel', 'mohamed', 'lkostyrka17@gmail.com', '$2a$12$nTf8c0ekuQ9AHTonJApuFeh1HxHhIBG0BC1vH/vvJNnVk/9vPsWyK', 'ROLE_USER', false, sysdate(), 200, 120, 1200)
