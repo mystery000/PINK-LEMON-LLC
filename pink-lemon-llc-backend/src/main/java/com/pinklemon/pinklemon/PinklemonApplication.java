@@ -13,13 +13,5 @@ public class PinklemonApplication {
 		SpringApplication.run(PinklemonApplication.class, args);
 		System.out.println("Server is running...");
 	}
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("*");
-			}
-		};
-	}
+
 }

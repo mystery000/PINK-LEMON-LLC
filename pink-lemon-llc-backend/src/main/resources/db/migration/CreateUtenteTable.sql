@@ -1,5 +1,5 @@
 drop table if exists Utentes;
-create table Utentes (
+create table utentes (
   id                bigint(20)      not null auto_increment    comment 'UserID',
   name              varchar(30)     default ''                 comment 'FirstName',
   surname           varchar(30)     default ''                 comment 'LastName',
