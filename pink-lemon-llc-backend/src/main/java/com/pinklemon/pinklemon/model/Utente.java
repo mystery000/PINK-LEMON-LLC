@@ -1,52 +1,36 @@
 package com.pinklemon.pinklemon.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
+import com.pinklemon.pinklemon.constant.Role;
+import jakarta.persistence.*;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Date;
 @Entity
 @Table(name="Utentes")
 public class Utente {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column ( columnDefinition = "varchar(30) default '' comment 'firstname'")
     private String name;
-
-    @Column
+    @Column ( columnDefinition = "varchar(30) default '' comment 'lastname'" )
     private String surname;
-
-    @Column
+    @Column ( columnDefinition = "varchar(30) not null comment 'username'" )
     private String username;
-
-    @Column
+    @Column ( columnDefinition = "varchar(200) not null comment 'password'" )
     private String password;
-    @Column (unique = true, nullable = false)
+    @Column ( columnDefinition = "varchar(50) not null comment 'email'")
     private String email;
-
-    @Column
+    @Column ( columnDefinition = "boolean default false comment 'True: Deleted user'" )
     private boolean deleted;
-
-    @Column
+    @Column ( columnDefinition = "varchar(30) default 'ROLE_USER' comment 'role (Types: ROLE_USER, ROLE_ADMIN)'")
     private String role;
-
-    @Column
+    @Column ( columnDefinition = "datetime default CURRENT_TIMESTAMP comment 'Created Time'")
     private Date created_time;
-
-    @Column
+    @Column ( columnDefinition = "integer default 0 comment 'Credit'")
     private int credit;
-
-    @Column
-    private int credit_monthly;
-
-    @Column
-    private int credit_annual;
-
     /**
      * Avoid this "No default constructor for entity"
      */
@@ -57,6 +41,20 @@ public class Utente {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.created_time = new Date();
+        this.credit = 0;
+        this.role = (String) Role.ROLE_USER;
+    }
+
+    public Utente(String name, String surname, String username, String email, String password, String role) {
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.credit = 0;
+        this.created_time = new Date();
+        this.role = role;
     }
 
     public void setId(Long id) {
@@ -132,20 +130,6 @@ public class Utente {
     public void setCredit(int credit) {
         this.credit = credit;
     }
-    public int getCredit_monthly() {
-        return credit_monthly;
-    }
-
-    public void setCredit_monthly(int credit_monthly) {
-        this.credit_monthly = credit_monthly;
-    }
-    public int getCredit_annual() {
-        return credit_annual;
-    }
-
-    public void setCredit_annual(int credit_annual) {
-        this.credit_annual = credit_annual;
-    }
 
     @Override
     public String toString() {
@@ -160,8 +144,6 @@ public class Utente {
                 .append("role", getRole())
                 .append("createTime", getCreated_time())
                 .append("credit", getCredit())
-                .append("role", getCredit_monthly())
-                .append("createTime", getCredit_annual())
                 .toString();
     }
 }
