@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a7e1b2-8f5a-42b0-b7b1-3acbb720b06a" name="Changes" comment="Create Signup endpoint">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/config/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/config/SpringSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/SignupBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/SignupBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/resources/db/migration/CreateUtenteTable.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +101,7 @@
       <workItem from="1687093613010" duration="11538000" />
       <workItem from="1687113348625" duration="1298000" />
       <workItem from="1687116527536" duration="4519000" />
-      <workItem from="1687124313824" duration="4396000" />
+      <workItem from="1687124313824" duration="4465000" />
     </task>
     <task id="LOCAL-00001" summary="Migrate Gradle Groovy to Maven">
       <created>1686923486885</created>
@@ -169,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687015300852</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Create Signup endpoint">
+      <created>1687129178975</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687129178975</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

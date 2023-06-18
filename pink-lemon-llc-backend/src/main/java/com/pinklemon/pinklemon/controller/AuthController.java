@@ -46,6 +46,7 @@ public class AuthController {
     @PostMapping("/login")
     public AuthenticationResponse login(@RequestBody final LoginBody loginBody) {
         try {
+
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword()));
         } catch(final BadCredentialsException ex) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
@@ -55,12 +56,7 @@ public class AuthController {
         authenticationResponse.setAccessToken(jwtTokenService.generateToken(userDetails));
         return authenticationResponse;
     }
-    /**
-     * Login Method
-     *
-     * @param signupBody Signup Information
-     * @return Result
-     */
+
     @Autowired
     PasswordEncoder passwordEncoder;
     @PostMapping("/signup")
@@ -69,7 +65,8 @@ public class AuthController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         final String encodePassword = passwordEncoder.encode(signupBody.getPassword());
-        final Utente utente = new Utente(signupBody.getName(), signupBody.getSurname(), signupBody.getUsername(), signupBody.getEmail(), encodePassword, (String) Role.ROLE_USER);
+        final Utente utente = new Utente(signupBody.getName(), signupBody.getSurname(), signupBody.getUsername(), signupBody.getEmail(), encodePassword,
+                Role.ROLE_USER);
         utenteService.saveUtente(utente);
         return "Registered Successfully!";
     }
