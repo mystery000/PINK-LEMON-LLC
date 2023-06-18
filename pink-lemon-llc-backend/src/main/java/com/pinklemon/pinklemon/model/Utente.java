@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.Date;
 @Entity
-@Table(name="Utentes")
+@Table(name="utentes")
 public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,14 +37,6 @@ public class Utente {
     public Utente() {
 
     }
-    public Utente(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.created_time = new Date();
-        this.credit = 0;
-        this.role = (String) Role.ROLE_USER;
-    }
 
     public Utente(String name, String surname, String username, String email, String password, String role) {
         this.name = name;
@@ -52,9 +44,9 @@ public class Utente {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = role;
         this.credit = 0;
         this.created_time = new Date();
-        this.role = role;
     }
 
     public void setId(Long id) {
