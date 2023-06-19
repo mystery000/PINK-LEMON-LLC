@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73a7e1b2-8f5a-42b0-b7b1-3acbb720b06a" name="Changes" comment="Update signout">
+    <list default="true" id="73a7e1b2-8f5a-42b0-b7b1-3acbb720b06a" name="Changes" comment="Remove unused packages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/PinklemonApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/PinklemonApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Success.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Success.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +109,7 @@
       <workItem from="1687113348625" duration="1298000" />
       <workItem from="1687116527536" duration="4519000" />
       <workItem from="1687124313824" duration="30120000" />
-      <workItem from="1687178636320" duration="2772000" />
+      <workItem from="1687178636320" duration="7092000" />
     </task>
     <task id="LOCAL-00001" summary="Migrate Gradle Groovy to Maven">
       <created>1686923486885</created>
@@ -202,7 +209,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687180948156</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Create frontend">
+      <created>1687181693977</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1687181693977</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Remove unused packages">
+      <created>1687183247322</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1687183247322</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Remove unused packages">
+      <created>1687183280334</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687183280334</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +271,8 @@
     <MESSAGE value="Exception Handling" />
     <MESSAGE value="Fixes commit" />
     <MESSAGE value="Update signout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update signout" />
+    <MESSAGE value="Create frontend" />
+    <MESSAGE value="Remove unused packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused packages" />
   </component>
 </project>
