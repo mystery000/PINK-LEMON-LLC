@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73a7e1b2-8f5a-42b0-b7b1-3acbb720b06a" name="Changes" comment="Remove unused packages">
+    <list default="true" id="73a7e1b2-8f5a-42b0-b7b1-3acbb720b06a" name="Changes" comment="Fixes commit in frontend">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/PinklemonApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/PinklemonApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/SignupBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/SignupBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Success.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Success.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/progetto.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/progetto.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/registration.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +77,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.48735633&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;495872b65e52f65db23eb936e2176483&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -83,8 +89,7 @@
 }</component>
   <component name="RunManager">
     <configuration name="PinklemonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk1.8.0_271" />
       <module name="pinklemon" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.pinklemon.pinklemon.PinklemonApplication" />
       <method v="2">
@@ -109,7 +114,10 @@
       <workItem from="1687113348625" duration="1298000" />
       <workItem from="1687116527536" duration="4519000" />
       <workItem from="1687124313824" duration="30120000" />
-      <workItem from="1687178636320" duration="7092000" />
+      <workItem from="1687178636320" duration="8555000" />
+      <workItem from="1687190474394" duration="873000" />
+      <workItem from="1687191800728" duration="667000" />
+      <workItem from="1687195137986" duration="4754000" />
     </task>
     <task id="LOCAL-00001" summary="Migrate Gradle Groovy to Maven">
       <created>1686923486885</created>
@@ -230,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687183280334</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixes commit in frontend">
+      <created>1687187039332</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1687187039332</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +262,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Leonardo/Spring-Security" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -273,6 +288,10 @@
     <MESSAGE value="Update signout" />
     <MESSAGE value="Create frontend" />
     <MESSAGE value="Remove unused packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unused packages" />
+    <MESSAGE value="Fixes commit in frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes commit in frontend" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PINK_LEMON_LLC$PinklemonApplication.ic" NAME="PinklemonApplication Coverage Results" MODIFIED="1687190416085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

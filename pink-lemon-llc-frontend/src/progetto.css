@@ -1,167 +1,125 @@
-h1{
-
-    text-align: center;    
-    font-family:'system-ui';
-    font-size: 68px ;
+h1 {
+    text-align: center;
+    font-family: 'system-ui';
+    font-size: 68px;
     color: rgb(243, 113, 221);
     font-weight: 200;
     margin-bottom: 5px;
-    
-    }
-    
-    h2{
-    
-      text-align: center;    
-      font-family:'system-ui';
-      font-size: 30px ;
-      color: rgb(243, 113, 221);
-      font-weight: 200;
-      margin-top: 5px;
-    
-      
-      }
-    
-      h3{
-    
-      
-        font-family:'system-ui';
-        font-size: 20px ;
-        color: rgb(198, 21, 172);
-        font-weight: 500;
-        margin-top: 5px;
-        margin-left: 35px;
-        
-      
-        
-        }
-    
-    .sf-1{
-    
-      background-color: blue;  
-    
-    }
-    
-    .blog{
-    
+}
+
+h2 {
+    text-align: center;
+    font-family: 'system-ui';
+    font-size: 30px;
+    color: rgb(243, 113, 221);
+    font-weight: 200;
+    margin-top: 5px;
+}
+
+h3 {
+    font-family: 'system-ui';
+    font-size: 20px;
+    color: rgb(198, 21, 172);
+    font-weight: 500;
+    margin-top: 5px;
+    margin-left: 35px;
+}
+
+.sf-1 {
+    background-color: blue;
+}
+
+.blog {
     display: flex;
     justify-content: center;
-    
-    
-    
-    }
-    
-    .blog1{
-    
-      display: flex;
-      justify-content: center;
-      margin-left: 300px;
-      margin-right: 300px;
-      
-      
-      
-      }
-    
-    .img {
-    
-    
-      margin-top: 50px;
-      margin-left: 300px;
-    }
-    
-    .img1 {
-    
-    
-      margin-top: 50px;
-      margin-right: 300px;
-    }
-                  
-    .img-description {
-    
-      
-      margin-top: 40px;
-      justify-content: center;
-      margin-right: 300px;
-    }
-    
-    .img-description1 {
-    
-      
-      margin-top: 40px;
-      margin-right: 5px;
-      margin-left: 5px;
-      background: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
-      max-width: 280px;
-      text-align: center;
-      border-radius: 5px;
-      border-color: blueviolet;
-      
-      
-    }
-    
-    p {
-      font-family:'system-ui';
-        font-size: 23px ;
-        color: rgb(93, 86, 92);
-        font-weight: 200;
-        margin-top: 5px;
-        text-align: justify;
-        line-height: 35px;
-        margin-right: 300px;
-        margin-left: 300px;
-    
-    }
-    
-    .p-services {
-      font-family:'system-ui';
-        font-size: 18px ;
-        color: rgb(242, 235, 242);
-        font-weight: 200;
-        margin-top: 5px;
-        line-height: 30px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 5PX;
-        padding-right: 5PX;
-    
-    }
-    
-    .h3-services{
-    
-      
-      font-family:'system-ui';
-      font-size: 20px ;
-      color: rgb(246, 243, 246);
-      font-weight: 500;
-      margin-top: 5px;
-      text-align: center;
-      
-      }
-    
-      .h2-description{
-    
-        text-align: center;    
-        font-family:'system-ui';
-        font-size: 30px ;
-        color: rgb(243, 113, 221);
-        font-weight: 500;
-        margin-top: 15px;
-      
-        
-        }
-    
-        .button{
-    
-        
-          border-radius: 5px;
-          border: 0px;
-          padding-bottom: 5px;
-          padding-top: 5px;
-          width: 100px;
-          font-family:'system-ui';
-          font-size: 17px;
-          background-color: #f7f2f6;
-          color:rgb(141, 5, 141);
-          border: rgb(69, 4, 66);
-        
-        
-        }
+}
+
+.blog1 {
+    display: flex;
+    justify-content: center;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.img {
+    margin-top: 50px;
+    margin-left: 300px;
+}
+
+.img1 {
+    margin-top: 50px;
+    margin-right: 300px;
+}
+
+.img-description {
+    margin-top: 40px;
+    justify-content: center;
+    margin-right: 300px;
+}
+
+.img-description1 {
+    margin-top: 40px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+    max-width: 280px;
+    text-align: center;
+    border-radius: 5px;
+    border-color: blueviolet;
+}
+
+p {
+    font-family: 'system-ui';
+    font-size: 23px;
+    color: rgb(93, 86, 92);
+    font-weight: 200;
+    margin-top: 5px;
+    text-align: justify;
+    line-height: 35px;
+    margin-right: 300px;
+    margin-left: 300px;
+}
+
+.p-services {
+    font-family: 'system-ui';
+    font-size: 18px;
+    color: rgb(242, 235, 242);
+    font-weight: 200;
+    margin-top: 5px;
+    line-height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.h3-services {
+    font-family: 'system-ui';
+    font-size: 20px;
+    color: rgb(246, 243, 246);
+    font-weight: 500;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.h2-description {
+    text-align: center;
+    font-family: 'system-ui';
+    font-size: 30px;
+    color: rgb(243, 113, 221);
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.button {
+    border-radius: 5px;
+    border: 0px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 100px;
+    font-family: 'system-ui';
+    font-size: 17px;
+    background-color: #f7f2f6;
+    color: rgb(141, 5, 141);
+    border: rgb(69, 4, 66);
+}

@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './registration.css';
+import { useLocalStorage } from 'usehooks-ts';
+
 import axios from 'axios';
+import './registration.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [accessToken, setAccessToken] = useLocalStorage('accessToken', '');
+
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -22,7 +26,9 @@ const Login = () => {
                     }
                 }
             );
+
             const { accessToken } = response.data;
+            setAccessToken(accessToken);
 
             if (accessToken) {
                 navigate('/success', { state: { email, password } });

@@ -1,94 +1,65 @@
-.navbar-app{
-
+.navbar-app {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
-    
-   
-  
-
 }
 
-.footbar-app{
-
+.footbar-app {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    margin-top: 50px;   
+    margin-top: 50px;
     border-top: 2px solid rgb(229, 5, 162);
     border-radius: 5px;
     margin-left: 300px;
-    margin-right: 300px ;
-
-
-  
-
+    margin-right: 300px;
 }
 
 .nav {
-
     display: flex;
     margin-right: 300px;
-
 }
 
-.navbar-link{
+.navbar-link {
     display: flex;
     margin-left: 90px;
-    font-family:'system-ui';
+    font-family: 'system-ui';
     font-size: 20px;
     font-weight: 200;
-    color:grey;
-
-   
-        
- 
-
+    color: grey;
 }
 
-.navbar-link-logo{
+.navbar-link-logo {
     display: flex;
-    font-family:'system-ui';
+    font-family: 'system-ui';
     font-size: 20px;
     font-weight: 200;
-    color:grey;
-
+    color: grey;
 }
 
-.navbar-link-login{
+.navbar-link-login {
     display: flex;
     margin-left: 0px;
-    font-family:'system-ui';
+    font-family: 'system-ui';
     font-size: 20px;
     font-weight: 400;
-    color:rgb(212, 7, 144);
-  
-    
-    
-
+    color: rgb(212, 7, 144);
 }
 
-.logo{
-margin-right: auto;
-margin-left: 300px;
-font-family:'system-ui';
-font-size: 20px;
-font-weight: 600;
-color: rgb(243, 113, 221);
-
-
-
-
+.logo {
+    margin-right: auto;
+    margin-left: 300px;
+    font-family: 'system-ui';
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(243, 113, 221);
 }
 a {
     text-decoration: none;
- 
-
 }
 
-.container{
-
+.container {
     width: 1200px;
 }

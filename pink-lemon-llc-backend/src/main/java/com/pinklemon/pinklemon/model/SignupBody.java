@@ -18,10 +18,6 @@ public class SignupBody {
      */
     private String surname;
     /**
-     * Username
-     */
-    private String username;
-    /**
      * Email
      */
     private String email;
@@ -46,14 +42,6 @@ public class SignupBody {
         this.surname = surname;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -76,7 +64,6 @@ public class SignupBody {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
                 .append("name", getName())
                 .append("surname", getSurname())
-                .append("username", getUsername())
                 .append("email", getEmail())
                 .append("password", getPassword())
                 .toString();

@@ -64,12 +64,12 @@ public class AuthController {
     final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestBody SignupBody signupBody) {
+    public ResponseEntity<?> signup(@Valid @RequestBody SignupBody signupBody) {
         if(utenteService.existsByEmail(signupBody.getEmail())) {
             return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
         }
         final String encodePassword = bCryptPasswordEncoder.encode(signupBody.getPassword());
-        final Utente utente = new Utente(signupBody.getName(), signupBody.getSurname(), signupBody.getUsername(), signupBody.getEmail(), encodePassword,
+        final Utente utente = new Utente(signupBody.getName(), signupBody.getSurname(), signupBody.getEmail(), encodePassword,
                 Role.ROLE_USER);
         utenteService.save(utente);
         return new ResponseEntity<>("User registered Successfully!", HttpStatus.OK);

@@ -25,10 +25,6 @@ public class Utente {
     @Size(max = 30)
     private String surname;
     @NotNull
-    @Comment("User Name")
-    @Size(max = 30)
-    private String username;
-    @NotNull
     @Comment("Password")
     @Size(max = 120)
     private String password;
@@ -52,28 +48,16 @@ public class Utente {
 
     }
 
-    public Utente(String name, String surname, @NotNull String username, @NotNull String email, @NotNull String password, String role) {
+    public Utente(String name, String surname, @NotNull String email, @NotNull String password, String role) {
         this.name = name;
         this.surname = surname;
-        this.username = username;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.credit = 1024;
+        this.credit = 128;
         this.created_time = new Date();
     }
-    public Utente(Long id, String name, String surname, @NotNull String username, @NotNull String email, @NotNull String password, boolean deleted, String role, Date created_time, int credit) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.credit = credit;
-        this.created_time = created_time;
-        this.deleted = deleted;
-    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -96,13 +80,6 @@ public class Utente {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-    public @NotNull String getUsername() {
-        return username;
-    }
-
-    public void setUsername(@NotNull String username) {
-        this.username = username;
     }
 
     public @NotNull String getPassword() {
@@ -154,7 +131,6 @@ public class Utente {
                 .append("id", getId())
                 .append("name", getName())
                 .append("surname", getSurname())
-                .append("userName", getUsername())
                 .append("email", getEmail())
                 .append("password", getPassword())
                 .append("deleted", getDeleted())
