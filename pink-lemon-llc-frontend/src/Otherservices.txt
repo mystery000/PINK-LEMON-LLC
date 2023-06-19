@@ -1,0 +1,112 @@
+<div>
+
+        <h1>Elabora, Trascrivi, Traduci.</h1>
+        <h2>Trova nuove strade per le tue parole con il supporto dell'IA.</h2>
+      </div>
+      <div className='blog'>
+
+<div>
+  <img src={myImage2} alt="Descrizione dell'immagine" className='img'/>
+</div>
+<div className='blog'>
+  <p className='img-description'>
+    <div className='titolo'>ECCO LE PAROLE CHE HAI SEMPRE CERCATO</div>
+    A volte elabora un testo da zero, di qualunque tipo, può causare blocchi e frustrazioni.
+            A volte c'è bisogno di una traccia, uno spunto, una scintilla per riprendere a scrivere. Allo stesso modo possiamo
+            aver bisogno di trascrivere un testo da un audio registrato, a volte di tradurlo direttamente in
+            un' altra lingua e trasformarlo in testo. Oppure puoi aver bisogno di tradurre un testo articolato: ci sono moltissime combinazioni
+            linguistiche. In tutti questi casi non siamo più soli.
+  </p>
+</div>
+
+
+</div>
+
+
+
+
+      
+
+      <div>
+        <div className='h2-description'>Testo e audio senza segreti con LemonText</div>
+
+      </div>
+
+      <div className='blog1'>
+
+
+
+
+        <div className='img-description1'>
+          <div className='h3-services'>Elabora</div>
+          <p className='p-services'>Crea un'immagine a partire da una descrizione testuale
+
+          </p>
+          
+        </div>
+        <div className='img-description1'>
+          <div className='h3-services'>Trascrivi</div>
+          <p className='p-services'>Carica un'immagine e ottieni una versione diversa.
+
+          </p>
+
+        </div>
+        <div className='img-description1'>
+          <div className='h3-services'>Traduci</div>
+          <p className='p-services'>Carica l'immagine da modificare e la relativa maschera.
+
+          </p>
+        
+
+
+        </div>
+
+
+
+
+      </div>
+      <div className='blog1'>
+
+
+
+
+        <div className='action'>
+          <div className='h3-action'>Registrati e Ricevi 10 token gratuiti*</div>
+           <Button variant="contained" color="secondary" >PROVA ORA</Button><br></br>
+            
+            <p className='p-action'>
+            Immagini uniche da 1024x1024 pixel.
+
+
+          </p>
+          
+        </div>
+      
+
+
+      </div>
+
+      <h1 className='h1-home'>Immagina, Descrivi, Realizza.</h1>
+        <h2 className='h2-home'>Espandi le possibilità della tua creatività con l'IA.</h2>
+
+        <div>
+          <img src={myImage} alt="Descrizione dell'immagine" className=''/>
+        </div>
+        <div>
+          <p className='img-description'>
+            <div className='titolo'>PROFILO DI DONNA CON CAPELLI AL VENTO</div>
+            Molti elementi di questa immagine sono stati generati
+            spontamentamente a partire da una breve descrizione testuale.
+            La donna ha gli occhi chiusi, forse sta dormendo. O forse come in una tragedia di
+            Shakespeare la donna sogna di sognare. Anche la definizione del profilo, il fatto che la nuca si perda
+            nella notte dello sfondo è del tutto casuale. Forse la descrizione testuale era già
+            l'abbozzo di un sogno. Il sogno di una donna che sta dormendo, i cui pensieri volano via
+            col vento.
+          </p>
+        </div>
+
+
+      </div>
+
+
+      margin-right: 300px;

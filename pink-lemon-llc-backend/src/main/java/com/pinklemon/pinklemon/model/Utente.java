@@ -35,7 +35,6 @@ public class Utente {
     @NotNull
     @Comment("Email")
     @Email
-    @Valid
     @Size(max = 50)
     private String email;
     @Comment("True: Deleted User")
