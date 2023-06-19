@@ -8,6 +8,7 @@ import com.pinklemon.pinklemon.model.Utente;
 import com.pinklemon.pinklemon.service.JwtTokenService;
 import com.pinklemon.pinklemon.service.JwtUserDetailsService;
 import com.pinklemon.pinklemon.service.UtenteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,18 +49,20 @@ public class AuthController {
      * @return Result
      */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody final LoginBody loginBody) {
-        System.out.println(loginBody);
+    public ResponseEntity<?> login(@Valid @RequestBody final LoginBody loginBody) {
+        Authentication authentication = null;
         try {
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword()));
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword());
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            // This method will call JwtUserDetailService.loadUserByUsername
+            authentication = authenticationManager.authenticate(authenticationToken);
         } catch(final BadCredentialsException ex) {
-            return new ResponseEntity<>("Wrong email or password!", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Wrong password or email", HttpStatus.UNAUTHORIZED);
         }
-        final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(loginBody.getEmail());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         final AuthenticationResponse authenticationResponse = new AuthenticationResponse();
         authenticationResponse.setAccessToken(jwtTokenService.generateToken(userDetails));
-        System.out.println(authenticationResponse.getAccessToken());
         return new ResponseEntity<>(authenticationResponse, HttpStatus.OK);
     }
 

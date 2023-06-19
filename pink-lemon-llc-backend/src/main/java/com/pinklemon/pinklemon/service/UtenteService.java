@@ -23,5 +23,4 @@ public class UtenteService {
     public boolean existsByEmail(String email) {
         return utenteRepository.existsByEmail(email);
     }
-
 }

@@ -6,6 +6,7 @@ import com.pinklemon.pinklemon.utills.JwtUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -16,9 +17,12 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     private UtenteRepository utenteRepository;
     @Override
-    public JwtUserDetails loadUserByUsername(final String email) {
-        final Utente utente = utenteRepository.findByEmail(email);
+    public JwtUserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Utente utente = utenteRepository.findUtenteByEmail(email);
+        if(utente == null ) throw new UsernameNotFoundException("Login User: " + email + "doesnt' exist");
+        if(utente.getDeleted()) throw new UsernameNotFoundException("Sorry, your account: " +  email + "has been deleted");
         final List<SimpleGrantedAuthority> roles = Collections.singletonList(new SimpleGrantedAuthority(utente.getRole()));
         return new JwtUserDetails(utente.getId(), utente.getEmail(), utente.getPassword(), roles);
     }
+
 }

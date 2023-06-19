@@ -29,10 +29,6 @@ public class SignupBody {
      * Password
      */
     private String password;
-    /**
-     * Credit
-     */
-    private int credit;
 
     public String getName() {
         return name;
@@ -74,13 +70,6 @@ public class SignupBody {
         this.password = password;
     }
 
-    public int getCredit() {
-        return credit;
-    }
-
-    public void setCredit(int credit) {
-        this.credit = credit;
-    }
 
     @Override
     public String toString() {
@@ -90,7 +79,6 @@ public class SignupBody {
                 .append("username", getUsername())
                 .append("email", getEmail())
                 .append("password", getPassword())
-                .append("credit", getCredit())
                 .toString();
     }
 }

@@ -2,6 +2,7 @@ package com.pinklemon.pinklemon.model;
 
 import jakarta.persistence.*;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -34,6 +35,7 @@ public class Utente {
     @NotNull
     @Comment("Email")
     @Email
+    @Valid
     @Size(max = 50)
     private String email;
     @Comment("True: Deleted User")
@@ -58,10 +60,21 @@ public class Utente {
         this.email = email;
         this.password = password;
         this.role = role;
-        this.credit = 0;
+        this.credit = 1024;
         this.created_time = new Date();
     }
-
+    public Utente(Long id, String name, String surname, @NotNull String username, @NotNull String email, @NotNull String password, boolean deleted, String role, Date created_time, int credit) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.credit = credit;
+        this.created_time = created_time;
+        this.deleted = deleted;
+    }
     public void setId(Long id) {
         this.id = id;
     }
