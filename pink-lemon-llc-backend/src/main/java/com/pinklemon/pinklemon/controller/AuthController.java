@@ -81,7 +81,7 @@ public class AuthController {
     }
 
     @PostMapping("/signout")
-    public ResponseEntity<?> singout(@RequestBody String username) {
+    public ResponseEntity<?> singout() {
         return new ResponseEntity<>("Signout!", HttpStatus.OK);
     }
 }
