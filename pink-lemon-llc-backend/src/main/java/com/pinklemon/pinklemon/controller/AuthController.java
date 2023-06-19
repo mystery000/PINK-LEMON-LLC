@@ -6,7 +6,6 @@ import com.pinklemon.pinklemon.model.LoginBody;
 import com.pinklemon.pinklemon.model.SignupBody;
 import com.pinklemon.pinklemon.model.Utente;
 import com.pinklemon.pinklemon.service.JwtTokenService;
-import com.pinklemon.pinklemon.service.JwtUserDetailsService;
 import com.pinklemon.pinklemon.service.UtenteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +17,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 /**
  * Authentication Controller
@@ -36,8 +33,6 @@ import org.springframework.web.server.ResponseStatusException;
 public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
-    @Autowired
-    private JwtUserDetailsService jwtUserDetailsService;
     @Autowired
     private JwtTokenService jwtTokenService;
     @Autowired

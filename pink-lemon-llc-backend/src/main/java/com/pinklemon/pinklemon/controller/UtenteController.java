@@ -1,7 +1,5 @@
 package com.pinklemon.pinklemon.controller;
 
-
-import com.pinklemon.pinklemon.model.Utente;
 import com.pinklemon.pinklemon.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
