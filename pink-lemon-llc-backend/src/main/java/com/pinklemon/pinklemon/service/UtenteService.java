@@ -16,11 +16,12 @@ public class UtenteService {
         return utenteRepository.findAll();
     }
 
-    public void saveUtente(Utente utente) {
+    public void save(Utente utente) {
         utenteRepository.save(utente);
     }
 
-    public boolean checkIfUtenteExist(String email) {
-        return utenteRepository.findByEmail(email) != null;
+    public boolean existsByEmail(String email) {
+        return utenteRepository.existsByEmail(email);
     }
+
 }

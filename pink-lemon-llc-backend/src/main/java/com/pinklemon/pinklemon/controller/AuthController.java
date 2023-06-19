@@ -10,11 +10,14 @@ import com.pinklemon.pinklemon.service.JwtUserDetailsService;
 import com.pinklemon.pinklemon.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,30 +47,37 @@ public class AuthController {
      * @return Result
      */
     @PostMapping("/login")
-    public AuthenticationResponse login(@RequestBody final LoginBody loginBody) {
+    public ResponseEntity<?> login(@RequestBody final LoginBody loginBody) {
+        System.out.println(loginBody);
         try {
-
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword()));
+            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
         } catch(final BadCredentialsException ex) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Wrong email or password!", HttpStatus.UNAUTHORIZED);
         }
         final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(loginBody.getEmail());
         final AuthenticationResponse authenticationResponse = new AuthenticationResponse();
         authenticationResponse.setAccessToken(jwtTokenService.generateToken(userDetails));
-        return authenticationResponse;
+        System.out.println(authenticationResponse.getAccessToken());
+        return new ResponseEntity<>(authenticationResponse, HttpStatus.OK);
     }
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
     @PostMapping("/signup")
-    public String signup(@RequestBody SignupBody signupBody) {
-        if(utenteService.checkIfUtenteExist(signupBody.getEmail())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<?> signup(@RequestBody SignupBody signupBody) {
+        if(utenteService.existsByEmail(signupBody.getEmail())) {
+            return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
         }
-        final String encodePassword = passwordEncoder.encode(signupBody.getPassword());
+        final String encodePassword = bCryptPasswordEncoder.encode(signupBody.getPassword());
         final Utente utente = new Utente(signupBody.getName(), signupBody.getSurname(), signupBody.getUsername(), signupBody.getEmail(), encodePassword,
                 Role.ROLE_USER);
-        utenteService.saveUtente(utente);
-        return "Registered Successfully!";
+        utenteService.save(utente);
+        return new ResponseEntity<>("User registered Successfully!", HttpStatus.OK);
+    }
+
+    @PostMapping("/signout")
+    public ResponseEntity<?> singout(@RequestBody String username) {
+        return new ResponseEntity<>("Signout!", HttpStatus.OK);
     }
 }

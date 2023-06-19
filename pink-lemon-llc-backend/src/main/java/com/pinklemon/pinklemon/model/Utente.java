@@ -1,10 +1,14 @@
 package com.pinklemon.pinklemon.model;
 
-import com.pinklemon.pinklemon.constant.Role;
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.hibernate.annotations.Comment;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import java.util.Date;
 @Entity
@@ -13,23 +17,32 @@ public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column ( columnDefinition = "varchar(30) default '' comment 'firstname'")
+    @Comment("First Name")
+    @Size(max = 30)
     private String name;
-    @Column ( columnDefinition = "varchar(30) default '' comment 'lastname'" )
+    @Comment("Last Name")
+    @Size(max = 30)
     private String surname;
-    @Column ( columnDefinition = "varchar(30) not null comment 'username'" )
+    @NotNull
+    @Comment("User Name")
+    @Size(max = 30)
     private String username;
-    @Column ( columnDefinition = "varchar(200) not null comment 'password'" )
+    @NotNull
+    @Comment("Password")
+    @Size(max = 120)
     private String password;
-    @Column ( columnDefinition = "varchar(50) not null comment 'email'")
+    @NotNull
+    @Comment("Email")
+    @Email
+    @Size(max = 50)
     private String email;
-    @Column ( columnDefinition = "boolean default false comment 'True: Deleted user'" )
+    @Comment("True: Deleted User")
     private boolean deleted;
-    @Column ( columnDefinition = "varchar(30) default 'ROLE_USER' comment 'role (Types: ROLE_USER, ROLE_ADMIN)'")
+    @Comment("Role (Types: ROLE_USER, ROLE_ADMIN)")
     private String role;
-    @Column ( columnDefinition = "datetime default CURRENT_TIMESTAMP comment 'Created Time'")
+    @Comment("Created Time")
     private Date created_time;
-    @Column ( columnDefinition = "integer default 0 comment 'Credit'")
+    @Comment("Credit")
     private int credit;
     /**
      * Avoid this "No default constructor for entity"
@@ -38,7 +51,7 @@ public class Utente {
 
     }
 
-    public Utente(String name, String surname, String username, String email, String password, String role) {
+    public Utente(String name, String surname, @NotNull String username, @NotNull String email, @NotNull String password, String role) {
         this.name = name;
         this.surname = surname;
         this.username = username;
@@ -72,26 +85,26 @@ public class Utente {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    public String getUsername() {
+    public @NotNull String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(@NotNull String username) {
         this.username = username;
     }
 
-    public String getPassword() {
+    public @NotNull String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(@NotNull String password) {
         this.password = password;
     }
-    public String getEmail() {
+    public @NotNull String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(@NotNull String email) {
         this.email = email;
     }
     public Boolean getDeleted() {
