@@ -2,14 +2,12 @@ package com.pinklemon.pinklemon.model;
 
 import jakarta.persistence.*;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.Comment;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import java.util.Date;
 @Entity
@@ -54,7 +52,7 @@ public class Utente {
         this.email = email;
         this.password = password;
         this.role = role;
-        this.credit = 128;
+        this.credit = 10;
         this.created_time = new Date();
     }
 

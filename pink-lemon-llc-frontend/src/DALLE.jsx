@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import { useReadLocalStorage } from 'usehooks-ts';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import './home.css';
@@ -8,6 +9,7 @@ const DALLE = () => {
     const [text, setText] = useState('');
     const [generatedImage, setGeneratedImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const accessToken = useReadLocalStorage('accessToken');
 
     const API_KEY = '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';
     const API_URL = 'https://api.openai.com/v1/images/generations';
@@ -16,11 +18,10 @@ const DALLE = () => {
         setText(event.target.value);
     };
 
-    const generateImage = async () => {
-        setIsLoading(true);
+    const generateImage = useCallback(async () => {
         try {
             const response = await axios.post(
-                API_URL,
+                'http://localhost:8000/api/images/generate',
                 {
                     prompt: text,
                     n: 1,
@@ -29,28 +30,25 @@ const DALLE = () => {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${API_KEY}`
+                        Authorization: `Bearer ${accessToken}`
                     }
                 }
             );
-
-            console.log(response); // Visualizza il contenuto della risposta nella console del browser
-
             if (response.data && response.data.data && response.data.data[0].url) {
                 const img = new Image();
                 img.src = response.data.data[0].url;
+                console.log(img.src);
                 img.onload = () => {
                     setGeneratedImage(img);
                 };
+                setGeneratedImage(img);
             } else {
                 console.error('No image generated');
             }
-        } catch (error) {
-            console.error('Error generating image:', error);
-        } finally {
-            setIsLoading(false);
+        } catch (err) {
+            console.log(err?.message);
         }
-    };
+    }, [accessToken, text]);
 
     return (
         <div>

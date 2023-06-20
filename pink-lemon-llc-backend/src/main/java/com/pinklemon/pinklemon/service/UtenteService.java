@@ -23,4 +23,14 @@ public class UtenteService {
     public boolean existsByEmail(String email) {
         return utenteRepository.existsByEmail(email);
     }
+
+    public Utente getUtenteByEmail(String email) {
+        return utenteRepository.getUtenteByEmail(email);
+    }
+
+    public void updateCredit(String email, int credits) {
+        Utente utente = utenteRepository.getUtenteByEmail(email);
+        utente.setCredit(credits);
+        utenteRepository.save(utente);
+    }
 }

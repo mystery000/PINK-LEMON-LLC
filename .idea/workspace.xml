@@ -5,21 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a7e1b2-8f5a-42b0-b7b1-3acbb720b06a" name="Changes" comment="Fixes commit in frontend">
+      <change afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/ImageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Image.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/ImageGernerationBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/repository/ImageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/SignupBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/SignupBody.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/progetto.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/progetto.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/repository/UtenteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/repository/UtenteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/DALLE.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/DALLE.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,8 @@
       <workItem from="1687178636320" duration="8555000" />
       <workItem from="1687190474394" duration="873000" />
       <workItem from="1687191800728" duration="667000" />
-      <workItem from="1687195137986" duration="4754000" />
+      <workItem from="1687195137986" duration="5892000" />
+      <workItem from="1687213312676" duration="22957000" />
     </task>
     <task id="LOCAL-00001" summary="Migrate Gradle Groovy to Maven">
       <created>1686923486885</created>
@@ -262,7 +261,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="Leonardo/Spring-Security" />
                       </list>
                     </value>
                   </entry>
