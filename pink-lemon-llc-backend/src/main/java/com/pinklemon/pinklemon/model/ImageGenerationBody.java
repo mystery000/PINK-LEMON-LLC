@@ -3,7 +3,7 @@ package com.pinklemon.pinklemon.model;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class ImageGernerationBody {
+public class ImageGenerationBody {
     private String prompt;
     private int n;
     private String size;

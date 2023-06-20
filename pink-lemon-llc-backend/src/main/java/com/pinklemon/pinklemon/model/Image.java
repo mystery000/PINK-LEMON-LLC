@@ -2,6 +2,7 @@ package com.pinklemon.pinklemon.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.Comment;
@@ -18,10 +19,10 @@ public class Image {
 
     @NotNull
     @Comment("Image Owner")
-    @Column(unique = true)
     private String email;
 
     @NotNull
+    @Size(max = 600)
     @Comment("Images URL")
     private String url;
 

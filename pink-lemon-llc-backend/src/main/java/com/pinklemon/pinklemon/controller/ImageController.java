@@ -1,8 +1,6 @@
 package com.pinklemon.pinklemon.controller;
 
-import com.pinklemon.pinklemon.model.Image;
-import com.pinklemon.pinklemon.model.ImageGernerationBody;
-import com.pinklemon.pinklemon.model.Utente;
+import com.pinklemon.pinklemon.model.*;
 import com.pinklemon.pinklemon.service.ImageService;
 import com.pinklemon.pinklemon.service.UtenteService;
 import jakarta.validation.Valid;
@@ -14,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -42,24 +41,31 @@ public class ImageController {
         return new ResponseEntity<>(imageService.findImagesByEmail(email), HttpStatus.OK);
     }
     @PostMapping("/generate")
-    public ResponseEntity<?> generateImage(@Valid @RequestBody ImageGernerationBody imageGernerationBody) {
+    public ResponseEntity<?> generateImage(@Valid @RequestBody ImageGenerationBody imageGenerationBody) {
         try {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String email = userDetails.getUsername();
             Utente utente = utenteService.getUtenteByEmail(email);
             int credit = utente.getCredit();
-            if(credit < imageGernerationBody.getN()) {
+            if(credit < imageGenerationBody.getN()) {
                 return new ResponseEntity<>("Credit is insufficient.", HttpStatus.OK);
             }
-            // Generate AI images
+
+            // Create REST API template to generate AI images
             RestTemplate restTemplate = new RestTemplate();
             HttpHeaders headers = new HttpHeaders();
             headers.set("Content-Type", "application/json");
             headers.set("Authorization", "Bearer " + apiKey);
-            HttpEntity<ImageGernerationBody> httpEntity = new HttpEntity<>(imageGernerationBody, headers);
-            ResponseEntity<Object> responseEntity = restTemplate.postForEntity(apiUrl, httpEntity, Object.class);
+            HttpEntity<ImageGenerationBody> httpEntity = new HttpEntity<>(imageGenerationBody, headers);
+            ResponseEntity<ImageResponse> responseEntity = restTemplate.postForEntity(apiUrl, httpEntity, ImageResponse.class);
+
             if(responseEntity.getStatusCode() != HttpStatus.OK) return new ResponseEntity<>("Failed to generate image.", HttpStatus.INTERNAL_SERVER_ERROR);
-            utenteService.updateCredit(email, credit - imageGernerationBody.getN());
+
+            utenteService.updateCredit(email, credit - imageGenerationBody.getN());
+            List<ImageData> images = Objects.requireNonNull(responseEntity.getBody()).getData();
+            for (ImageData image : images) {
+                imageService.save(new Image(email, image.getUrl()));
+            }
             return new ResponseEntity<>(responseEntity.getBody(), HttpStatus.OK);
         } catch(Exception ex) {
             ex.printStackTrace();
