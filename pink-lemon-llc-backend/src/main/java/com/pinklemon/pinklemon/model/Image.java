@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.Comment;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import java.util.Date;
 
