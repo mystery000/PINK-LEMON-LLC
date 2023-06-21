@@ -55,12 +55,14 @@ public class AuthController {
     public ResponseEntity<?> login(@Valid @RequestBody final LoginBody loginBody) {
         Authentication authentication = null;
         try {
+            Utente utente = utenteService.getUtenteByEmailIgnoreCase(loginBody.getEmail());
             UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword());
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             // This method will call JwtUserDetailService.loadUserByUsername
             authentication = authenticationManager.authenticate(authenticationToken);
+            if(!utente.getEnabled()) return new ResponseEntity<>("Verify your email to proceed. We just sent to an email to the address: " + utente.getEmail(), HttpStatus.UNAUTHORIZED);
         } catch(final BadCredentialsException ex) {
-            return new ResponseEntity<>("Wrong password or email", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
         }
         SecurityContextHolder.getContext().setAuthentication(authentication);
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();

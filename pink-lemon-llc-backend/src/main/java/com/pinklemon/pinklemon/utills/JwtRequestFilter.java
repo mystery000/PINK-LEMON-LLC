@@ -39,6 +39,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             chain.doFilter(request, response);
             return;
         }
+
         // set user details on spring security context
         final JwtUserDetails userDetails = jwtUserDetailsService.loadUserByUsername(username);
 

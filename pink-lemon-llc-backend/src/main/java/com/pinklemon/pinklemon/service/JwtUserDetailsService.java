@@ -19,11 +19,8 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public JwtUserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Utente utente = utenteRepository.findUtenteByEmailIgnoreCase(email);
-        if(utente == null ) throw new UsernameNotFoundException("Your email doesn't exist");
-        if(utente.getDeleted()) throw new UsernameNotFoundException("Sorry, your account has been deleted");
-        if(!utente.getEnabled()) throw new UsernameNotFoundException("Sorry, your need to confirm verification email. we already sent you verification email.");
+        if(utente == null || utente.getDeleted()) throw new UsernameNotFoundException("Your email doesn't exist");
         final List<SimpleGrantedAuthority> roles = Collections.singletonList(new SimpleGrantedAuthority(utente.getRole()));
         return new JwtUserDetails(utente.getId(), utente.getEmail(), utente.getPassword(), roles);
     }
-
 }

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PINK-LEMON-LLC.iml" filepath="$PROJECT_DIR$/.idea/PINK-LEMON-LLC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pink-lemon-llc-backend/pinklemon.iml" filepath="$PROJECT_DIR$/pink-lemon-llc-backend/pinklemon.iml" />
     </modules>
   </component>
 </project>
