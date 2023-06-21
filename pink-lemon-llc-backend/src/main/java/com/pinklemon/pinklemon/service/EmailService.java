@@ -5,7 +5,11 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
+/**
+ * JAVA EMAIL SERVICE
+ *
+ * @author Mohamed
+ */
 @Service("emailService")
 public class EmailService {
     private final JavaMailSender javaMailSender;
