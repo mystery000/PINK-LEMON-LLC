@@ -20,16 +20,16 @@ public class UtenteService {
         utenteRepository.save(utente);
     }
 
-    public boolean existsByEmail(String email) {
-        return utenteRepository.existsByEmail(email);
+    public boolean existsByEmailIgnoreCase(String email) {
+        return utenteRepository.existsByEmailIgnoreCase(email);
     }
 
-    public Utente getUtenteByEmail(String email) {
-        return utenteRepository.getUtenteByEmail(email);
+    public Utente getUtenteByEmailIgnoreCase(String email) {
+        return utenteRepository.getUtenteByEmailIgnoreCase(email);
     }
 
     public void updateCredit(String email, int credits) {
-        Utente utente = utenteRepository.getUtenteByEmail(email);
+        Utente utente = utenteRepository.getUtenteByEmailIgnoreCase(email);
         utente.setCredit(credits);
         utenteRepository.save(utente);
     }

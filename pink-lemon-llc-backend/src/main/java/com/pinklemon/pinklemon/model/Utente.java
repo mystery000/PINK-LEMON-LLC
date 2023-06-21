@@ -39,6 +39,8 @@ public class Utente {
     private Date created_time;
     @Comment("Credit")
     private int credit;
+    @Comment("Email Confirmation")
+    private boolean isEnabled;
     /**
      * Avoid this "No default constructor for entity"
      */
@@ -54,6 +56,7 @@ public class Utente {
         this.role = role;
         this.credit = 10;
         this.created_time = new Date();
+        this.isEnabled = false;
     }
 
     public void setId(Long id) {
@@ -123,6 +126,13 @@ public class Utente {
         this.credit = credit;
     }
 
+    public boolean getEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean isEnabled) {
+        this.isEnabled = isEnabled;
+    }
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -135,6 +145,7 @@ public class Utente {
                 .append("role", getRole())
                 .append("createTime", getCreated_time())
                 .append("credit", getCredit())
+                .append("isEnabled", getEnabled())
                 .toString();
     }
 }

@@ -8,8 +8,8 @@ import java.util.List;
 
 @Repository
 public interface ImageRepository extends JpaRepository<Image, Long> {
-    List<Image> findImagesByEmail (String email);
+    List<Image> findImagesByEmailIgnoreCase (String email);
 
-    Boolean existsImageByEmail(String email);
+    Boolean existsImageByEmailIgnoreCase (String email);
 
 }

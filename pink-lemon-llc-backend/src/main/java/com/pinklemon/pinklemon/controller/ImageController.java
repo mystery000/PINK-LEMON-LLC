@@ -33,17 +33,17 @@ public class ImageController {
     public ResponseEntity<?> findImagesByEmail() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email = userDetails.getUsername();
-        if(!imageService.existsImageByEmail(email)) {
+        if(!imageService.existsImageByEmailIgnoreCase(email)) {
             return new ResponseEntity<>("There are no images that you generated.", HttpStatus.OK);
         }
-        return new ResponseEntity<>(imageService.findImagesByEmail(email), HttpStatus.OK);
+        return new ResponseEntity<>(imageService.findImagesByEmailIgnoreCase(email), HttpStatus.OK);
     }
     @PostMapping("/generate")
     public ResponseEntity<?> generateImage(@Valid @RequestBody ImageGenerationBody imageGenerationBody) {
         try {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String email = userDetails.getUsername();
-            Utente utente = utenteService.getUtenteByEmail(email);
+            Utente utente = utenteService.getUtenteByEmailIgnoreCase(email);
             int credit = utente.getCredit();
             if(credit < imageGenerationBody.getN()) {
                 return new ResponseEntity<>("Credit is insufficient.", HttpStatus.OK);

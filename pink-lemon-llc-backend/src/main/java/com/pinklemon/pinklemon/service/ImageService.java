@@ -12,12 +12,12 @@ public class ImageService {
     @Autowired
     private ImageRepository imageRepository;
 
-    public List<Image> findImagesByEmail(String email) {
-        return imageRepository.findImagesByEmail(email);
+    public List<Image> findImagesByEmailIgnoreCase(String email) {
+        return imageRepository.findImagesByEmailIgnoreCase(email);
     }
 
-    public boolean existsImageByEmail(String email) {
-        return imageRepository.existsImageByEmail(email);
+    public boolean existsImageByEmailIgnoreCase(String email) {
+        return imageRepository.existsImageByEmailIgnoreCase(email);
     }
 
     public void save(Image image) {
