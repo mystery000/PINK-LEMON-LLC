@@ -28,6 +28,7 @@ public class SpringSecurityConfig {
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -37,6 +38,7 @@ public class SpringSecurityConfig {
     public AuthenticationManager authenticationManager(final AuthenticationConfiguration authenticationConfiguration) throws  Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
     @Bean
     public SecurityFilterChain configure(final HttpSecurity http) throws Exception {
         return http.cors(Customizer.withDefaults())
@@ -61,4 +63,3 @@ public class SpringSecurityConfig {
         return authenticationProvider;
     }
 }
-

@@ -9,7 +9,7 @@ Tested with
 * Ubuntu 22.04
 * Java 17
 * Spring Boot 3.1.0
-* Maven
+* Maven 3.9.2
 
 For explanation, please visit this article - [Docker and Spring Boot](https://mkyong.com/docker/docker-spring-boot-examples/)
 
@@ -20,7 +20,7 @@ $ cd docker-spring-boot
 $ mvn clean package
 $ java -jar target/spring-boot-web.jar
 
-  access http://localhost:8080
+  access http://localhost:8000
 
 //dockerize
 
@@ -29,5 +29,5 @@ $ sudo docker build -t spring-boot:1.0 .
 // run it
 $ sudo docker run -d -p 8080:8080 -t spring-boot:1.0
 
-  access http://localhost:8080
+  access http://localhost:8000
 ```
