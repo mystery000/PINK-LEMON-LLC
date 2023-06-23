@@ -4,15 +4,13 @@ import { useReadLocalStorage } from 'usehooks-ts';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import './home.css';
+import { API_URL } from './config';
 
 const DALLE = () => {
     const [text, setText] = useState('');
     const [generatedImage, setGeneratedImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const accessToken = useReadLocalStorage('accessToken');
-
-    const API_KEY = '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';
-    const API_URL = 'https://api.openai.com/v1/images/generations';
 
     const handleTextChange = (event) => {
         setText(event.target.value);
@@ -21,7 +19,7 @@ const DALLE = () => {
     const generateImage = useCallback(async () => {
         try {
             const response = await axios.post(
-                'http://localhost:8000/api/images/generate',
+                `${API_URL}/images/generate`,
                 {
                     prompt: text,
                     n: 1,

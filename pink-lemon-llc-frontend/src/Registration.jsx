@@ -6,6 +6,7 @@ import axios from 'axios';
 // Import components and stylesheets
 import './registration.css';
 import Footer from './Footer';
+import { API_URL } from './config';
 
 const Registration = () => {
     const [name, setName] = useState('');
@@ -20,7 +21,7 @@ const Registration = () => {
         const payload = { name, surname, password, email };
 
         try {
-            await axios.post('http://localhost:8000/api/auth/signup', payload, {
+            await axios.post(`${API_URL}/auth/signup`, payload, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
