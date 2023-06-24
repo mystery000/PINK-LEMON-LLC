@@ -1,5 +1,6 @@
 package com.pinklemon.pinklemon.model;
 
+import com.pinklemon.pinklemon.constant.OperationType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -31,14 +32,19 @@ public class Image {
     @Comment("Creation Date")
     private Date create_time;
 
+    @NotNull
+    @Comment("Operation Type: (Generation, Variation, Edit)")
+    private String type;
+
     public Image() {
 
     }
-    public Image(@NotNull String email, @NotNull String url) {
+    public Image(@NotNull String email, @NotNull String url, @NotNull String type) {
         this.email = email;
         this.url = url;
         this.deleted = false;
         this.create_time = new Date();
+        this.type = type;
     }
     public void setId(Long id) {
         this.id = id;
@@ -70,6 +76,12 @@ public class Image {
     public void setCreateTime(Date create_time) {
         this.create_time = create_time;
     }
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -78,6 +90,7 @@ public class Image {
                 .append("url", getUrl())
                 .append("deleted", getDeleted())
                 .append("createTime", getCreateTime())
+                .append("type", getType())
                 .toString();
     }
 }

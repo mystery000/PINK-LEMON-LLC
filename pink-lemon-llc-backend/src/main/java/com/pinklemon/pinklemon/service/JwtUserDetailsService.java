@@ -18,7 +18,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     private UtenteRepository utenteRepository;
     @Override
     public JwtUserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Utente utente = utenteRepository.findUtenteByEmailIgnoreCase(email);
+        Utente utente = utenteRepository.getUtenteByEmailIgnoreCase(email);
         if(utente == null || utente.getDeleted()) throw new UsernameNotFoundException("Your email doesn't exist");
         final List<SimpleGrantedAuthority> roles = Collections.singletonList(new SimpleGrantedAuthority(utente.getRole()));
         return new JwtUserDetails(utente.getId(), utente.getEmail(), utente.getPassword(), roles);

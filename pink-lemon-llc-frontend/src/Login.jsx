@@ -4,6 +4,7 @@ import { useLocalStorage } from 'usehooks-ts';
 
 import axios from 'axios';
 import './registration.css';
+import { API_URL } from './config';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ const Login = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:8000/api/auth/login',
+                `${API_URL}/auth/login`,
                 { email, password },
                 {
                     method: 'POST',

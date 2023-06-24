@@ -19,6 +19,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * Spring Security Configuration
+ *
+ * @author Mohamed
+ */
+
 @Configuration
 @EnableMethodSecurity
 public class SpringSecurityConfig {
@@ -47,7 +53,7 @@ public class SpringSecurityConfig {
                         // Public Endpoints
                         .requestMatchers("/api/auth/**").permitAll()
                         // Private Endpoints
-                        .requestMatchers("/api/utente").hasAuthority(Role.ROLE_ADMIN)
+                        .requestMatchers("/api/utente/all").hasAuthority(Role.ROLE_ADMIN)
                         .anyRequest().authenticated())
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

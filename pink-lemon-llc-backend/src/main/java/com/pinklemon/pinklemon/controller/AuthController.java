@@ -84,6 +84,7 @@ public class AuthController {
         utenteService.save(utente);
         ConfirmationToken confirmationToken = new ConfirmationToken(utente.getEmail(), UUID.randomUUID().toString());
         confirmationTokenRepository.save(confirmationToken);
+        System.out.println(confirmationToken.getConfirmationToken());
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(utente.getEmail());
