@@ -19,7 +19,7 @@ const DALLE = () => {
     const generateImage = useCallback(async () => {
         try {
             const response = await axios.post(
-                `${API_URL}/images/generate`,
+                `${API_URL}/images/generations`,
                 {
                     prompt: text,
                     n: 1,
