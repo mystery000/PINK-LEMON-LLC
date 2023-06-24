@@ -4,16 +4,17 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import './home.css';
+import { useReadLocalStorage } from 'usehooks-ts';
+import { API_URL } from './config';
 
-const createImageVariation = async (file) => {
+const createImageVariation = async (file, accessToken) => {
     const formData = new FormData();
     formData.append('image', file);
     formData.append('size', '1024x1024');
-    const API_KEY = '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';
 
-    const response = await axios.post('https://api.openai.com/v1/images/variations', formData, {
+    const response = await axios.post(`${API_URL}/images/variations`, formData, {
         headers: {
-            Authorization: `Bearer ${API_KEY}`,
+            Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'multipart/form-data'
         }
     });
@@ -24,6 +25,7 @@ const createImageVariation = async (file) => {
 const ImageVariationGenerator = () => {
     const [imageUrls, setImageUrls] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
+    const accessToken = useReadLocalStorage('accessToken');
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -34,7 +36,7 @@ const ImageVariationGenerator = () => {
         if (selectedFile) {
             let urls = [];
             for (let i = 1; i < 2; i++) {
-                const url = await createImageVariation(selectedFile);
+                const url = await createImageVariation(selectedFile, accessToken);
                 urls.push(url);
             }
             setImageUrls(urls);

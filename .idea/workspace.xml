@@ -4,22 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="Fixes commit">
+    <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="Feat: add API_URL config">
+      <change afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/constant/OperationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/ImageVariationBody.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/config/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/config/SpringSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/UtenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/UtenteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/repository/UtenteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/repository/UtenteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/JwtUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/JwtUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/ImageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/DALLE.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/DALLE.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Success.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Success.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/ImageVarationGenerator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/ImageVarationGenerator.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -113,7 +118,7 @@
       <workItem from="1687361426755" duration="46000" />
       <workItem from="1687473726405" duration="10000" />
       <workItem from="1687501102732" duration="89000" />
-      <workItem from="1687524560309" duration="8082000" />
+      <workItem from="1687524560309" duration="20314000" />
     </task>
     <task id="LOCAL-00001" summary="Authentication Exception,&#10;IntelliJ Workspace.xml&#10;Use OpenJDK 17">
       <created>1687325419977</created>
@@ -136,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687329663331</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Feat: Add a new endpoint to get utente detail">
+      <created>1687550674332</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687550674332</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Feat: add API_URL config">
+      <created>1687550770905</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687550770905</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +172,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Spring-Security" />
+                        <option value="Leonardo/Spring-Security" />
                       </list>
                     </value>
                   </entry>
@@ -169,6 +188,8 @@
     <MESSAGE value="Authentication Exception,&#10;IntelliJ Workspace.xml&#10;Use OpenJDK 17" />
     <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Fixes commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes commit" />
+    <MESSAGE value="Feat: Add a new endpoint to get utente detail" />
+    <MESSAGE value="Feat: add API_URL config" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: add API_URL config" />
   </component>
 </project>
