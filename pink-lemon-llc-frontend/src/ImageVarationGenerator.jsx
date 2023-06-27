@@ -1,11 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import './home.css';
 import { useReadLocalStorage } from 'usehooks-ts';
 import { API_URL } from './config';
+
+import { CreditContext } from './Success';
 
 const createImageVariation = async (file, accessToken) => {
     const formData = new FormData();
@@ -23,6 +25,7 @@ const createImageVariation = async (file, accessToken) => {
 };
 
 const ImageVariationGenerator = () => {
+    const updateCredit = useContext(CreditContext);
     const [imageUrls, setImageUrls] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
     const accessToken = useReadLocalStorage('accessToken');
@@ -40,6 +43,7 @@ const ImageVariationGenerator = () => {
                 urls.push(url);
             }
             setImageUrls(urls);
+            updateCredit(1);
         }
     };
 

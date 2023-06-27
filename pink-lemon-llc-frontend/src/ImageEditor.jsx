@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useReadLocalStorage } from 'usehooks-ts';
 import { API_URL } from './config';
 
+import { CreditContext } from './Success';
+
 const ImageEditor = () => {
+    const updateCredit = useContext(CreditContext);
+
     const [image, setImage] = useState(null);
     const [mask, setMask] = useState(null);
     const [prompt, setPrompt] = useState('');
@@ -41,6 +45,7 @@ const ImageEditor = () => {
             });
 
             setEditedImage(response.data.data[0].url);
+            updateCredit(1);
         } catch (error) {
             console.error('Error:', error);
         }
