@@ -1,11 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
+import { useReadLocalStorage } from 'usehooks-ts';
+import { API_URL } from './config';
+
+import { CreditContext } from './Success';
 
 const ImageEditor = () => {
+    const updateCredit = useContext(CreditContext);
+
     const [image, setImage] = useState(null);
     const [mask, setMask] = useState(null);
     const [prompt, setPrompt] = useState('');
     const [editedImage, setEditedImage] = useState(null);
+    const accessToken = useReadLocalStorage('accessToken');
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -29,17 +36,16 @@ const ImageEditor = () => {
         formData.append('size', '1024x1024');
         formData.append('n', '1');
 
-        const API_KEY = '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';
-
         try {
-            const response = await axios.post('https://api.openai.com/v1/images/edits', formData, {
+            const response = await axios.post(`${API_URL}/images/edits`, formData, {
                 headers: {
-                    Authorization: `Bearer ${API_KEY}`,
+                    Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'multipart/form-data'
                 }
             });
 
             setEditedImage(response.data.data[0].url);
+            updateCredit(1);
         } catch (error) {
             console.error('Error:', error);
         }

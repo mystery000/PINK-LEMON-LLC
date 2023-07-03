@@ -7,18 +7,14 @@ import com.pinklemon.pinklemon.service.UtenteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -46,13 +42,13 @@ public class ImageController {
         return new ResponseEntity<>(imageService.findImagesByEmailIgnoreCase(email), HttpStatus.OK);
     }
     @PostMapping("/generations")
-    public ResponseEntity<?> generateImage(@Valid @RequestBody ImageGenerationBody imageGenerationBody) {
+    public ResponseEntity<?> generateImage(@Valid @RequestBody ImageGenerationRequest imageGenerationRequest) {
         try {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String email = userDetails.getUsername();
             Utente utente = utenteService.getUtenteByEmailIgnoreCase(email);
             int credit = utente.getCredit();
-            if(credit < imageGenerationBody.getN()) {
+            if(credit < imageGenerationRequest.getN()) {
                 return new ResponseEntity<>("Credit is insufficient.", HttpStatus.NOT_ACCEPTABLE);
             }
 
@@ -61,12 +57,12 @@ public class ImageController {
             HttpHeaders headers = new HttpHeaders();
             headers.set("Content-Type", "application/json");
             headers.set("Authorization", "Bearer " + apiKey);
-            HttpEntity<ImageGenerationBody> httpEntity = new HttpEntity<>(imageGenerationBody, headers);
+            HttpEntity<ImageGenerationRequest> httpEntity = new HttpEntity<>(imageGenerationRequest, headers);
             ResponseEntity<ImageResponse> responseEntity = restTemplate.postForEntity("https://api.openai.com/v1/images/generations", httpEntity, ImageResponse.class);
 
             if(responseEntity.getStatusCode() != HttpStatus.OK) return new ResponseEntity<>("Failed to generate image.", HttpStatus.INTERNAL_SERVER_ERROR);
 
-            utenteService.updateCredit(email, credit - imageGenerationBody.getN());
+            utenteService.updateCredit(email, credit - imageGenerationRequest.getN());
             List<ImageData> images = Objects.requireNonNull(responseEntity.getBody()).getData();
             for (ImageData image : images) {
                 imageService.save(new Image(email, image.getUrl(), OperationType.GENERATION));
@@ -78,7 +74,7 @@ public class ImageController {
         }
     }
     @PostMapping("/variations")
-    public ResponseEntity<?> variateImage(@ModelAttribute ImageVariationBody imageVariationBody) {
+    public ResponseEntity<?> variateImage(@ModelAttribute ImageVariationRequest imageVariationRequest) {
         try {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String email = userDetails.getUsername();
@@ -89,7 +85,7 @@ public class ImageController {
             }
 
             LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
-            map.add("image", new MultipartinputStreamFileResource(imageVariationBody.getImage().getInputStream(), imageVariationBody.getImage().getOriginalFilename()));
+            map.add("image", new MultipartinputStreamFileResource(imageVariationRequest.getImage().getInputStream(), imageVariationRequest.getImage().getOriginalFilename()));
 
             // Create REST API template to variate AI images
             RestTemplate restTemplate = new RestTemplate();
@@ -111,7 +107,44 @@ public class ImageController {
             ex.printStackTrace();
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+    @PostMapping("/edits")
+    public ResponseEntity<?> editImage(@ModelAttribute ImageEditRequest imageEditRequest) {
+        try {
+            System.out.println(imageEditRequest.toString());
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String email = userDetails.getUsername();
+            Utente utente = utenteService.getUtenteByEmailIgnoreCase(email);
+            int credit = utente.getCredit();
+            if(credit < 1) {
+                return new ResponseEntity<>("Credit is insufficient.", HttpStatus.NOT_ACCEPTABLE);
+            }
+            LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+            map.add("image", new MultipartinputStreamFileResource(imageEditRequest.getImage().getInputStream(), imageEditRequest.getImage().getOriginalFilename()));
+            map.add("mask", new MultipartinputStreamFileResource(imageEditRequest.getMask().getInputStream(), imageEditRequest.getMask().getOriginalFilename()));
+            map.add("prompt", imageEditRequest.getPrompt());
+            map.add("size", imageEditRequest.getSize());
+            map.add("n", imageEditRequest.getN());
 
+            // Create REST API template to variate AI images
+            RestTemplate restTemplate = new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Content-Type", "multipart/form-data");
+            headers.set("Authorization", "Bearer " + apiKey);
+            HttpEntity<LinkedMultiValueMap<String, Object>> httpEntity = new HttpEntity<>(map, headers);
+
+            ResponseEntity<ImageResponse> responseEntity = restTemplate.postForEntity("https://api.openai.com/v1/images/edits", httpEntity, ImageResponse.class);
+            if(responseEntity.getStatusCode() != HttpStatus.OK) return new ResponseEntity<>("Failed to edit the image.", HttpStatus.INTERNAL_SERVER_ERROR);
+            utenteService.updateCredit(email, credit - 1);
+            List<ImageData> images = Objects.requireNonNull(responseEntity.getBody()).getData();
+            for (ImageData image : images) {
+                imageService.save(new Image(email, image.getUrl(), OperationType.EDIT));
+            }
+            return new ResponseEntity<>(responseEntity.getBody(), HttpStatus.OK);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }
 

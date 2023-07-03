@@ -54,7 +54,7 @@ public class Utente {
         this.email = email;
         this.password = password;
         this.role = role;
-        this.credit = 10;
+        this.credit = 5;
         this.created_time = new Date();
         this.isEnabled = false;
     }

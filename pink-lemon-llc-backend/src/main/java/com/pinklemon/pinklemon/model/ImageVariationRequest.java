@@ -2,36 +2,42 @@ package com.pinklemon.pinklemon.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.web.multipart.MultipartFile;
 
-public class ImageGenerationBody {
-    private String prompt;
-    private int n;
+public class ImageVariationRequest {
+    private MultipartFile image;
+
     private String size;
 
-    public void setPrompt(String prompt) {
-        this.prompt = prompt;
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
-    public String getPrompt() {
-        return prompt;
+
+    public MultipartFile getImage() {
+        return image;
     }
-    public void setN(int n) {
-        this.n = n;
-    }
-    public int getN() {
-        return n;
-    }
+
     public void setSize(String size) {
         this.size = size;
     }
+
     public String getSize() {
         return size;
+    }
+
+    public ImageVariationRequest() {
+
+    }
+
+    public ImageVariationRequest(MultipartFile image, String size) {
+        this.image = image;
+        this.size = size;
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("Prompt", getPrompt())
-                .append("N", getN())
+                .append("File", getImage().toString())
                 .append("Size", getSize())
                 .toString();
     }
