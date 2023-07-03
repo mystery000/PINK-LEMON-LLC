@@ -13,6 +13,7 @@ import PinkEdit from './PinkEdit';
 import Prices from './Prices';
 import './app.css';
 import Successregister from './Successregister';
+import Confirm from './Confirm';
 
 function App() {
     return (
@@ -32,6 +33,7 @@ function App() {
                     <Route path="/Pinkvar" element={<PinkVar />} />
                     <Route path="/Pinkedit" element={<PinkEdit />} />
                     <Route path="/Prices" element={<Prices />} />
+                    <Route path="/Confirm" element={<Confirm />} />
                 </Routes>
             </BrowserRouter>
         </>

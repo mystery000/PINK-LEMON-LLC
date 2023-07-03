@@ -1,18 +1,20 @@
+/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 import Modal from 'react-modal';
 import './ImageGallery.css';
+import Button from '@mui/material/Button';
 import myImage from './images/profilo di donna.jpg'; // Percorso dell'immagine
 import myImage2 from './images/img1bis.png'; // Percorso dell'immagine
 import myImage3 from './images/img1.png'; // Percorso dell'immagine
 import myImage4 from './images/img2.png'; // Percorso dell'immagine
 import myImage5 from './images/img3.png'; // Percorso dell'immagine
 import myImage6 from './images/img4.png'; // Percorso dell'immagine
-import myImage7 from './images/img5.png'; // Percorso dell'immagine
+import myImage7 from './images/img9.png'; // Percorso dell'immagine
 import myImage8 from './images/img6.png'; // Percorso dell'immagine
-import myImage9 from './images/img7.png'; // Percorso dell'immagine
+import myImage9 from './images/Foresta1.png'; // Percorso dell'immagine
 import myImage10 from './images/img8.png'; // Percorso dell'immagine
-import myImage11 from './images/img9.png'; // Percorso dell'immagine
-import myImage12 from './images/img10.png'; // Percorso dell'immagine
+import myImage11 from './images/Lemon.png'; // Percorso dell'immagine
+import myImage12 from './images/Lumaca.png'; // Percorso dell'immagine
 
 const ImageGallery = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -58,8 +60,13 @@ const ImageGallery = () => {
                     />
                 ))}
                 <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Image Modal">
-                    <img src={selectedImage?.url} alt={selectedImage?.description} />
-                    <button onClick={closeModal}>Chiudi</button>
+                <div className="blog1">
+                       
+                       <img src={selectedImage?.url} alt={selectedImage?.description} />
+                       </div>
+                       <div className="btn">
+                       <Button  variant="contained" color="secondary"onClick={closeModal}>Chiudi</Button>
+                       </div>
                 </Modal>
             </div>
         </div>

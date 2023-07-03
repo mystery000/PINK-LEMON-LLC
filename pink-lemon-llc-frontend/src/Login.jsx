@@ -1,10 +1,14 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from 'usehooks-ts';
+import { Button } from '@mui/material';
 
 import axios from 'axios';
 import './registration.css';
 import { API_URL } from './config';
+import Footer from './Footer';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -42,24 +46,36 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h1>Login</h1>
+        <>
+        <h2 className="h1-description">Accedi</h2>
+            
+        <div className="form-container">
+            
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Email:</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}  
+                    placeholder="EMAIL"/>
                 </div>
                 <div>
-                    <label>Password:</label>
+                
                     <input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        placeholder="PASSWORD"
                     />
                 </div>
-                <button type="submit">Invia</button>
+                <div className="btn-cen">
+                        <Button variant="contained" color="secondary" type="submit">
+                           INVIA
+                        </Button>
+                    </div>
             </form>
         </div>
+        <Footer></Footer>
+        </>
+        
     );
 };
 
