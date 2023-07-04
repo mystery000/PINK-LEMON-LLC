@@ -33,4 +33,10 @@ public class UtenteService {
         utente.setCredit(credits);
         utenteRepository.save(utente);
     }
+
+    public void updateVerificationLimit(String email, int limits) {
+        Utente utente = utenteRepository.getUtenteByEmailIgnoreCase(email);
+        utente.setVerificationLimit(limits);
+        utenteRepository.save(utente);
+    }
 }

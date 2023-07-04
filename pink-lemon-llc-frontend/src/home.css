@@ -252,3 +252,16 @@ input.button {
     font-weight: 300;
     margin-top: 10px;
 }
+
+.btn-pink-lemon {
+    padding: '16px';
+    border-radius: '20px';
+    color: 'white';
+    background-color: '#a855f7';
+    border: 'none';
+    cursor: 'pointer';
+}
+
+.btn-pink-lemon:hover {
+    background-color: '#9333ea';
+}

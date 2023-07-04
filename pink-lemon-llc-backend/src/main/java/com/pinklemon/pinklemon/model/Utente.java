@@ -41,6 +41,10 @@ public class Utente {
     private int credit;
     @Comment("Email Confirmation")
     private boolean isEnabled;
+
+    @Comment("Verification Limit")
+    private int verification_limit;
+
     /**
      * Avoid this "No default constructor for entity"
      */
@@ -57,6 +61,7 @@ public class Utente {
         this.credit = 5;
         this.created_time = new Date();
         this.isEnabled = false;
+        this.verification_limit = 2;
     }
 
     public void setId(Long id) {
@@ -133,6 +138,15 @@ public class Utente {
     public void setEnabled(boolean isEnabled) {
         this.isEnabled = isEnabled;
     }
+
+    public int getVerificationLimit() {
+        return verification_limit;
+    }
+
+    public void setVerificationLimit(int verification_limit) {
+        this.verification_limit = verification_limit;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -146,6 +160,7 @@ public class Utente {
                 .append("createTime", getCreated_time())
                 .append("credit", getCredit())
                 .append("isEnabled", getEnabled())
+                .append("verificationLimit", getVerificationLimit())
                 .toString();
     }
 }

@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="Feat: Add an endpoint to edit the images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/ImageGallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/ImageGallery.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/PinkEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/PinkEdit.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +197,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Spring-Security" />
+                        <option value="Leonardo/Spring-Security" />
                       </list>
                     </value>
                   </entry>

@@ -14,27 +14,30 @@ import Prices from './Prices';
 import './app.css';
 import Successregister from './Successregister';
 import Confirm from './Confirm';
+import { Toaster } from 'react-hot-toast';
+import EmailVerification from './EmailVerification';
 
 function App() {
     return (
         <>
             <BrowserRouter>
                 <Navbar />
-
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route path="/Contacts" element={<Contacts />} />
                     <Route path="/Registration" element={<Registration />} />
                     <Route path="/Login" element={<Login />} />
                     <Route path="/Success" element={<Success />} />
-                    <Route path="/Successregister/:token" element={<Successregister />} />
+                    <Route path="/Successregister" element={<Successregister />} />
                     <Route path="/Error" element={<Error />} />
                     <Route path="/Pinkpic" element={<Pinkpic />} />
                     <Route path="/Pinkvar" element={<PinkVar />} />
                     <Route path="/Pinkedit" element={<PinkEdit />} />
                     <Route path="/Prices" element={<Prices />} />
                     <Route path="/Confirm" element={<Confirm />} />
+                    <Route path="/verify-email/:token" element={<EmailVerification />} />
                 </Routes>
+                <Toaster />
             </BrowserRouter>
         </>
     );

@@ -24,6 +24,7 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-easy-crop": "^4.7.4",
+        "react-hot-toast": "^2.4.1",
         "react-modal": "^3.16.1",
         "react-router-dom": "^6.11.1",
         "usehooks-ts": "^2.9.1"
