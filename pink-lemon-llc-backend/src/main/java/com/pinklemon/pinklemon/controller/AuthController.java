@@ -89,8 +89,8 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(utente.getEmail());
             simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: "
-                    + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
+            String link = "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken();
+            simpleMailMessage.setText("To confirm your account, please click <a href='"+ link +"'>here</a>");
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -98,7 +98,9 @@ public class AuthController {
         return new ResponseEntity<>("Verify email by the link sent on your email address", HttpStatus.OK);
     }
     @PostMapping("/signup/resend-email")
-    public ResponseEntity<?> resendEmail(@RequestBody final String email) {
+    public ResponseEntity<?> resendEmail(@Valid @RequestBody ResendEmailRequest resendEmailRequest)
+    {
+        String email = resendEmailRequest.getEmail();
         if(!utenteService.existsByEmailIgnoreCase(email)) {
             return new ResponseEntity<>("Error: Unregistered Email", HttpStatus.BAD_REQUEST);
         }
@@ -114,8 +116,8 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(email);
             simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: "
-                    + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
+            String link = "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken();
+            simpleMailMessage.setText("To confirm your account, please click <a href='"+ link +"'>here</a>");
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
