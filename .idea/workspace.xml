@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="Feat: Add an endpoint to edit the images">
+    <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="Fix: Resend Email endpoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/model/Utente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/UtenteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/ImageGallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/ImageGallery.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/PinkEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/PinkEdit.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Registration.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Successregister.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/home.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +170,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687583114052</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Feat: create new component for email verification&#10;Feat: create new endpoint to resend the email verfication link">
+      <created>1688455455637</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688455455637</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix commit">
+      <created>1688472704860</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688472704860</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix: Resend Email endpoint">
+      <created>1688487383517</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688487383517</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +208,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Leonardo/Spring-Security" />
+                        <option value="Spring-Security" />
                       </list>
                     </value>
                   </entry>
@@ -218,6 +229,9 @@
     <MESSAGE value="Feat: Add an endpoint to variate the images." />
     <MESSAGE value="Fix: generation endpoint url in frontend" />
     <MESSAGE value="Feat: Add an endpoint to edit the images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: Add an endpoint to edit the images" />
+    <MESSAGE value="Feat: create new component for email verification&#10;Feat: create new endpoint to resend the email verfication link" />
+    <MESSAGE value="Fix commit" />
+    <MESSAGE value="Fix: Resend Email endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: Resend Email endpoint" />
   </component>
 </project>
