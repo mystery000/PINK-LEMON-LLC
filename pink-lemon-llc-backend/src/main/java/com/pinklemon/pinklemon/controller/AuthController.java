@@ -91,7 +91,7 @@ public class AuthController {
             simpleMailMessage.setSubject("Verify your email address to complete registration");
             simpleMailMessage.setText("To confirm your account, please click here: "
                     + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
-//            emailService.sendEmail(simpleMailMessage);
+            emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -114,8 +114,8 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(email);
             simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here : "
-                    + "http://localhost:8000/api/auth/signup/verify-email?token=" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setText("To confirm your account, please click here: "
+                    + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
