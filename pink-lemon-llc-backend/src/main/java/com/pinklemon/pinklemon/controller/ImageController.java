@@ -162,7 +162,7 @@ class MultipartinputStreamFileResource extends InputStreamResource {
     }
 
     @Override
-    public long contentLength() throws IOException {
+    public long contentLength() {
         return -1;
     }
 }

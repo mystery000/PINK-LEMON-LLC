@@ -13,7 +13,6 @@ public class ConfirmationToken {
     private Long tokenId;
 
     @Comment("Email")
-    @Column(name = "email")
     private String email;
 
     @Comment("confirmation token")
