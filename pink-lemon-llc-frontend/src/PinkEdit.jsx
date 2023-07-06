@@ -46,11 +46,9 @@ function PinkEdit() {
                     <h2 className="h2-description">"Genera un'anguria sulla poltrona"</h2>
                 </div>
 
-                <div className="blog3">
+                <div className="blog3" style={{ textAlign: 'center' }}>
                     <div className="edit-margin">
                         <img src={myImage1} alt="Descrizione dell'immagine" className="img" />
-                    </div>
-                    <div className="edit-margin">
                         <img src={myImage2} alt="Descrizione dell'immagine" className="img" />
                     </div>
                 </div>

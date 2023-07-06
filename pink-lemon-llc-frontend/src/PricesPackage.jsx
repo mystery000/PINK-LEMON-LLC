@@ -93,9 +93,7 @@ export default function PricesPackage() {
                                     <Typography component="h2" variant="h3" color="text.primary">
                                         ${tier.price}
                                     </Typography>
-                                    <Typography variant="h6" color="text.secondary">
-                                        
-                                    </Typography>
+                                    <Typography variant="h6" color="text.secondary"></Typography>
                                 </Box>
                                 <PricingList>
                                     {tier.description.map((line) => (
@@ -121,4 +119,3 @@ export default function PricesPackage() {
         </Container>
     );
 }
-

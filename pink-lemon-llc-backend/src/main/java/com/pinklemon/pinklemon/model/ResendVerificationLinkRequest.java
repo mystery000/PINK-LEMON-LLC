@@ -3,7 +3,7 @@ package com.pinklemon.pinklemon.model;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class ResendEmailRequest {
+public class ResendVerificationLinkRequest {
     private String email;
 
     public String getEmail() {
@@ -14,17 +14,17 @@ public class ResendEmailRequest {
         this.email = email;
     }
 
-    ResendEmailRequest() {
+    ResendVerificationLinkRequest() {
 
     }
 
-    ResendEmailRequest(String email) {
+    ResendVerificationLinkRequest(String email) {
         this.email = email;
     }
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("Email", getEmail().toString())
+                .append("Email", getEmail())
                 .toString();
     }
 }

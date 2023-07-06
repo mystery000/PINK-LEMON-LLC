@@ -16,6 +16,8 @@ import Successregister from './Successregister';
 import Confirm from './Confirm';
 import { Toaster } from 'react-hot-toast';
 import EmailVerification from './EmailVerification';
+import Resetpassword from './ResetPassword';
+import ForgotPassword from './ForgotPassword';
 
 function App() {
     return (
@@ -36,6 +38,8 @@ function App() {
                     <Route path="/Prices" element={<Prices />} />
                     <Route path="/Confirm" element={<Confirm />} />
                     <Route path="/verify-email/:token" element={<EmailVerification />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route path="/reset-password/:token" element={<Resetpassword />} />
                 </Routes>
                 <Toaster />
             </BrowserRouter>

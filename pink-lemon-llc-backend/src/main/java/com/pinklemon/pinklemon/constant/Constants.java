@@ -10,6 +10,11 @@ import io.jsonwebtoken.Claims;
 public class Constants
 {
     /**
+     * Confirmation Token expire time
+     */
+    public static final int expireTime = 2 * 60 * 60 * 1000; // 1 hour
+
+    /**
      * UTF-8 character set
      */
     public static final String UTF8 = "UTF-8";

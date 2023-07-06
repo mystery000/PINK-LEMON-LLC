@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from './config';
 
 const EmailVerification = () => {
     const { token } = useParams();
@@ -17,11 +18,11 @@ const EmailVerification = () => {
             try {
                 setRedirecting(true);
                 const response = await axios.get(
-                    `http://localhost:8000/api/auth/signup/verify-email?token=${token}`
+                    `${API_URL}/auth/signup/verify-email?token=${token}`
                 );
                 setRedirecting(false);
                 toast.success('Congratulation! Email is verified successfully.');
-                navigate('/Login');
+                navigate('/Confirm');
             } catch (error) {
                 setRedirecting(false);
                 setError(error);

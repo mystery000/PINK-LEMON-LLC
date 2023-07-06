@@ -22,7 +22,6 @@ const Registration = () => {
 
         try {
             await axios.post(`${API_URL}/auth/signup`, payload, {
-                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 }

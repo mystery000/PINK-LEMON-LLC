@@ -3,6 +3,7 @@ package com.pinklemon.pinklemon.service;
 import com.pinklemon.pinklemon.model.Utente;
 import com.pinklemon.pinklemon.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public class UtenteService {
     @Autowired
     private UtenteRepository utenteRepository;
+
+    final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     public List<Utente> findAll() {
         return utenteRepository.findAll();
@@ -34,9 +37,23 @@ public class UtenteService {
         utenteRepository.save(utente);
     }
 
+    public void updatePassword(String email, String password) {
+        Utente utente = utenteRepository.getUtenteByEmailIgnoreCase(email);
+        final String encodePassword = bCryptPasswordEncoder.encode(password);
+        utente.setPassword(encodePassword);
+        utenteRepository.save(utente);
+    }
+
+    public void updateEnabled(String email, Boolean enabled) {
+        Utente utente = utenteRepository.getUtenteByEmailIgnoreCase(email);
+        utente.setEnabled(enabled);
+        utenteRepository.save(utente);
+    }
+
     public void updateVerificationLimit(String email, int limits) {
         Utente utente = utenteRepository.getUtenteByEmailIgnoreCase(email);
         utente.setVerificationLimit(limits);
         utenteRepository.save(utente);
     }
+
 }

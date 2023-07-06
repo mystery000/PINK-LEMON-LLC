@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from 'usehooks-ts';
 import { Button } from '@mui/material';
@@ -25,7 +25,6 @@ const Login = () => {
                 `${API_URL}/auth/login`,
                 { email, password },
                 {
-                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -47,35 +46,45 @@ const Login = () => {
 
     return (
         <>
-        <h2 className="h1-description">Accedi</h2>
-            
-        <div className="form-container">
-            
-            <form onSubmit={handleSubmit}>
-                <div>
-                
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}  
-                    placeholder="EMAIL"/>
-                </div>
-                <div>
-                
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="PASSWORD"
-                    />
-                </div>
-                <div className="btn-cen">
+            <h2 className="h1-description">Accedi</h2>
+
+            <div className="form-container">
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="EMAIL"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="PASSWORD"
+                        />
+                    </div>
+                    <div
+                        onClick={() => navigate('/forgot-password')}
+                        style={{
+                            color: 'blueviolet',
+                            textAlign: 'center',
+                            margin: '16px 0px',
+                            cursor: 'pointer'
+                        }}>
+                        Forgot password?
+                    </div>
+                    <div className="btn-cen">
                         <Button variant="contained" color="secondary" type="submit">
-                           INVIA
+                            INVIA
                         </Button>
                     </div>
-            </form>
-        </div>
-        <Footer></Footer>
+                </form>
+            </div>
+            <Footer></Footer>
         </>
-        
     );
 };
 
