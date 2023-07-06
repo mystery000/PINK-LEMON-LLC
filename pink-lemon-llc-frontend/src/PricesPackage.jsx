@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
+import StripeButton from './components/StripeButton';
 
 const PricingList = styled('ul')({
     margin: 0,
@@ -55,6 +56,7 @@ const tiers = [
         buttonVariant: 'contained'
     }
 ];
+
 export default function PricesPackage() {
     return (
         <Container maxWidth="md" component="main">
@@ -107,11 +109,18 @@ export default function PricesPackage() {
                                     ))}
                                 </PricingList>
                             </CardContent>
-                            <CardActions>
+                            {/* <CardActions>
                                 <Button fullWidth variant={tier.buttonVariant} color="secondary">
                                     {tier.buttonText}
                                 </Button>
-                            </CardActions>
+                            </CardActions> */}
+                            <div
+                                style={{
+                                    textAlign: 'center',
+                                    marginBottom: '16px'
+                                }}>
+                                <StripeButton price={tier.price} />
+                            </div>
                         </Card>
                     </Grid>
                 ))}

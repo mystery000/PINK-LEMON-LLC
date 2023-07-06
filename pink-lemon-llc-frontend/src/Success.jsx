@@ -16,7 +16,7 @@ const Success = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`${API_URL}/utente`, {
+                const response = await axios.get(`${API_URL}/user`, {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${accessToken}`

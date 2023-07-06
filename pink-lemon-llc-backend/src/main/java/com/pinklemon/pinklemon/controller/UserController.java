@@ -1,6 +1,6 @@
 package com.pinklemon.pinklemon.controller;
 
-import com.pinklemon.pinklemon.service.UtenteService;
+import com.pinklemon.pinklemon.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/utente")
-public class UtenteController {
+public class UserController {
     @Autowired
-    private UtenteService utenteService;
+    private UserService userService;
     /**
      * Query the Utente
      */
     @GetMapping
     public ResponseEntity<?> getUtenteByEmailIgnoreCase() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return new ResponseEntity<>(utenteService.getUtenteByEmailIgnoreCase(userDetails.getUsername()), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUserByEmailIgnoreCase(userDetails.getUsername()), HttpStatus.OK);
     }
 
     /**
@@ -32,6 +32,6 @@ public class UtenteController {
      */
     @GetMapping("/all")
     public ResponseEntity<?> findAll() {
-        return new ResponseEntity<>(utenteService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 }

@@ -6,7 +6,7 @@ import org.hibernate.annotations.Comment;
 import java.util.Date;
 
 @Entity
-@Table(name = "confirm_tokens")
+@Table(name = "confirmation_tokens")
 public class ConfirmationToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

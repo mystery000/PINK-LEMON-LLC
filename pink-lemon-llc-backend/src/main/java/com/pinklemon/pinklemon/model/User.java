@@ -11,8 +11,8 @@ import org.hibernate.annotations.Comment;
 
 import java.util.Date;
 @Entity
-@Table(name="utentes")
-public class Utente {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -48,11 +48,11 @@ public class Utente {
     /**
      * Avoid this "No default constructor for entity"
      */
-    public Utente() {
+    public User() {
 
     }
 
-    public Utente(String name, String surname, @NotNull String email, @NotNull String password, String role) {
+    public User(String name, String surname, @NotNull String email, @NotNull String password, String role) {
         this.name = name;
         this.surname = surname;
         this.email = email;
