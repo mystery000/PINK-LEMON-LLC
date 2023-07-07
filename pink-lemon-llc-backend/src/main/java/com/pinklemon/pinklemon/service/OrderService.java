@@ -5,6 +5,7 @@ import com.pinklemon.pinklemon.model.Order;
 import com.pinklemon.pinklemon.repository.OrderRepository;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
+import com.stripe.model.Price;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class OrderService {
         return orderRepository.findOrdersByEmailIgnoreCase(email);
     }
 
-    public Session createSession(String priceId, boolean isSubscription) throws StripeException {
+    public Session createSession(String priceId, boolean isSubscription, int tokens) throws StripeException {
         // supply success and failure url for stripe
         String successURL = "http://localhost:5173/Pinkpic";
         String cancelURL = "http://localhost:5173/Prices";
@@ -39,6 +40,7 @@ public class OrderService {
                                .build())
                .setSuccessUrl(successURL)
                .setCancelUrl(cancelURL)
+               .putMetadata("tokens", String.valueOf(tokens))
                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
        if(isSubscription) {
            paramsBuilder.setMode(SessionCreateParams.Mode.SUBSCRIPTION);

@@ -37,6 +37,12 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void addCredit(String email, int credits) {
+        User user = userRepository.getUserByEmailIgnoreCase(email);
+        user.setCredit(user.getCredit() + credits);
+        userRepository.save(user);
+    }
+
     public void updatePassword(String email, String password) {
         User user = userRepository.getUserByEmailIgnoreCase(email);
         final String encodePassword = bCryptPasswordEncoder.encode(password);
