@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Processing of User information operations
  */
 @RestController
-@RequestMapping("/api/utente")
+@RequestMapping("/api/user")
 public class UserController {
     @Autowired
     private UserService userService;

@@ -9,40 +9,43 @@ import axios from 'axios';
 import './registration.css';
 import { API_URL } from './config';
 import Footer from './Footer';
+import { useAppContext } from './context/app';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [accessToken, setAccessToken] = useLocalStorage('accessToken', '');
-
+    const { accessToken, setAccessToken } = useAppContext();
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = useCallback(
+        async (e) => {
+            e.preventDefault();
 
-        try {
-            const response = await axios.post(
-                `${API_URL}/auth/login`,
-                { email, password },
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
+            try {
+                const response = await axios.post(
+                    `${API_URL}/auth/login`,
+                    { email, password },
+                    {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     }
+                );
+
+                const { accessToken } = response.data;
+                setAccessToken(accessToken);
+
+                if (accessToken) {
+                    navigate('/success', { state: { email, password } });
+                } else {
+                    navigate('/error');
                 }
-            );
-
-            const { accessToken } = response.data;
-            setAccessToken(accessToken);
-
-            if (accessToken) {
-                navigate('/success', { state: { email, password } });
-            } else {
-                navigate('/error');
+            } catch (error) {
+                console.log('Si è verificato un errore durante la richiesta:' + error);
             }
-        } catch (error) {
-            console.log('Si è verificato un errore durante la richiesta:' + error);
-        }
-    };
+        },
+        [email, password]
+    );
 
     return (
         <>

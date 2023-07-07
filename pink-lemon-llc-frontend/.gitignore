@@ -8,3 +8,4 @@ node_modules/
 *.njsproj
 *.sln
 *.local
+.env

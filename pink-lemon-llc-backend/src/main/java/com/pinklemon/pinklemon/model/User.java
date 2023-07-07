@@ -16,33 +16,23 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Comment("First Name")
     @Size(max = 30)
     private String name;
-    @Comment("Last Name")
     @Size(max = 30)
     private String surname;
-    @NotNull
-    @Comment("Password")
+    @NotNull(message = "Password is required")
     @Size(max = 120)
     private String password;
-    @NotNull
-    @Comment("Email")
+    @NotNull(message = "Email is required")
     @Email
     @Size(max = 50)
     private String email;
-    @Comment("True: Deleted User")
     private boolean deleted;
-    @Comment("Role (Types: ROLE_USER, ROLE_ADMIN)")
     private String role;
-    @Comment("Created Time")
     private Date created_time;
-    @Comment("Credit")
     private int credit;
-    @Comment("Email Confirmation")
     private boolean isEnabled;
 
-    @Comment("Verification Limit")
     private int verification_limit;
 
     /**

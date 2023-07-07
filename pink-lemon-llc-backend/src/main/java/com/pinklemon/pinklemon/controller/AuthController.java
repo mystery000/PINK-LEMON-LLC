@@ -46,15 +46,15 @@ public class AuthController {
     /**
      * Login Method
      *
-     * @param loginBody Login Information
+     * @param loginRequest Login Information
      * @return Result
      */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody final LoginBody loginBody) {
+    public ResponseEntity<?> login(@Valid @RequestBody final LoginRequest loginRequest) {
         Authentication authentication = null;
         try {
-            User user = userService.getUserByEmailIgnoreCase(loginBody.getEmail());
-            UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(loginBody.getEmail(), loginBody.getPassword());
+            User user = userService.getUserByEmailIgnoreCase(loginRequest.getEmail());
+            UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword());
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             // This method will call JwtUserDetailService.loadUserByUsername
             authentication = authenticationManager.authenticate(authenticationToken);
@@ -72,12 +72,12 @@ public class AuthController {
     final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@Valid @RequestBody SignupBody signupBody) {
-        if(userService.existsByEmailIgnoreCase(signupBody.getEmail())) {
+    public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest signupRequest) {
+        if(userService.existsByEmailIgnoreCase(signupRequest.getEmail())) {
             return new ResponseEntity<>("Error: Email is already in use!", HttpStatus.BAD_REQUEST);
         }
-        final String encodePassword = bCryptPasswordEncoder.encode(signupBody.getPassword());
-        final User user = new User(signupBody.getName(), signupBody.getSurname(), signupBody.getEmail(), encodePassword,
+        final String encodePassword = bCryptPasswordEncoder.encode(signupRequest.getPassword());
+        final User user = new User(signupRequest.getName(), signupRequest.getSurname(), signupRequest.getEmail(), encodePassword,
                 Role.ROLE_USER);
         userService.save(user);
         ConfirmationToken confirmationToken = confirmationTokenService.createConfirmationToken(user.getEmail());
