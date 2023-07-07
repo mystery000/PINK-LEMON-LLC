@@ -52,8 +52,11 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests((authorize) -> authorize
                         // Public Endpoints
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/order").permitAll()
+                        .requestMatchers("/api/webhook/**").permitAll()
+                        // Protected Endpoints
+                        .requestMatchers("/api/user/all").hasAuthority(Role.ROLE_ADMIN)
                         // Private Endpoints
-                        .requestMatchers("/api/utente/all").hasAuthority(Role.ROLE_ADMIN)
                         .anyRequest().authenticated())
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

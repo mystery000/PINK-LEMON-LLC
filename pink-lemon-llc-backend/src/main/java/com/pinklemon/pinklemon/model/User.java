@@ -11,44 +11,38 @@ import org.hibernate.annotations.Comment;
 
 import java.util.Date;
 @Entity
-@Table(name="utentes")
-public class Utente {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Comment("First Name")
     @Size(max = 30)
     private String name;
-    @Comment("Last Name")
     @Size(max = 30)
     private String surname;
-    @NotNull
-    @Comment("Password")
+    @NotNull(message = "Password is required")
     @Size(max = 120)
     private String password;
-    @NotNull
-    @Comment("Email")
+    @NotNull(message = "Email is required")
     @Email
     @Size(max = 50)
     private String email;
-    @Comment("True: Deleted User")
     private boolean deleted;
-    @Comment("Role (Types: ROLE_USER, ROLE_ADMIN)")
     private String role;
-    @Comment("Created Time")
     private Date created_time;
-    @Comment("Credit")
     private int credit;
-    @Comment("Email Confirmation")
     private boolean isEnabled;
+
+    private int verification_limit;
+
     /**
      * Avoid this "No default constructor for entity"
      */
-    public Utente() {
+    public User() {
 
     }
 
-    public Utente(String name, String surname, @NotNull String email, @NotNull String password, String role) {
+    public User(String name, String surname, @NotNull String email, @NotNull String password, String role) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -57,6 +51,7 @@ public class Utente {
         this.credit = 5;
         this.created_time = new Date();
         this.isEnabled = false;
+        this.verification_limit = 2;
     }
 
     public void setId(Long id) {
@@ -133,6 +128,15 @@ public class Utente {
     public void setEnabled(boolean isEnabled) {
         this.isEnabled = isEnabled;
     }
+
+    public int getVerificationLimit() {
+        return verification_limit;
+    }
+
+    public void setVerificationLimit(int verification_limit) {
+        this.verification_limit = verification_limit;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -146,6 +150,7 @@ public class Utente {
                 .append("createTime", getCreated_time())
                 .append("credit", getCredit())
                 .append("isEnabled", getEnabled())
+                .append("verificationLimit", getVerificationLimit())
                 .toString();
     }
 }

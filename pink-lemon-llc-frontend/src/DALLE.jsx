@@ -1,19 +1,16 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useCallback, useContext, useState } from 'react';
-import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
+import React, { useCallback, useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import './home.css';
 import { API_URL } from './config';
-
-import { CreditContext } from './Success';
+import { useAppContext } from './context/app';
 
 const DALLE = () => {
     const [text, setText] = useState('');
     const [generatedImage, setGeneratedImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const accessToken = useReadLocalStorage('accessToken');
-    const updateCredit = useContext(CreditContext);
+    const { accessToken, credit, setCredit } = useAppContext();
 
     const handleTextChange = (event) => {
         setText(event.target.value);
@@ -43,14 +40,14 @@ const DALLE = () => {
                     setGeneratedImage(img);
                 };
                 setGeneratedImage(img);
-                updateCredit(1);
+                setCredit(credit - 1);
             } else {
                 console.error('No image generated');
             }
         } catch (err) {
             console.log(err?.message);
         }
-    }, [accessToken, text]);
+    }, [accessToken, text, credit]);
 
     return (
         <div>

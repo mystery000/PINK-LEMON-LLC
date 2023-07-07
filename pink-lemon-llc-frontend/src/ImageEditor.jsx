@@ -1,18 +1,14 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { useReadLocalStorage } from 'usehooks-ts';
 import { API_URL } from './config';
-
-import { CreditContext } from './Success';
+import { useAppContext } from './context/app';
 
 const ImageEditor = () => {
-    const updateCredit = useContext(CreditContext);
-
     const [image, setImage] = useState(null);
     const [mask, setMask] = useState(null);
     const [prompt, setPrompt] = useState('');
     const [editedImage, setEditedImage] = useState(null);
-    const accessToken = useReadLocalStorage('accessToken');
+    const { accessToken, credit, setCredit } = useAppContext();
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -45,7 +41,7 @@ const ImageEditor = () => {
             });
 
             setEditedImage(response.data.data[0].url);
-            updateCredit(1);
+            setCredit(credit - 1);
         } catch (error) {
             console.error('Error:', error);
         }

@@ -8,6 +8,10 @@ import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
+import axios from 'axios';
+import { API_URL } from './config';
+import { loadStripe } from '@stripe/stripe-js';
+import { useAppContext } from './context/app';
 
 const PricingList = styled('ul')({
     margin: 0,
@@ -17,61 +21,80 @@ const PricingList = styled('ul')({
 
 const tiers = [
     {
-        title: 'PinkStart',
-        price: '5',
+        name: 'PinkStart',
         description: [
             '100 token al mese',
             'Immagini 1024x1024 pixel',
             'Guida ai migliori prompt*',
             'Supporto email**'
         ],
-        buttonText: 'Acquista',
+        price: {
+            amount: 5,
+            priceId: 'price_1NR8PVCNXWohRZKP0i1ms1cK'
+        },
+        items: {
+            tokens: 100
+        },
+        buttonText: 'Purchase',
         buttonVariant: 'contained',
         color: 'secondary'
     },
     {
-        title: 'PinkPro',
+        name: 'PinkPro',
         subheader: 'Più popolare',
-        price: '10',
         description: [
             '250 token al mese',
             'Immagini 1024x1024 pixel',
             'Guida ai migliori prompt*',
             'Supporto email proritario**'
         ],
-        buttonText: 'Acquista',
+        price: {
+            amount: 10,
+            priceId: 'price_1NR8Q6CNXWohRZKPjTPNPnC1'
+        },
+        items: {
+            tokens: 250
+        },
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     },
     {
-        title: 'PinkStar',
-        price: '20',
+        name: 'PinkStar',
         description: [
             '600 token al mese',
             'Immagini 1024x1024 pixel',
             'Guida ai migliori prompt*',
             'Supporto email e telefonico**'
         ],
-        buttonText: 'Acquista',
+        price: {
+            amount: 20,
+            priceId: 'price_1NR8QYCNXWohRZKPDBL1lnjr'
+        },
+        items: {
+            tokens: 600
+        },
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     }
 ];
 export default function Pricing() {
+    const { accessToken } = useAppContext();
     return (
         <Container maxWidth="md" component="main">
             <Grid container spacing={5} alignItems="flex-end">
                 {tiers.map((tier) => (
                     <Grid
                         item
-                        key={tier.title}
+                        key={tier.name}
                         xs={12}
-                        sm={tier.title === 'Enterprise' ? 12 : 6}
+                        sm={tier.name === 'Enterprise' ? 12 : 6}
                         md={4}>
                         <Card>
                             <CardHeader
-                                title={tier.title}
+                                title={tier.name}
                                 subheader={tier.subheader}
                                 titleTypographyProps={{ align: 'center' }}
-                                action={tier.title === 'Pro' ? <StarIcon /> : null}
+                                action={tier.name === 'Pro' ? <StarIcon /> : null}
                                 subheaderTypographyProps={{
                                     align: 'center'
                                 }}
@@ -91,7 +114,7 @@ export default function Pricing() {
                                         mb: 2
                                     }}>
                                     <Typography component="h2" variant="h3" color="text.primary">
-                                        ${tier.price}
+                                        ${tier.price.amount}
                                     </Typography>
                                     <Typography variant="h6" color="text.secondary">
                                         /al mese
@@ -110,7 +133,35 @@ export default function Pricing() {
                                 </PricingList>
                             </CardContent>
                             <CardActions>
-                                <Button fullWidth variant={tier.buttonVariant} color="secondary">
+                                <Button
+                                    fullWidth
+                                    variant={tier.buttonVariant}
+                                    color="secondary"
+                                    onClick={async () => {
+                                        try {
+                                            const response = await axios.post(
+                                                `${API_URL}/order/create-checkout-session`,
+                                                {
+                                                    priceId: tier.price.priceId,
+                                                    tokens: tier.items.tokens,
+                                                    isSubscription: true
+                                                },
+                                                {
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        Authorization: `Bearer ${accessToken}`
+                                                    }
+                                                }
+                                            );
+                                            const { sessionId } = response.data;
+                                            const stripe = await loadStripe(
+                                                import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+                                            );
+                                            stripe.redirectToCheckout({ sessionId });
+                                        } catch (error) {
+                                            console.log(error);
+                                        }
+                                    }}>
                                     {tier.buttonText}
                                 </Button>
                             </CardActions>

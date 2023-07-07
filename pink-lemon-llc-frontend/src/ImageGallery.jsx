@@ -60,13 +60,14 @@ const ImageGallery = () => {
                     />
                 ))}
                 <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Image Modal">
-                <div className="blog1">
-                       
-                       <img src={selectedImage?.url} alt={selectedImage?.description} />
-                       </div>
-                       <div className="btn">
-                       <Button  variant="contained" color="secondary"onClick={closeModal}>Chiudi</Button>
-                       </div>
+                    <div className="blog1">
+                        <img src={selectedImage?.url} alt={selectedImage?.description} />
+                    </div>
+                    <div className="btn">
+                        <Button variant="contained" color="secondary" onClick={closeModal}>
+                            Chiudi
+                        </Button>
+                    </div>
                 </Modal>
             </div>
         </div>

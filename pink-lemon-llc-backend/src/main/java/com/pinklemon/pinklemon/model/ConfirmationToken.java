@@ -6,24 +6,24 @@ import org.hibernate.annotations.Comment;
 import java.util.Date;
 
 @Entity
-@Table(name = "confirm_tokens")
+@Table(name = "confirmation_tokens")
 public class ConfirmationToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="token_id")
     private Long tokenId;
 
     @Comment("Email")
-    @Column(name = "email")
     private String email;
 
     @Comment("confirmation token")
-    @Column(name="confirmation_token")
     private String confirmationToken;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Comment("Created Time")
     private Date createdDate;
+
+    @Comment("Expired")
+    private Boolean expired;
 
     public ConfirmationToken() {
 
@@ -33,6 +33,7 @@ public class ConfirmationToken {
         this.confirmationToken = confirmationToken;
         this.email = email;
         this.createdDate = new Date();
+        this.expired = false;
     }
 
     public void setTokenId(Long tokenId) {
@@ -65,5 +66,12 @@ public class ConfirmationToken {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setExpired(Boolean expired) {
+        this.expired = expired;
+    }
+    public Boolean getExpired() {
+        return expired;
     }
 }

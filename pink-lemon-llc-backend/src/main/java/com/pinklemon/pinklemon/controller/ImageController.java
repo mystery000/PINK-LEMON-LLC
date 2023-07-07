@@ -3,7 +3,7 @@ package com.pinklemon.pinklemon.controller;
 import com.pinklemon.pinklemon.constant.OperationType;
 import com.pinklemon.pinklemon.model.*;
 import com.pinklemon.pinklemon.service.ImageService;
-import com.pinklemon.pinklemon.service.UtenteService;
+import com.pinklemon.pinklemon.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +15,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Objects;
@@ -27,7 +26,7 @@ public class ImageController {
     private ImageService imageService;
 
     @Autowired
-    private UtenteService utenteService;
+    private UserService userService;
 
     @Value("${openai.api-key}")
     private String apiKey;
@@ -46,8 +45,8 @@ public class ImageController {
         try {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String email = userDetails.getUsername();
-            Utente utente = utenteService.getUtenteByEmailIgnoreCase(email);
-            int credit = utente.getCredit();
+            User user = userService.getUserByEmailIgnoreCase(email);
+            int credit = user.getCredit();
             if(credit < imageGenerationRequest.getN()) {
                 return new ResponseEntity<>("Credit is insufficient.", HttpStatus.NOT_ACCEPTABLE);
             }
@@ -62,7 +61,7 @@ public class ImageController {
 
             if(responseEntity.getStatusCode() != HttpStatus.OK) return new ResponseEntity<>("Failed to generate image.", HttpStatus.INTERNAL_SERVER_ERROR);
 
-            utenteService.updateCredit(email, credit - imageGenerationRequest.getN());
+            userService.updateCredit(email, credit - imageGenerationRequest.getN());
             List<ImageData> images = Objects.requireNonNull(responseEntity.getBody()).getData();
             for (ImageData image : images) {
                 imageService.save(new Image(email, image.getUrl(), OperationType.GENERATION));
@@ -78,8 +77,8 @@ public class ImageController {
         try {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String email = userDetails.getUsername();
-            Utente utente = utenteService.getUtenteByEmailIgnoreCase(email);
-            int credit = utente.getCredit();
+            User user = userService.getUserByEmailIgnoreCase(email);
+            int credit = user.getCredit();
             if(credit < 1) {
                 return new ResponseEntity<>("Credit is insufficient.", HttpStatus.NOT_ACCEPTABLE);
             }
@@ -97,7 +96,7 @@ public class ImageController {
             ResponseEntity<ImageResponse> responseEntity = restTemplate.postForEntity("https://api.openai.com/v1/images/variations", httpEntity, ImageResponse.class);
             if(responseEntity.getStatusCode() != HttpStatus.OK) return new ResponseEntity<>("Failed to variate the image.", HttpStatus.INTERNAL_SERVER_ERROR);
 
-            utenteService.updateCredit(email, credit - 1);
+            userService.updateCredit(email, credit - 1);
             List<ImageData> images = Objects.requireNonNull(responseEntity.getBody()).getData();
             for (ImageData image : images) {
                 imageService.save(new Image(email, image.getUrl(), OperationType.VARIATION));
@@ -114,8 +113,8 @@ public class ImageController {
             System.out.println(imageEditRequest.toString());
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String email = userDetails.getUsername();
-            Utente utente = utenteService.getUtenteByEmailIgnoreCase(email);
-            int credit = utente.getCredit();
+            User user = userService.getUserByEmailIgnoreCase(email);
+            int credit = user.getCredit();
             if(credit < 1) {
                 return new ResponseEntity<>("Credit is insufficient.", HttpStatus.NOT_ACCEPTABLE);
             }
@@ -135,7 +134,7 @@ public class ImageController {
 
             ResponseEntity<ImageResponse> responseEntity = restTemplate.postForEntity("https://api.openai.com/v1/images/edits", httpEntity, ImageResponse.class);
             if(responseEntity.getStatusCode() != HttpStatus.OK) return new ResponseEntity<>("Failed to edit the image.", HttpStatus.INTERNAL_SERVER_ERROR);
-            utenteService.updateCredit(email, credit - 1);
+            userService.updateCredit(email, credit - 1);
             List<ImageData> images = Objects.requireNonNull(responseEntity.getBody()).getData();
             for (ImageData image : images) {
                 imageService.save(new Image(email, image.getUrl(), OperationType.EDIT));
@@ -162,7 +161,7 @@ class MultipartinputStreamFileResource extends InputStreamResource {
     }
 
     @Override
-    public long contentLength() throws IOException {
+    public long contentLength() {
         return -1;
     }
 }
