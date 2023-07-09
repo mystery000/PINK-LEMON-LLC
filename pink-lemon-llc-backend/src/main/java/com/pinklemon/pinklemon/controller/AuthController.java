@@ -86,7 +86,7 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(user.getEmail());
             simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:4000/verify-email/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -108,7 +108,7 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(email);
             simpleMailMessage.setSubject("Password Recovery");
-            simpleMailMessage.setText("To reset your password, please click here: " + "http://localhost:5173/reset-password/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setText("To reset your password, please click here: " + "http://localhost:4000/reset-password/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -135,7 +135,7 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(email);
             simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:4000/verify-email/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

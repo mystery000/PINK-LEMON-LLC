@@ -1,6 +1,5 @@
 package com.pinklemon.pinklemon.controller;
 
-import com.pinklemon.pinklemon.model.User;
 import com.pinklemon.pinklemon.service.UserService;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.model.Event;
