@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class WebhookController {
-    private static final String WEBHOOK_SECRET = "whsec_pQ5qPTILVsV32mtac7qSUv8suyTGH0h9";
+    private static final String WEBHOOK_SECRET = "whsec_Ggf6KhByhNzloXyVaKr9bOocpty2DsQd";
 
     @Autowired
     private UserService userService;

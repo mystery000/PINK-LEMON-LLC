@@ -34,7 +34,7 @@ const tiers = [
         ],
         price: {
             amount: 5,
-            priceId: 'price_1NR8LwCNXWohRZKPhWVOfF66'
+            priceId: 'price_1NNWLDESB7Q1Fa6gVt57Pjaj'
         },
         items: {
             tokens: 80
@@ -53,7 +53,7 @@ const tiers = [
         ],
         price: {
             amount: 10,
-            priceId: 'price_1NR8NRCNXWohRZKPFGOXDz44'
+            priceId: 'price_1NSKm9ESB7Q1Fa6gzBh7uV88'
         },
         items: {
             tokens: 200
@@ -71,7 +71,7 @@ const tiers = [
         ],
         price: {
             amount: 20,
-            priceId: 'price_1NR8O1CNXWohRZKPZxK40qan'
+            priceId: 'price_1NSKnXESB7Q1Fa6g2MJeluav'
         },
         items: {
             tokens: 500
