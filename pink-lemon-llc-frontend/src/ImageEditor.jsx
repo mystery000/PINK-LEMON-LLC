@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from './config';
 import { useAppContext } from './context/app';
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
 
 const ImageEditor = () => {
     const [image, setImage] = useState(null);
@@ -48,25 +50,31 @@ const ImageEditor = () => {
     };
 
     return (
-        <div>
-            <h2>Image Editor</h2>
+        <>
+        <div className='blog1'>
+
             <form onSubmit={handleSubmit}>
                 <label>
-                    Image:
-                    <input type="file" accept="image/*" onChange={handleImageChange} />
+                   <span className='p-pink'>Carica l'immagine iniziale, 1024x1024 pixel, formato PNG</span><br></br>
+                    <Input type="file" accept="image/*" onChange={handleImageChange}
+                     />
                 </label>
-                <br />
+                <br></br><br></br>
                 <label>
-                    Mask:
-                    <input type="file" accept="image/*" onChange={handleMaskChange} />
+                <span className='p-pink'>Carica la maschera, 1024x1024 pixel, formato PNG</span><br></br>
+                    <Input type="file" accept="image/*" onChange={handleMaskChange} />
                 </label>
-                <br />
+                <br /> <br />     
                 <label>
-                    Prompt:
-                    <input type="text" value={prompt} onChange={handlePromptChange} />
+                <span className='p-pink'>Descrivi l'immagine che vuoi ottenere</span><br></br>
+                    <input type="text" value={prompt} onChange={handlePromptChange}
+                     placeholder="Descrivi l'immagine da generare"
+                     className="text-generation"
+                    
+                    />
                 </label>
-                <br />
-                <button type="submit">Edit Image</button>
+               
+                <Button type="submit" variant="contained" color="secondary">Edita</Button>
             </form>
             {editedImage && (
                 <div>
@@ -75,6 +83,26 @@ const ImageEditor = () => {
                 </div>
             )}
         </div>
+        <div className='blog1'>
+        <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG.</p>
+        </div>
+        <p>
+                <b>COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE</b>
+            </p>
+            <p>
+                {' '}
+                <b> Carica un'immagine di 1024x1024 pixel, formato PNG:</b> In questo modo PinkLemon potrà generare una variazione
+                ovvero una seconda immagine che avrà lo stesso formato dell'immagine di partenza, con lo stesso stile e colori ma conterrà alcuni
+                elementi di novità. <br></br>
+                <br></br>
+                <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di 
+                caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
+                
+                
+                
+            </p>
+        
+        </>
     );
 };
 

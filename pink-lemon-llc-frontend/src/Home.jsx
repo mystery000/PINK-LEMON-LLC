@@ -55,30 +55,8 @@ function Home() {
                 </div>
             </div>
 
-            <div>
-                <div className="h2-description">
-                    Creazione ed editing di immagini con Pink Lemon
-                </div>
-            </div>
-
-            <div className="blog1">
-                <div className="img-description1">
-                    <div className="h3-services">Crea</div>
-                    <p className="p-services">
-                        Crea un'immagine a partire da una descrizione testuale.
-                    </p>
-                </div>
-                <div className="img-description1">
-                    <p className="p-services">Carica un'immagine e ottieni una versione diversa.</p>
-                </div>
-                <div className="img-description1">
-                    <div className="h3-services">Modifica</div>
-                    <p className="p-services">
-                        Carica l'immagine da modificare e la relativa maschera.
-                    </p>
-                </div>
-            </div>
-            <div className="h2-description">Raccolta di immagini create con Lemon Pink</div>
+        
+            <div className="h2-description">Raccolta di immagini create con Pink Lemon</div>
 
             <ImageGallery></ImageGallery>
 

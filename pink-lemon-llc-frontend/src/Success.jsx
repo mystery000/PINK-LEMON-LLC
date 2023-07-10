@@ -35,13 +35,11 @@ const Success = () => {
             {user ? (
                 <>
                     <div className="blog1">
-                        <h2 className="h2-description">
+                        <p className='p-pink'>
                             Ciao {`${user.name} ${user.surname}`}, il tuo credito attuale è:{' '}
-                            {credit}
-                        </h2>
+                            {credit} token
+                        </p>
                     </div>
-                    <br></br>
-                    <br></br>
                     <div className="blog1">
                         <TabMenu></TabMenu>
                     </div>
