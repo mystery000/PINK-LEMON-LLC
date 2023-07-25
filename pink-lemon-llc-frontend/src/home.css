@@ -7,6 +7,8 @@
     padding-bottom: 30px;
     text-align: center;
     font-size: 25px;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 h3 {
@@ -41,6 +43,19 @@ h3 {
     display: flex;
     justify-content: space-between;
     margin-left: 300px;
+}
+
+.blog3 {
+    display: flex;
+    justify-content: center;
+  
+    
+}
+
+.edit-margin{
+
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .img {
@@ -251,4 +266,19 @@ input.button {
     color: rgb(243, 113, 221);
     font-weight: 300;
     margin-top: 10px;
+}
+
+.p-pink{
+
+    color: rgb(243, 113, 221);
+    font-family: 'system-ui';
+    font-size: 20px;
+    
+}
+
+.upload{
+
+    color: #c471f5;
+    
+
 }

@@ -5,6 +5,11 @@ import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
+/**
+ * User Details Service
+ *
+ * @author Mohamed
+ */
 public class JwtUserDetails extends User {
     public final Long id;
 

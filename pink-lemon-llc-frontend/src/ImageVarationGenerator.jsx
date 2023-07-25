@@ -1,19 +1,20 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import './home.css';
+import { API_BASE_URL } from './config';
+import { useAppContext } from './context/app';
 
-const createImageVariation = async (file) => {
+const createImageVariation = async (file, accessToken) => {
     const formData = new FormData();
     formData.append('image', file);
     formData.append('size', '1024x1024');
-    const API_KEY = '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';
 
-    const response = await axios.post('https://api.openai.com/v1/images/variations', formData, {
+    const response = await axios.post(`${API_BASE_URL}/images/variations`, formData, {
         headers: {
-            Authorization: `Bearer ${API_KEY}`,
+            Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'multipart/form-data'
         }
     });
@@ -24,6 +25,7 @@ const createImageVariation = async (file) => {
 const ImageVariationGenerator = () => {
     const [imageUrls, setImageUrls] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
+    const { accessToken, credit, setCredit } = useAppContext();
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -34,10 +36,11 @@ const ImageVariationGenerator = () => {
         if (selectedFile) {
             let urls = [];
             for (let i = 1; i < 2; i++) {
-                const url = await createImageVariation(selectedFile);
+                const url = await createImageVariation(selectedFile, accessToken);
                 urls.push(url);
             }
             setImageUrls(urls);
+            setCredit(credit - 1);
         }
     };
 
@@ -57,7 +60,8 @@ const ImageVariationGenerator = () => {
                 </form>
             </div>
             <div className="blog1">
-                <h2 className="h2-description2">L'immagine viene generata qui sotto</h2>
+            <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG.</p>
+        
             </div>
             {imageUrls.length > 0 && (
                 <div>
@@ -78,37 +82,20 @@ const ImageVariationGenerator = () => {
                     </div>
                 </div>
             )}
-            <p>
+           <p>
                 <b>COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE</b>
             </p>
             <p>
                 {' '}
-                <b> Specifica chiaramente l'intento:</b> Inizia il tuo prompt descrivendo in modo
-                chiaro e conciso ciò che desideri generare. Fornisci dettagli sulla forma, il
-                colore, la disposizione degli oggetti, le pose, le espressioni facciali o qualsiasi
-                altro aspetto rilevante dell immagine che vuoi generare. <br></br>
+                <b> Carica un'immagine di 1024x1024 pixel, formato PNG:</b> In questo modo PinkLemon potrà generare una variazione
+                ovvero una seconda immagine che avrà lo stesso formato dell'immagine di partenza, con lo stesso stile e colori ma conterrà alcuni
+                elementi di novità. <br></br>
                 <br></br>
-                <b> Utilizza descrizioni dettagliate:</b> Più i dettagli sono specifici, migliori
-                saranno le probabilità di ottenere unimmagine che corrisponde alle tue aspettative.
-                Usa descrizioni precise per gli oggetti, le caratteristiche e le relazioni spaziali
-                tra gli elementi. <br></br>
+                <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di 
+                caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
                 <br></br>
-                <b> Sperimenta con gli attributi di stile:</b> Puoi influenzare lo stile e l aspetto
-                generale dell immagine utilizzando attributi specifici. Ad esempio, puoi richiedere
-                uno stile pittorico, un aspetto da cartoon o una resa realistica. Esplora diverse
-                combinazioni per ottenere risultati interessanti. <br></br>
-                <br></br> <b>Esempi di riferimento: </b>Puoi fornire esempi di immagini che si
-                avvicinano a ciò che stai cercando di generare. Puoi anche fornire esempi di
-                immagini simili che possono servire come guida per l output desiderato. <br></br>
-                <br></br>
-                <b>Esperimenti progressivi:</b> Se immagine generata non soddisfa completamente le
-                tue aspettative, puoi provare ad affinare il prompt in modo incrementale. Modifica
-                leggermente le descrizioni, gli attributi o le specifiche dell immagine per ottenere
-                risultati più precisi. <br></br>
-                <br></br> <b> Sii paziente e sperimenta:</b> LemonPink può generare immagini
-                sorprendenti, ma potrebbe richiedere alcuni tentativi per ottenere i risultati
-                desiderati. Sii paziente, sperimenta con diversi prompt e cerca di capire come
-                LemonPink interpreta e risponde ai tuoi input. <br></br>
+                
+                
             </p>
         </div>
     );

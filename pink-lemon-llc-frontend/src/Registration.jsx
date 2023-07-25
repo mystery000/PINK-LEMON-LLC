@@ -6,6 +6,8 @@ import axios from 'axios';
 // Import components and stylesheets
 import './registration.css';
 import Footer from './Footer';
+import { API_BASE_URL } from './config';
+import { toast } from 'react-hot-toast';
 
 const Registration = () => {
     const [name, setName] = useState('');
@@ -13,20 +15,19 @@ const Registration = () => {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
-    const token = '01111966';
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const payload = { name, surname, password, email };
 
         try {
-            await axios.post('http://localhost:8000/api/auth/signup', payload, {
-                method: 'POST',
+            await axios.post(`${API_BASE_URL}/auth/signup`, payload, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
-            navigate(`/successregister/${token}`); // Redirect to component for successful verification;
+            toast.success('Verification email is successfully sent');
+            navigate(`/successregister`, { state: { email } }); // Redirect to component for successful verification;
         } catch (error) {
             navigate('/errorregister'); // Redirect to component for successful verification;
             console.error('There was an error!', error);

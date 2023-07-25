@@ -3,20 +3,8 @@ package com.pinklemon.pinklemon.model;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-/**
- * User Register Object
- *
- * @author Mohamed
- */
-public class LoginBody {
-    /**
-     * Email
-     */
+public class ResendVerificationLinkRequest {
     private String email;
-    /**
-     * Password
-     */
-    private String password;
 
     public String getEmail() {
         return email;
@@ -26,18 +14,17 @@ public class LoginBody {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    ResendVerificationLinkRequest() {
+
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    ResendVerificationLinkRequest(String email) {
+        this.email = email;
     }
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("email", getEmail())
-                .append("password", getPassword())
+                .append("Email", getEmail())
                 .toString();
     }
 }

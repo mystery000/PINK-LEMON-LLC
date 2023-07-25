@@ -1,47 +1,45 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import TabMenu from './Tabmenu';
-import Footer from './Footer';
+
 import './home.css';
+import Footer from './Footer';
+import TabMenu from './Tabmenu';
 import axios from 'axios';
+import { API_BASE_URL } from './config';
+import { useAppContext } from './context/app';
 
 const Success = () => {
-    const location = useLocation();
-    const { email, password } = location.state;
-    const [isValidCredentials, setIsValidCredentials] = useState(false);
-    //const [datiUtente, SetdatiUtente] = useState(null); // aggiunta
+    const [user, setUser] = useState(null);
+    const { accessToken, setAccessToken, setCredit, credit } = useAppContext();
 
     useEffect(() => {
-        (async () => {
+        const fetchUser = async () => {
             try {
-                const response = await axios.post(
-                    'http://localhost:8000/api/auth/login',
-                    { email, password },
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
+                const response = await axios.get(`${API_BASE_URL}/user`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${accessToken}`
                     }
-                );
-                const { accessToken } = response.data;
-                setIsValidCredentials(true);
-            } catch (error) {
-                setIsValidCredentials(false);
-                console.log('Si è verificato un errore durante la verifica:', error);
+                });
+                setUser(response.data);
+                setCredit(response.data.credit);
+            } catch (err) {
+                console.log(err?.message);
             }
-        })();
-    }, [email, password]);
+        };
+
+        fetchUser();
+    }, [accessToken]);
 
     return (
         <div>
-            {isValidCredentials ? (
+            {user ? (
                 <>
                     <div className="blog1">
-                        <h2 className="h2-description">Ciao {email}, il tuo credito attuale è:</h2>
+                        <p className='p-pink'>
+                            Ciao {`${user.name} ${user.surname}`}, il tuo credito attuale è:{' '}
+                            {credit} token
+                        </p>
                     </div>
-                    <br></br>
-                    <br></br>
                     <div className="blog1">
                         <TabMenu></TabMenu>
                     </div>

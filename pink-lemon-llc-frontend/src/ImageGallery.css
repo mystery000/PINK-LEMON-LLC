@@ -17,3 +17,12 @@
     margin-right: 300px;
     margin-top: 20px;
 }
+
+.btn {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 30px;
+
+}

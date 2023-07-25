@@ -4,31 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d9d1d14-e701-4a9a-be4c-fe4f8eb4bc49/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/config/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/config/SpringSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/JwtUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/service/JwtUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/utills/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-backend/src/main/java/com/pinklemon/pinklemon/utills/JwtRequestFilter.java" afterDir="false" />
+    <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="Feat/BE: Complete the Stripe API Integration">
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;reviewState&quot;: &quot;APPROVED&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;reviewState&quot;: &quot;APPROVED&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="mystery000" />
+        <option name="repository" value="PINK-LEMON-LLC" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="50532b80-565d-4b4e-b745-72c7ba0cc451" />
+        <option name="url" value="https://github.com/mystery000/PINK-LEMON-LLC.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -45,31 +65,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Spring-Security",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Spring-Security&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;495872b65e52f65db23eb936e2176483&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="PinklemonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-17" />
       <module name="pinklemon" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.pinklemon.pinklemon.PinklemonApplication" />
       <method v="2">
@@ -85,8 +107,155 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1687323034073</updated>
-      <workItem from="1687323036427" duration="2144000" />
+      <workItem from="1687323036427" duration="7227000" />
+      <workItem from="1687351498079" duration="3883000" />
+      <workItem from="1687360007111" duration="42000" />
+      <workItem from="1687361426755" duration="46000" />
+      <workItem from="1687473726405" duration="10000" />
+      <workItem from="1687501102732" duration="89000" />
+      <workItem from="1687524560309" duration="28202000" />
+      <workItem from="1688547587624" duration="21925000" />
+      <workItem from="1688622699575" duration="6106000" />
+      <workItem from="1688654907256" duration="45761000" />
+      <workItem from="1688824400279" duration="185000" />
+      <workItem from="1688837830030" duration="600000" />
+      <workItem from="1688935054190" duration="610000" />
+      <workItem from="1690294337627" duration="54000" />
     </task>
+    <task id="LOCAL-00001" summary="Authentication Exception,&#10;IntelliJ Workspace.xml&#10;Use OpenJDK 17">
+      <created>1687325419977</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687325419977</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update workspace.xml">
+      <created>1687326451907</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687326451907</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fixes commit">
+      <created>1687329663331</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687329663331</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Feat: Add a new endpoint to get utente detail">
+      <created>1687550674332</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687550674332</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Feat: add API_URL config">
+      <created>1687550770905</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687550770905</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Feat: Add an endpoint to variate the images.">
+      <created>1687573993311</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687573993311</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix: generation endpoint url in frontend">
+      <created>1687574962884</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687574962884</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Feat: Add an endpoint to edit the images">
+      <created>1687583114052</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687583114052</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Feat: create new component for email verification&#10;Feat: create new endpoint to resend the email verfication link">
+      <created>1688455455637</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688455455637</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix commit">
+      <created>1688472704860</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688472704860</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix: Resend Email endpoint">
+      <created>1688487383517</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688487383517</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fix commit">
+      <created>1688489012360</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688489012360</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fix commit">
+      <created>1688489020141</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688489020141</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Feat/FE: Add ForgotPassword and ResetPassword component&#10;Fix/BE: Complete the Confirmation Token Service&#10;Feat/BE: Stripe JDK Test">
+      <created>1688650201506</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688650201506</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix commit">
+      <created>1688650417269</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1688650417269</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Feat/BE: Create Order table">
+      <created>1688687721561</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1688687721561</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fix/BE: Remove unused code">
+      <created>1688687930746</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1688687930747</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Chore/FE: Create App Context&#10;Feat/BE: Stripe API integration Basic">
+      <created>1688733568646</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1688733568646</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Feat/BE: Complete the Stripe API Integration">
+      <created>1688749505458</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1688749505458</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,10 +266,41 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Spring-Security" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Authentication Exception,&#10;IntelliJ Workspace.xml&#10;Use OpenJDK 17" />
+    <MESSAGE value="Update workspace.xml" />
+    <MESSAGE value="Fixes commit" />
+    <MESSAGE value="Feat: Add a new endpoint to get utente detail" />
+    <MESSAGE value="Feat: add API_URL config" />
+    <MESSAGE value="Feat: Add an endpoint to variate the images." />
+    <MESSAGE value="Fix: generation endpoint url in frontend" />
+    <MESSAGE value="Feat: Add an endpoint to edit the images" />
+    <MESSAGE value="Feat: create new component for email verification&#10;Feat: create new endpoint to resend the email verfication link" />
+    <MESSAGE value="Fix: Resend Email endpoint" />
+    <MESSAGE value="Feat/FE: Add ForgotPassword and ResetPassword component&#10;Fix/BE: Complete the Confirmation Token Service&#10;Feat/BE: Stripe JDK Test" />
+    <MESSAGE value="Fix commit" />
+    <MESSAGE value="Feat/BE: Create Order table" />
+    <MESSAGE value="Fix/BE: Remove unused code" />
+    <MESSAGE value="Chore/FE: Create App Context&#10;Feat/BE: Stripe API integration Basic" />
+    <MESSAGE value="Feat/BE: Complete the Stripe API Integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat/BE: Complete the Stripe API Integration" />
   </component>
 </project>
