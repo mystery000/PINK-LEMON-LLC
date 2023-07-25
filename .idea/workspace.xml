@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1854272-e98c-4363-b17a-b591f76bc21d" name="Changes" comment="Feat/BE: Complete the Stripe API Integration">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pink-lemon-llc-frontend/src/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +120,7 @@
       <workItem from="1688824400279" duration="185000" />
       <workItem from="1688837830030" duration="600000" />
       <workItem from="1688935054190" duration="610000" />
+      <workItem from="1690294337627" duration="54000" />
     </task>
     <task id="LOCAL-00001" summary="Authentication Exception,&#10;IntelliJ Workspace.xml&#10;Use OpenJDK 17">
       <created>1687325419977</created>

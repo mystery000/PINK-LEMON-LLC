@@ -55,7 +55,7 @@ function Home() {
                 </div>
             </div>
 
-        
+
             <div className="h2-description">Raccolta di immagini create con Pink Lemon</div>
 
             <ImageGallery></ImageGallery>
