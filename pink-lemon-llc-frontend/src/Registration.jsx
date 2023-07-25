@@ -6,7 +6,7 @@ import axios from 'axios';
 // Import components and stylesheets
 import './registration.css';
 import Footer from './Footer';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import { toast } from 'react-hot-toast';
 
 const Registration = () => {
@@ -21,7 +21,7 @@ const Registration = () => {
         const payload = { name, surname, password, email };
 
         try {
-            await axios.post(`${API_URL}/auth/signup`, payload, {
+            await axios.post(`${API_BASE_URL}/auth/signup`, payload, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
