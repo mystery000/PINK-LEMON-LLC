@@ -17,7 +17,7 @@ public class OrderService {
     private OrderRepository orderRepository;
 
     public OrderService() {
-        Stripe.apiKey = "sk_test_51NQSChCNXWohRZKPQSGT3skasW9Rz6cwqWvGHwxxaZiH6wNKmmNMz05akIclMfaE22bH7Om0LS2g8amxSsGya89l00OS8sqGXk";
+        Stripe.apiKey = "sk_test_51NNWGsESB7Q1Fa6gEyPI3tDWsRhEKDot5AWYfWrsShejLJ8LuXMFILhaLa58qAcKMdeVHpnSEuLh3cbCVbYOMW2Z00ZB2UTzKg";
     }
 
     public List<Order> findOrdersByEmail(String email) {

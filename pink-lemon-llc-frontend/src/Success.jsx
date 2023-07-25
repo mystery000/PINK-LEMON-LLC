@@ -4,7 +4,7 @@ import './home.css';
 import Footer from './Footer';
 import TabMenu from './Tabmenu';
 import axios from 'axios';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import { useAppContext } from './context/app';
 
 const Success = () => {
@@ -14,7 +14,7 @@ const Success = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`${API_URL}/user`, {
+                const response = await axios.get(`${API_BASE_URL}/user`, {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${accessToken}`

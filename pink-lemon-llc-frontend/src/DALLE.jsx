@@ -4,7 +4,7 @@ import React, { useCallback, useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import './home.css';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import { useAppContext } from './context/app';
 
 const DALLE = () => {
@@ -20,7 +20,7 @@ const DALLE = () => {
     const generateImage = useCallback(async () => {
         try {
             const response = await axios.post(
-                `${API_URL}/images/generations`,
+                `${API_BASE_URL}/images/generations`,
                 {
                     prompt: text,
                     n: 1,

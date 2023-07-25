@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useReadLocalStorage } from 'usehooks-ts';
 
 import { styled } from '@mui/system';
@@ -12,7 +11,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import StarIcon from '@mui/icons-material/StarBorder';
 import axios from 'axios';
-import { API_URL } from './config';
+import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-hot-toast';
 import { useAppContext } from './context/app';
@@ -34,7 +33,7 @@ const tiers = [
         ],
         price: {
             amount: 5,
-            priceId: 'price_1NR8LwCNXWohRZKPhWVOfF66'
+            priceId: 'price_1NNWLDESB7Q1Fa6gVt57Pjaj'
         },
         items: {
             tokens: 80
@@ -53,7 +52,7 @@ const tiers = [
         ],
         price: {
             amount: 10,
-            priceId: 'price_1NR8NRCNXWohRZKPFGOXDz44'
+            priceId: 'price_1NSKm9ESB7Q1Fa6gzBh7uV88'
         },
         items: {
             tokens: 200
@@ -71,7 +70,7 @@ const tiers = [
         ],
         price: {
             amount: 20,
-            priceId: 'price_1NR8O1CNXWohRZKPZxK40qan'
+            priceId: 'price_1NSKnXESB7Q1Fa6g2MJeluav'
         },
         items: {
             tokens: 500
@@ -147,7 +146,7 @@ export default function PricesPackage() {
                                         }
                                         try {
                                             const response = await axios.post(
-                                                `${API_URL}/order/create-checkout-session`,
+                                                `${API_BASE_URL}/order/create-checkout-session`,
                                                 {
                                                     priceId: tier.price.priceId,
                                                     tokens: tier.items.tokens,
@@ -162,7 +161,7 @@ export default function PricesPackage() {
                                             );
                                             const { sessionId } = response.data;
                                             const stripe = await loadStripe(
-                                                import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+                                                STRIPE_PUBLISHABLE_KEY
                                             );
                                             stripe.redirectToCheckout({ sessionId });
                                         } catch (error) {

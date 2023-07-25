@@ -4,7 +4,7 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import './home.css';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import { useAppContext } from './context/app';
 
 const createImageVariation = async (file, accessToken) => {
@@ -12,7 +12,7 @@ const createImageVariation = async (file, accessToken) => {
     formData.append('image', file);
     formData.append('size', '1024x1024');
 
-    const response = await axios.post(`${API_URL}/images/variations`, formData, {
+    const response = await axios.post(`${API_BASE_URL}/images/variations`, formData, {
         headers: {
             Authorization: `Bearer ${accessToken}`,
             'Content-Type': 'multipart/form-data'

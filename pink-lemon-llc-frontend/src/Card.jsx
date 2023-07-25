@@ -9,7 +9,7 @@ import StarIcon from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 import axios from 'axios';
-import { API_URL } from './config';
+import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
 import { loadStripe } from '@stripe/stripe-js';
 import { useAppContext } from './context/app';
 
@@ -30,7 +30,7 @@ const tiers = [
         ],
         price: {
             amount: 5,
-            priceId: 'price_1NR8PVCNXWohRZKP0i1ms1cK'
+            priceId: 'price_1NSKolESB7Q1Fa6g0Xr0T3Ld'
         },
         items: {
             tokens: 100
@@ -50,7 +50,7 @@ const tiers = [
         ],
         price: {
             amount: 10,
-            priceId: 'price_1NR8Q6CNXWohRZKPjTPNPnC1'
+            priceId: 'price_1NSKprESB7Q1Fa6g0WLq7nyt'
         },
         items: {
             tokens: 250
@@ -68,7 +68,7 @@ const tiers = [
         ],
         price: {
             amount: 20,
-            priceId: 'price_1NR8QYCNXWohRZKPDBL1lnjr'
+            priceId: 'price_1NSKqzESB7Q1Fa6gzeVW0Q1K'
         },
         items: {
             tokens: 600
@@ -140,7 +140,7 @@ export default function Pricing() {
                                     onClick={async () => {
                                         try {
                                             const response = await axios.post(
-                                                `${API_URL}/order/create-checkout-session`,
+                                                `${API_BASE_URL}/order/create-checkout-session`,
                                                 {
                                                     priceId: tier.price.priceId,
                                                     tokens: tier.items.tokens,
@@ -155,7 +155,7 @@ export default function Pricing() {
                                             );
                                             const { sessionId } = response.data;
                                             const stripe = await loadStripe(
-                                                import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+                                                STRIPE_PUBLISHABLE_KEY
                                             );
                                             stripe.redirectToCheckout({ sessionId });
                                         } catch (error) {

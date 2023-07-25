@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
@@ -24,7 +24,7 @@ const Resetpassword = () => {
             setError(null);
             setResetting(true);
             const response = await axios.post(
-                `${API_URL}/auth/reset-password`,
+                `${API_BASE_URL}/auth/reset-password`,
                 {
                     token: token,
                     password: password
