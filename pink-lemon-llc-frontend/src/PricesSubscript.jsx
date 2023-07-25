@@ -1,8 +1,5 @@
-
-
 import Card from './Card';
 import './card.css';
-
 
 function PriceSubscript() {
     return (
