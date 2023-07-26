@@ -7,17 +7,23 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+
 @Service
 public class OrderService {
+    @Value("${domain}")
+    private String domain;
+
     @Autowired
     private OrderRepository orderRepository;
 
-    public OrderService() {
-        Stripe.apiKey = "sk_test_51NNWGsESB7Q1Fa6gEyPI3tDWsRhEKDot5AWYfWrsShejLJ8LuXMFILhaLa58qAcKMdeVHpnSEuLh3cbCVbYOMW2Z00ZB2UTzKg";
+    public OrderService(@Value("${stripe.apiKey}") String apiKey) {
+        Stripe.apiKey = apiKey;
     }
 
     public List<Order> findOrdersByEmail(String email) {
@@ -25,26 +31,27 @@ public class OrderService {
     }
 
     public Session createSession(String priceId, boolean isSubscription, int tokens) throws StripeException {
+        
         // supply success and failure url for stripe
-        String successURL = "http://localhost:4000/Pinkpic";
-        String cancelURL = "http://localhost:4000/Prices";
+        String successURL = domain + "/Pinkpic";
+        String cancelURL = domain + "/Prices";
 
-       SessionCreateParams.Builder paramsBuilder = SessionCreateParams.builder()
-               .addLineItem(
-                       SessionCreateParams.LineItem.builder()
-                               .setQuantity(1L)
-                               .setPrice(priceId)
-                               .build())
-               .setSuccessUrl(successURL)
-               .setCancelUrl(cancelURL)
-               .putMetadata("tokens", String.valueOf(tokens))
-               .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
-       if(isSubscription) {
-           paramsBuilder.setMode(SessionCreateParams.Mode.SUBSCRIPTION);
-       } else {
-           paramsBuilder.setMode(SessionCreateParams.Mode.PAYMENT);
-       }
+        SessionCreateParams.Builder paramsBuilder = SessionCreateParams.builder()
+                .addLineItem(
+                        SessionCreateParams.LineItem.builder()
+                                .setQuantity(1L)
+                                .setPrice(priceId)
+                                .build())
+                .setSuccessUrl(successURL)
+                .setCancelUrl(cancelURL)
+                .putMetadata("tokens", String.valueOf(tokens))
+                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
+        if (isSubscription) {
+            paramsBuilder.setMode(SessionCreateParams.Mode.SUBSCRIPTION);
+        } else {
+            paramsBuilder.setMode(SessionCreateParams.Mode.PAYMENT);
+        }
 
-       return Session.create(paramsBuilder.build());
+        return Session.create(paramsBuilder.build());
     }
 }

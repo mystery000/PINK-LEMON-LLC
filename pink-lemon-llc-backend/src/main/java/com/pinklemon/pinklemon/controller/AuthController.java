@@ -8,6 +8,7 @@ import com.pinklemon.pinklemon.service.JwtTokenService;
 import com.pinklemon.pinklemon.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -43,6 +44,8 @@ public class AuthController {
     @Autowired
     private EmailService emailService;
 
+    @Value("${domain}")
+    private String domain;
     /**
      * Login Method
      *
@@ -86,7 +89,7 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(user.getEmail());
             simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:4000/verify-email/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setText("To confirm your account, please click here: " + domain +"/verify-email/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -108,7 +111,7 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(email);
             simpleMailMessage.setSubject("Password Recovery");
-            simpleMailMessage.setText("To reset your password, please click here: " + "http://localhost:4000/reset-password/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setText("To reset your password, please click here: " + domain + "/reset-password/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -135,7 +138,7 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setTo(email);
             simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:4000/verify-email/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setText("To confirm your account, please click here: " + domain + "/verify-email/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

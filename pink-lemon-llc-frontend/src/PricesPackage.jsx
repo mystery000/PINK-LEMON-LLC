@@ -1,20 +1,20 @@
-import { useReadLocalStorage } from 'usehooks-ts';
-
+import axios from 'axios';
 import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
+import { toast } from 'react-hot-toast';
 import { Box, Button } from '@mui/material';
+import { loadStripe } from '@stripe/stripe-js';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import StarIcon from '@mui/icons-material/StarBorder';
-import axios from 'axios';
-import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
-import { loadStripe } from '@stripe/stripe-js';
-import { toast } from 'react-hot-toast';
+
+import { Prices } from './config/price';
 import { useAppContext } from './context/app';
+import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
 
 const PricingList = styled('ul')({
     margin: 0,
@@ -33,7 +33,7 @@ const tiers = [
         ],
         price: {
             amount: 5,
-            priceId: 'price_1NXlmYESB7Q1Fa6geNSrosCh'
+            priceId: import.meta.env.MODE === 'development' ? Prices.package.dev.pinkshot.id : Prices.package.live.pinkshot.id
         },
         items: {
             tokens: 80
@@ -52,7 +52,7 @@ const tiers = [
         ],
         price: {
             amount: 10,
-            priceId: 'price_1NXlnhESB7Q1Fa6go2TDHxoO'
+            priceId: import.meta.env.MODE === 'development' ? Prices.package.dev.pinkweek.id : Prices.package.live.pinkweek.id
         },
         items: {
             tokens: 200
@@ -70,7 +70,7 @@ const tiers = [
         ],
         price: {
             amount: 20,
-            priceId: 'price_1NXlogESB7Q1Fa6go9VW6ROy'
+            priceId: import.meta.env.MODE === 'development' ? Prices.package.dev.pinklove.id : Prices.package.live.pinklove.id
         },
         items: {
             tokens: 500
@@ -140,6 +140,7 @@ export default function PricesPackage() {
                                     variant={tier.buttonVariant}
                                     color="secondary"
                                     onClick={async () => {
+                                        console.log(accessToken)
                                         if (accessToken.length < 1) {
                                             toast.error('You need to login');
                                             return;

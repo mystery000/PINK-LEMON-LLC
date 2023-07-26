@@ -1,17 +1,19 @@
-import { Box, Button } from '@mui/material';
+import axios from 'axios';
+import { styled } from '@mui/system';
+import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
+import { Box, Button } from '@mui/material';
+import { loadStripe } from '@stripe/stripe-js';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
-import Typography from '@mui/material/Typography';
-import { styled } from '@mui/system';
-import axios from 'axios';
-import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
-import { loadStripe } from '@stripe/stripe-js';
+
+import { Prices } from './config/price';
 import { useAppContext } from './context/app';
+import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
 
 const PricingList = styled('ul')({
     margin: 0,
@@ -30,7 +32,7 @@ const tiers = [
         ],
         price: {
             amount: 5,
-            priceId: 'price_1NXlVlESB7Q1Fa6gpB6EGhgl'
+            priceId: import.meta.env.MODE === 'development' ? Prices.subscription.dev.pinkstart.id : Prices.subscription.live.pinkstart.id
         },
         items: {
             tokens: 100
@@ -50,7 +52,7 @@ const tiers = [
         ],
         price: {
             amount: 10,
-            priceId: 'price_1NXlZ3ESB7Q1Fa6gHKRRqUMf'
+            priceId: import.meta.env.MODE === 'development' ? Prices.subscription.dev.pinkpro.id : Prices.subscription.live.pinkpro.id
         },
         items: {
             tokens: 250
@@ -68,7 +70,7 @@ const tiers = [
         ],
         price: {
             amount: 20,
-            priceId: 'price_1NXlh7ESB7Q1Fa6g0Fga7SbV'
+            priceId: import.meta.env.MODE === 'development' ? Prices.subscription.dev.pinkstar.id : Prices.subscription.live.pinkstar.id
         },
         items: {
             tokens: 600
