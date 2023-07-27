@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
-import Logo from './images/Pinklemon Logo.png'; // Percorso dell'immagine
+import Logo from './images/PinkLemonLogo.png'; // Percorso dell'immagine
 
 export default function Navbar() {
     return (

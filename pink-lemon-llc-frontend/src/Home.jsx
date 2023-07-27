@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import './home.css';
-import myImage from './images/profilo di donna.jpg';
+import myImage from './images/profilo_di_donna.jpg';
 import Footer from './Footer';
 import Button from '@mui/material/Button';
 import ImageGallery from './ImageGallery';

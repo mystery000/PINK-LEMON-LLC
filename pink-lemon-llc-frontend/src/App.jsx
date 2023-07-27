@@ -11,7 +11,7 @@ import Pinkpic from './Pinkpic';
 import PinkVar from './PinkVar';
 import PinkEdit from './PinkEdit';
 import Prices from './Prices';
-import './app.css';
+import './App.css';
 import Successregister from './Successregister';
 import Confirm from './Confirm';
 import { Toaster } from 'react-hot-toast';
