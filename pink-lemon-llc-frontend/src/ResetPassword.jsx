@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useCallback, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_BASE_URL } from './config';
@@ -49,7 +50,7 @@ const Resetpassword = () => {
         );
     }
     return (
-        <>
+        <>  
             <div style={{ textAlign: 'center', margin: '24px 0px' }}>
                 Reset Password Form
                 <br />

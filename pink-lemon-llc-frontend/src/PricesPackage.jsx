@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
@@ -28,7 +29,6 @@ const tiers = [
         description: [
             '80 token validi un anno',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
             'Nessun abbonamento'
         ],
         price: {
@@ -38,7 +38,7 @@ const tiers = [
         items: {
             tokens: 80
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained',
         color: 'secondary'
     },
@@ -47,7 +47,6 @@ const tiers = [
         description: [
             '200 token validi un anno',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
             'Nessun abbonamento'
         ],
         price: {
@@ -57,7 +56,7 @@ const tiers = [
         items: {
             tokens: 200
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     },
     {
@@ -65,7 +64,6 @@ const tiers = [
         description: [
             '500 token validi un anno',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
             'Nessun abbonamento'
         ],
         price: {
@@ -75,7 +73,7 @@ const tiers = [
         items: {
             tokens: 500
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     }
 ];
@@ -142,7 +140,7 @@ export default function PricesPackage() {
                                     onClick={async () => {
                                         console.log(accessToken)
                                         if (accessToken.length < 1) {
-                                            toast.error('You need to login');
+                                            toast.error('Per acquistare token devi fare il login');
                                             return;
                                         }
                                         try {

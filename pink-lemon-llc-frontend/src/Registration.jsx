@@ -29,7 +29,7 @@ const Registration = () => {
             toast.success('Verification email is successfully sent');
             navigate(`/successregister`, { state: { email } }); // Redirect to component for successful verification;
         } catch (error) {
-            navigate('/errorregister'); // Redirect to component for successful verification;
+            navigate('/Errorregister'); // Redirect to component for successful verification;
             console.error('There was an error!', error);
         }
     };

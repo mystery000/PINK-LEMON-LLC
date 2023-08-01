@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './Home';
@@ -19,6 +20,8 @@ import EmailVerification from './EmailVerification';
 import Resetpassword from './ResetPassword';
 import ForgotPassword from './ForgotPassword';
 import { ManagedAppContext } from './context/app';
+import Errorregister from './Errorregister';
+
 
 function App() {
     return (
@@ -33,7 +36,8 @@ function App() {
                         <Route path="/Login" element={<Login />} />
                         <Route path="/Success" element={<Success />} />
                         <Route path="/Successregister" element={<Successregister />} />
-                        <Route path="/Error" element={<Error />} />
+                        <Route path="/error" element={<Error />} />
+                        <Route path="/errorregister" element={<Errorregister />} />
                         <Route path="/Pinkpic" element={<Pinkpic />} />
                         <Route path="/Pinkvar" element={<PinkVar />} />
                         <Route path="/Pinkedit" element={<PinkEdit />} />

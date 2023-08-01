@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
@@ -27,8 +28,8 @@ const tiers = [
         description: [
             '100 token al mese',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
-            'Supporto email**'
+            'Abbonamento 12 mesi'
+       
         ],
         price: {
             amount: 5,
@@ -37,18 +38,17 @@ const tiers = [
         items: {
             tokens: 100
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained',
         color: 'secondary'
     },
     {
         name: 'PinkPro',
-        subheader: 'Più popolare',
         description: [
             '250 token al mese',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
-            'Supporto email proritario**'
+            'Abbonamento 12 mesi'
+           
         ],
         price: {
             amount: 10,
@@ -57,7 +57,7 @@ const tiers = [
         items: {
             tokens: 250
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     },
     {
@@ -65,8 +65,7 @@ const tiers = [
         description: [
             '600 token al mese',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
-            'Supporto email e telefonico**'
+            'Abbonamento 12 mesi'
         ],
         price: {
             amount: 20,
@@ -75,7 +74,7 @@ const tiers = [
         items: {
             tokens: 600
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     }
 ];
