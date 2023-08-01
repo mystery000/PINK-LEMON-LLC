@@ -98,9 +98,11 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setFrom(emailFrom);
             simpleMailMessage.setTo(user.getEmail());
-            simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + domain + "/verify-email/"
-                    + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setSubject(" Verifica la tua email per completare la registrazione con Pink Lemon");
+            simpleMailMessage
+                    .setText("Salve, per confermare il tuo account \u00E8 necessario cliccare su questo link : "
+                            + domain + "/verify-email/"
+                            + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -122,9 +124,10 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setFrom(emailFrom);
             simpleMailMessage.setTo(email);
-            simpleMailMessage.setSubject("Password Recovery");
-            simpleMailMessage.setText("To reset your password, please click here: " + domain + "/reset-password/"
-                    + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setSubject("Recupero della password");
+            simpleMailMessage.setText(
+                    "Per reimpostare la password, fare clic su questo collegamento: " + domain + "/reset-password/"
+                            + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -151,9 +154,11 @@ public class AuthController {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setFrom(emailFrom);
             simpleMailMessage.setTo(email);
-            simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + domain + "/verify-email/"
-                    + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setSubject("Verifica la tua email per completare la registrazione con Pink Lemon");
+            simpleMailMessage
+                    .setText(" Salve, per confermare il tuo account \u00E8 necessario cliccare su questo link: "
+                            + domain + "/verify-email/"
+                            + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
