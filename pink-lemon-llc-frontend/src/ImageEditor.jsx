@@ -75,13 +75,12 @@ const ImageEditor = () => {
                     </label>
                     <Button type="submit" variant="contained" color="secondary">Edita</Button>
                 </form> </div>
-                {editedImage && (
-                    <div className='blog1'>
-                        <h3>Edited Image:</h3>
-                        <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
-                    </div>
-                )}
-            
+            {editedImage && (
+                <div className='blog1'>
+                    <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
+                </div>
+            )}
+
             <div className='blog1'>
                 <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro,  e selezionare "salva con nome". </p>
             </div>
@@ -93,7 +92,7 @@ const ImageEditor = () => {
                 a partire da un riferimento.
                 <br></br>
                 <br></br>
-                
+
                 <b> Carica un'immagine, la maschera, di 1024x1024 pixel formato PNG, con una zona vuota:</b> In questo modo PinkLemon può effettuare l'editing
                 sapendo già dove generare nuovo elemento.
                 <br></br>
