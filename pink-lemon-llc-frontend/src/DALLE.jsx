@@ -19,6 +19,7 @@ const DALLE = () => {
 
     const generateImage = useCallback(async () => {
         try {
+            setIsLoading(true);
             const response = await axios.post(
                 `${API_BASE_URL}/images/generations`,
                 {
@@ -45,7 +46,9 @@ const DALLE = () => {
             } else {
                 console.error('No image generated');
             }
+            setIsLoading(false);
         } catch (err) {
+            setIsLoading(false);
             console.log(err?.message);
         }
     }, [accessToken, text, credit]);
