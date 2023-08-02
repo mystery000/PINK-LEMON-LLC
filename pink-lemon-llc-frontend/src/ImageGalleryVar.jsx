@@ -26,7 +26,7 @@ const ImageGalleryVar = () => {
         { id: 6, url: myImage6, description: 'desc2' },
         { id: 7, url: myImage7, description: 'desc2' },
         { id: 8, url: myImage8, description: 'desc2' },
-        
+
 
         // Aggiungi qui altre immagini
     ];
@@ -54,13 +54,13 @@ const ImageGalleryVar = () => {
                     />
                 ))}
                 <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Image Modal">
-                <div className="blog1">
-                       
-                       <img src={selectedImage?.url} alt={selectedImage?.description} />
-                       </div>
-                       <div className="btn">
-                       <Button  variant="contained" color="secondary"onClick={closeModal}>Chiudi</Button>
-                       </div>
+                    <div className="blog1">
+
+                        <img src={selectedImage?.url} alt={selectedImage?.description} />
+                    </div>
+                    <div className="btn">
+                        <Button variant="contained" color="secondary" onClick={closeModal}>Chiudi</Button>
+                    </div>
                 </Modal>
             </div>
         </div>

@@ -69,8 +69,8 @@ const DALLE = () => {
                 </Button>
             </div>
             <div className="blog1">
-            <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del muose, pulsante destro e selezionare "salva con nome". </p>
-            
+                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del muose, pulsante destro e selezionare "salva con nome". </p>
+
             </div>
             <div className="generation-form">
                 {generatedImage && (
@@ -78,12 +78,11 @@ const DALLE = () => {
                         <img src={generatedImage.src} alt="Generated" />
                     </div>
                 )}
-             </div>
+            </div>
             <p>
                 <b>CONSIGLI PER GENERARE IMMAGINI MIGLIORI</b>
             </p>
             <p>
-                {' '}
                 <b> Specifica chiaramente l'intento:</b> Inizia il tuo prompt descrivendo in modo
                 chiaro e conciso ciò che desideri generare.
                 <br></br><br></br>

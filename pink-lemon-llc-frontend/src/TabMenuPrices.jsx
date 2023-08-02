@@ -25,13 +25,13 @@ const TabMenuPrices = () => {
                     onClick={() => handleTabClick('componente2')}>
                     ABBONAMENTI
                 </button>
-                
+
             </div>
 
             <div className="tab-content">
                 {activeTab === 'componente1' && <Componente1 />}
                 {activeTab === 'componente2' && <Componente2 />}
-                
+
             </div>
         </div>
     );
@@ -40,7 +40,7 @@ const TabMenuPrices = () => {
 const Componente1 = () => {
     return (
         <div>
-           <PricesPackage></PricesPackage>
+            <PricesPackage></PricesPackage>
         </div>
     );
 };

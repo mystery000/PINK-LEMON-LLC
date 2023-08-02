@@ -38,7 +38,7 @@ const tiers = [
         items: {
             tokens: 80
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained',
         color: 'secondary'
     },
@@ -56,7 +56,7 @@ const tiers = [
         items: {
             tokens: 200
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     },
     {
@@ -73,7 +73,7 @@ const tiers = [
         items: {
             tokens: 500
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     }
 ];

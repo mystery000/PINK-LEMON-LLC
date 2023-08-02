@@ -50,7 +50,7 @@ const Resetpassword = () => {
         );
     }
     return (
-        <>  
+        <>
             <div style={{ textAlign: 'center', margin: '24px 0px' }}>
                 Reset Password Form
                 <br />

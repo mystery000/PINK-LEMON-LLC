@@ -29,7 +29,7 @@ const tiers = [
             '100 token al mese',
             'Immagini 1024x1024 pixel',
             'Abbonamento 12 mesi'
-       
+
         ],
         price: {
             amount: 5,
@@ -38,7 +38,7 @@ const tiers = [
         items: {
             tokens: 100
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained',
         color: 'secondary'
     },
@@ -48,7 +48,7 @@ const tiers = [
             '250 token al mese',
             'Immagini 1024x1024 pixel',
             'Abbonamento 12 mesi'
-           
+
         ],
         price: {
             amount: 10,
@@ -57,7 +57,7 @@ const tiers = [
         items: {
             tokens: 250
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     },
     {
@@ -74,7 +74,7 @@ const tiers = [
         items: {
             tokens: 600
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     }
 ];
