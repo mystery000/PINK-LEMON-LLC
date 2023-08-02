@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 
 import axios from 'axios';
@@ -73,27 +74,33 @@ const ImageEditor = () => {
                         />
                     </label>
                     <Button type="submit" variant="contained" color="secondary">Edita</Button>
-                </form>
-                {editedImage && (
-                    <div>
-                        <h3>Edited Image:</h3>
-                        <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
-                    </div>
-                )}
-            </div>
+                </form> </div>
+            {editedImage && (
+                <div className='blog1'>
+                    <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
+                </div>
+            )}
+
             <div className='blog1'>
                 <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro,  e selezionare "salva con nome". </p>
             </div>
             <p>
-                <b>COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE</b>
+                <b>COME FUNZIONA L'EDITING DI UN'IMMAGINE</b>
             </p>
             <p>
-                <b> Carica un'immagine di 1024x1024 pixel, formato PNG:</b> In questo modo PinkLemon potrà generare una variazione
-                ovvero una seconda immagine che avrà lo stesso formato dell'immagine di partenza, con lo stesso stile e colori ma conterrà alcuni
-                elementi di novità. <br></br>
+                <b> Carica un'immagine di 1024x1024 pixel formato PNG, senza zone vuote come base:</b> In questo modo PinkLemon può effettuare l'editing
+                a partire da un riferimento.
                 <br></br>
-                <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
-                caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
+                <br></br>
+
+                <b> Carica un'immagine, la maschera, di 1024x1024 pixel formato PNG, con una zona vuota:</b> In questo modo PinkLemon può effettuare l'editing
+                sapendo già dove generare nuovo elemento.
+                <br></br>
+                <br></br>
+                <b> Descrivi nel campo di testo l'elemento che vuoi generare nello spazio vuoto.</b> Ad esempio:"crea un gatto nero seduto in poltrona".
+                <br></br>
+                <br></br>
+
             </p>
         </>
     );
