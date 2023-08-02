@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import Registration from './Registration';
 import Login from './Login';
 import Success from './Success';
-import Error from './error';
+import Error from './Error';
 import Pinkpic from './Pinkpic';
 import PinkVar from './PinkVar';
 import PinkEdit from './PinkEdit';
@@ -21,7 +21,6 @@ import Resetpassword from './ResetPassword';
 import ForgotPassword from './ForgotPassword';
 import { ManagedAppContext } from './context/app';
 import Errorregister from './Errorregister';
-
 
 function App() {
     return (

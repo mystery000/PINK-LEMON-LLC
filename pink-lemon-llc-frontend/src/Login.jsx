@@ -2,13 +2,12 @@
 /* eslint-disable prettier/prettier */
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLocalStorage } from 'usehooks-ts';
-import { Button } from '@mui/material';
 
 import axios from 'axios';
 import './registration.css';
-import { API_BASE_URL } from './config';
 import Footer from './Footer';
+import { API_BASE_URL } from './config';
+import { Button } from '@mui/material';
 import { useAppContext } from './context/app';
 
 const Login = () => {
@@ -20,7 +19,6 @@ const Login = () => {
     const handleSubmit = useCallback(
         async (e) => {
             e.preventDefault();
-
             try {
                 const response = await axios.post(
                     `${API_BASE_URL}/auth/login`,
@@ -50,10 +48,6 @@ const Login = () => {
     return (
         <>
             <h2 className="h1-description">Accedi</h2>
-            
-
-
-
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <div>

@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
 import React, { useCallback, useState } from 'react';
-import axios from 'axios';
-import Button from '@mui/material/Button';
+
 import './home.css';
+import axios from 'axios';
 import { API_BASE_URL } from './config';
+import Button from '@mui/material/Button';
 import { useAppContext } from './context/app';
 
 const DALLE = () => {
@@ -19,6 +20,7 @@ const DALLE = () => {
 
     const generateImage = useCallback(async () => {
         try {
+            setIsLoading(true);
             const response = await axios.post(
                 `${API_BASE_URL}/images/generations`,
                 {
@@ -45,7 +47,9 @@ const DALLE = () => {
             } else {
                 console.error('No image generated');
             }
+            setIsLoading(false);
         } catch (err) {
+            setIsLoading(false);
             console.log(err?.message);
         }
     }, [accessToken, text, credit]);
@@ -69,8 +73,7 @@ const DALLE = () => {
                 </Button>
             </div>
             <div className="blog1">
-            <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
-            
+                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
             </div>
             <div className="generation-form">
                 {generatedImage && (
@@ -78,12 +81,11 @@ const DALLE = () => {
                         <img src={generatedImage.src} alt="Generated" />
                     </div>
                 )}
-             </div>
+            </div>
             <p>
                 <b>CONSIGLI PER GENERARE IMMAGINI MIGLIORI</b>
             </p>
             <p>
-                {' '}
                 <b> Specifica chiaramente l'intento:</b> Inizia il tuo prompt descrivendo in modo
                 chiaro e conciso ciò che desideri generare.
                 <br></br><br></br>

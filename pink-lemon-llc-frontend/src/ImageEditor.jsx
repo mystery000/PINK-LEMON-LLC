@@ -1,10 +1,10 @@
-/* eslint-disable prettier/prettier */
 import { useState } from 'react';
+
 import axios from 'axios';
 import { API_BASE_URL } from './config';
-import { useAppContext } from './context/app';
-import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
+import Button from '@mui/material/Button';
+import { useAppContext } from './context/app';
 
 const ImageEditor = () => {
     const [image, setImage] = useState(null);
@@ -52,57 +52,49 @@ const ImageEditor = () => {
 
     return (
         <>
-        <div className='blog1'>
-
-            <form onSubmit={handleSubmit}>
-                <label>
-                   <span className='p-pink'>Carica l'immagine iniziale, 1024x1024 pixel, formato PNG</span><br></br>
-                    <Input type="file" accept="image/*" onChange={handleImageChange}
-                     />
-                </label>
-                <br></br><br></br>
-                <label>
-                <span className='p-pink'>Carica la maschera, 1024x1024 pixel, formato PNG</span><br></br>
-                    <Input type="file" accept="image/*" onChange={handleMaskChange} />
-                </label>
-                <br /> <br />     
-                <label>
-                <span className='p-pink'>Descrivi l'immagine che vuoi ottenere</span><br></br>
-                    <input type="text" value={prompt} onChange={handlePromptChange}
-                     placeholder="Descrivi l'immagine da generare"
-                     className="text-generation"
-                    
-                    />
-                </label>
-               
-                <Button type="submit" variant="contained" color="secondary">Edita</Button>
-            </form>
-            {editedImage && (
-                <div>
-                    <h3>Edited Image:</h3>
-                    <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
-                </div>
-            )}
-        </div>
-        <div className='blog1'>
-        <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro,  e selezionare "salva con nome". </p>
-        </div>
-        <p>
+            <div className='blog1'>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        <span className='p-pink'>Carica l'immagine iniziale, 1024x1024 pixel, formato PNG</span><br></br>
+                        <Input type="file" accept="image/*" onChange={handleImageChange}
+                        />
+                    </label>
+                    <br></br><br></br>
+                    <label>
+                        <span className='p-pink'>Carica la maschera, 1024x1024 pixel, formato PNG</span><br></br>
+                        <Input type="file" accept="image/*" onChange={handleMaskChange} />
+                    </label>
+                    <br /> <br />
+                    <label>
+                        <span className='p-pink'>Descrivi l'immagine che vuoi ottenere</span><br></br>
+                        <input type="text" value={prompt} onChange={handlePromptChange}
+                            placeholder="Descrivi l'immagine da generare"
+                            className="text-generation"
+                        />
+                    </label>
+                    <Button type="submit" variant="contained" color="secondary">Edita</Button>
+                </form>
+                {editedImage && (
+                    <div>
+                        <h3>Edited Image:</h3>
+                        <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
+                    </div>
+                )}
+            </div>
+            <div className='blog1'>
+                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro,  e selezionare "salva con nome". </p>
+            </div>
+            <p>
                 <b>COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE</b>
             </p>
             <p>
-                {' '}
                 <b> Carica un'immagine di 1024x1024 pixel, formato PNG:</b> In questo modo PinkLemon potrà generare una variazione
                 ovvero una seconda immagine che avrà lo stesso formato dell'immagine di partenza, con lo stesso stile e colori ma conterrà alcuni
                 elementi di novità. <br></br>
                 <br></br>
-                <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di 
+                <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
                 caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
-                
-                
-                
             </p>
-        
         </>
     );
 };
