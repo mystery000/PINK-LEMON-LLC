@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import Registration from './Registration';
 import Login from './Login';
 import Success from './Success';
-import Error from './Error';
+import Error from './error';
 import Pinkpic from './Pinkpic';
 import PinkVar from './PinkVar';
 import PinkEdit from './PinkEdit';

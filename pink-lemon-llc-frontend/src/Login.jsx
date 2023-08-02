@@ -50,6 +50,9 @@ const Login = () => {
     return (
         <>
             <h2 className="h1-description">Accedi</h2>
+            
+
+
 
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
@@ -77,7 +80,17 @@ const Login = () => {
                             margin: '16px 0px',
                             cursor: 'pointer'
                         }}>
-                        Forgot password?
+                        Password dimenticata?
+                    </div>
+                    <div
+                        onClick={() => navigate('/Registration')}
+                        style={{
+                            color: 'blueviolet',
+                            textAlign: 'center',
+                            margin: '16px 0px',
+                            cursor: 'pointer'
+                        }}>
+                        Registrati
                     </div>
                     <div className="btn-cen">
                         <Button variant="contained" color="secondary" type="submit">
