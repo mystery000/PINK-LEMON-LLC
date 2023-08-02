@@ -29,16 +29,11 @@ const Login = () => {
                         }
                     }
                 );
-
                 const { accessToken } = response.data;
                 setAccessToken(accessToken);
-
-                if (accessToken) {
-                    navigate('/success', { state: { email, password } });
-                } else {
-                    navigate('/error');
-                }
+                navigate('/success', { state: { email, password } });
             } catch (error) {
+                navigate('/error');
                 console.log('Si è verificato un errore durante la richiesta:' + error);
             }
         },
