@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
+
 import './navbar.css';
-import Logo from './images/Pinklemon Logo.png'; // Percorso dell'immagine
+import Logo from './images/PinkLemonLogo.png'; // Percorso dell'immagine
 
 export default function Navbar() {
     return (
@@ -10,14 +11,9 @@ export default function Navbar() {
                     <div>
                         <NavLink to="/" className="navbar-link-logo">
                             <img src={Logo} alt="Descrizione dell'immagine" className="logo" />
-                        </NavLink>{' '}
+                        </NavLink>
                     </div>
                     <div className="nav">
-                        {/** Abbiamo <Link> e <NavLink> (usiamo il secondo perché customizzabile)
-                         *  il to="" corrisponde al mio link in href
-                         * In pagina avrò <a class="navbar__item" href="/about">About</a>
-                         */}
-
                         <NavLink to="/Pinkpic" className="navbar-link">
                             PinkPic
                         </NavLink>

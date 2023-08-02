@@ -3,7 +3,7 @@ import './home.css';
 import Footer from './Footer';
 import ImageGallery from './ImageGallery';
 import axios from 'axios';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import { useCallback, useState } from 'react';
 
 const Successregister = () => {
@@ -19,7 +19,7 @@ const Successregister = () => {
         try {
             setSending(true);
             const response = await axios.post(
-                `${API_URL}/auth/signup/resend-email`,
+                `${API_BASE_URL}/auth/signup/resend-email`,
                 { email },
                 {
                     method: 'POST',
@@ -34,7 +34,7 @@ const Successregister = () => {
             setSending(false);
             console.log(error);
         }
-    }, [API_URL, email]);
+    }, [API_BASE_URL, email]);
 
     return (
         <>

@@ -1,17 +1,20 @@
-import { Box, Button } from '@mui/material';
+/* eslint-disable prettier/prettier */
+import axios from 'axios';
+import { styled } from '@mui/system';
+import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
+import { Box, Button } from '@mui/material';
+import { loadStripe } from '@stripe/stripe-js';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
-import Typography from '@mui/material/Typography';
-import { styled } from '@mui/system';
-import axios from 'axios';
-import { API_URL } from './config';
-import { loadStripe } from '@stripe/stripe-js';
+
+import { Prices } from './config/price';
 import { useAppContext } from './context/app';
+import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
 
 const PricingList = styled('ul')({
     margin: 0,
@@ -25,37 +28,36 @@ const tiers = [
         description: [
             '100 token al mese',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
-            'Supporto email**'
+            'Abbonamento 12 mesi'
+
         ],
         price: {
             amount: 5,
-            priceId: 'price_1NR8PVCNXWohRZKP0i1ms1cK'
+            priceId: import.meta.env.MODE === 'development' ? Prices.subscription.dev.pinkstart.id : Prices.subscription.live.pinkstart.id
         },
         items: {
             tokens: 100
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained',
         color: 'secondary'
     },
     {
         name: 'PinkPro',
-        subheader: 'Più popolare',
         description: [
             '250 token al mese',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
-            'Supporto email proritario**'
+            'Abbonamento 12 mesi'
+
         ],
         price: {
             amount: 10,
-            priceId: 'price_1NR8Q6CNXWohRZKPjTPNPnC1'
+            priceId: import.meta.env.MODE === 'development' ? Prices.subscription.dev.pinkpro.id : Prices.subscription.live.pinkpro.id
         },
         items: {
             tokens: 250
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     },
     {
@@ -63,17 +65,16 @@ const tiers = [
         description: [
             '600 token al mese',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
-            'Supporto email e telefonico**'
+            'Abbonamento 12 mesi'
         ],
         price: {
             amount: 20,
-            priceId: 'price_1NR8QYCNXWohRZKPDBL1lnjr'
+            priceId: import.meta.env.MODE === 'development' ? Prices.subscription.dev.pinkstar.id : Prices.subscription.live.pinkstar.id
         },
         items: {
             tokens: 600
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     }
 ];
@@ -140,7 +141,7 @@ export default function Pricing() {
                                     onClick={async () => {
                                         try {
                                             const response = await axios.post(
-                                                `${API_URL}/order/create-checkout-session`,
+                                                `${API_BASE_URL}/order/create-checkout-session`,
                                                 {
                                                     priceId: tier.price.priceId,
                                                     tokens: tier.items.tokens,
@@ -155,7 +156,7 @@ export default function Pricing() {
                                             );
                                             const { sessionId } = response.data;
                                             const stripe = await loadStripe(
-                                                import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+                                                STRIPE_PUBLISHABLE_KEY
                                             );
                                             stripe.redirectToCheckout({ sessionId });
                                         } catch (error) {

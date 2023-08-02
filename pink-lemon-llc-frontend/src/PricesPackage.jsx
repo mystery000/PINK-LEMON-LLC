@@ -1,21 +1,21 @@
 /* eslint-disable prettier/prettier */
-import { useReadLocalStorage } from 'usehooks-ts';
-
+import axios from 'axios';
 import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
+import { toast } from 'react-hot-toast';
 import { Box, Button } from '@mui/material';
+import { loadStripe } from '@stripe/stripe-js';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import StarIcon from '@mui/icons-material/StarBorder';
-import axios from 'axios';
-import { API_URL } from './config';
-import { loadStripe } from '@stripe/stripe-js';
-import { toast } from 'react-hot-toast';
+
+import { Prices } from './config/price';
 import { useAppContext } from './context/app';
+import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from './config';
 
 const PricingList = styled('ul')({
     margin: 0,
@@ -29,17 +29,16 @@ const tiers = [
         description: [
             '80 token validi un anno',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
             'Nessun abbonamento'
         ],
         price: {
             amount: 5,
-            priceId: 'price_1NR8LwCNXWohRZKPhWVOfF66'
+            priceId: import.meta.env.MODE === 'development' ? Prices.package.dev.pinkshot.id : Prices.package.live.pinkshot.id
         },
         items: {
             tokens: 80
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained',
         color: 'secondary'
     },
@@ -48,17 +47,16 @@ const tiers = [
         description: [
             '200 token validi un anno',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
             'Nessun abbonamento'
         ],
         price: {
             amount: 10,
-            priceId: 'price_1NR8NRCNXWohRZKPFGOXDz44'
+            priceId: import.meta.env.MODE === 'development' ? Prices.package.dev.pinkweek.id : Prices.package.live.pinkweek.id
         },
         items: {
             tokens: 200
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     },
     {
@@ -66,17 +64,16 @@ const tiers = [
         description: [
             '500 token validi un anno',
             'Immagini 1024x1024 pixel',
-            'Guida ai migliori prompt*',
             'Nessun abbonamento'
         ],
         price: {
             amount: 20,
-            priceId: 'price_1NR8O1CNXWohRZKPZxK40qan'
+            priceId: import.meta.env.MODE === 'development' ? Prices.package.dev.pinklove.id : Prices.package.live.pinklove.id
         },
         items: {
             tokens: 500
         },
-        buttonText: 'Purchase',
+        buttonText: 'Acquista',
         buttonVariant: 'contained'
     }
 ];
@@ -141,13 +138,14 @@ export default function PricesPackage() {
                                     variant={tier.buttonVariant}
                                     color="secondary"
                                     onClick={async () => {
+                                        console.log(accessToken)
                                         if (accessToken.length < 1) {
-                                            toast.error('You need to login');
+                                            toast.error('Per acquistare token devi fare il login');
                                             return;
                                         }
                                         try {
                                             const response = await axios.post(
-                                                `${API_URL}/order/create-checkout-session`,
+                                                `${API_BASE_URL}/order/create-checkout-session`,
                                                 {
                                                     priceId: tier.price.priceId,
                                                     tokens: tier.items.tokens,
@@ -162,7 +160,7 @@ export default function PricesPackage() {
                                             );
                                             const { sessionId } = response.data;
                                             const stripe = await loadStripe(
-                                                import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+                                                STRIPE_PUBLISHABLE_KEY
                                             );
                                             stripe.redirectToCheckout({ sessionId });
                                         } catch (error) {

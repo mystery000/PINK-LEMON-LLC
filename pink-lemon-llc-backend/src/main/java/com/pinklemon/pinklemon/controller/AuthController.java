@@ -8,6 +8,7 @@ import com.pinklemon.pinklemon.service.JwtTokenService;
 import com.pinklemon.pinklemon.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -43,6 +44,12 @@ public class AuthController {
     @Autowired
     private EmailService emailService;
 
+    @Value("${domain}")
+    private String domain;
+
+    @Value("${spring.mail.username}")
+    private String emailFrom;
+
     /**
      * Login Method
      *
@@ -54,12 +61,16 @@ public class AuthController {
         Authentication authentication = null;
         try {
             User user = userService.getUserByEmailIgnoreCase(loginRequest.getEmail());
-            UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword());
+            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                    loginRequest.getEmail(), loginRequest.getPassword());
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             // This method will call JwtUserDetailService.loadUserByUsername
             authentication = authenticationManager.authenticate(authenticationToken);
-            if(!user.getEnabled()) return new ResponseEntity<>("Verify your email to proceed. We just sent to an email to the address: " + user.getEmail(), HttpStatus.UNAUTHORIZED);
-        } catch(final BadCredentialsException ex) {
+            if (!user.getEnabled())
+                return new ResponseEntity<>(
+                        "Verify your email to proceed. We just sent to an email to the address: " + user.getEmail(),
+                        HttpStatus.UNAUTHORIZED);
+        } catch (final BadCredentialsException ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
         }
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -73,20 +84,22 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest signupRequest) {
-        if(userService.existsByEmailIgnoreCase(signupRequest.getEmail())) {
+        if (userService.existsByEmailIgnoreCase(signupRequest.getEmail())) {
             return new ResponseEntity<>("Error: Email is already in use!", HttpStatus.BAD_REQUEST);
         }
         final String encodePassword = bCryptPasswordEncoder.encode(signupRequest.getPassword());
-        final User user = new User(signupRequest.getName(), signupRequest.getSurname(), signupRequest.getEmail(), encodePassword,
+        final User user = new User(signupRequest.getName(), signupRequest.getSurname(), signupRequest.getEmail(),
+                encodePassword,
                 Role.ROLE_USER);
         userService.save(user);
         ConfirmationToken confirmationToken = confirmationTokenService.createConfirmationToken(user.getEmail());
         System.out.println(confirmationToken.getConfirmationToken());
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+            simpleMailMessage.setFrom(emailFrom);
             simpleMailMessage.setTo(user.getEmail());
-            simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setSubject(" Verifica la tua email per completare la registrazione con Pink Lemon");
+            simpleMailMessage.setText("Salve,\nper confermare il tuo account è necessario cliccare su questo link: " + domain + "/verify-email/" + confirmationToken.getConfirmationToken() + "\n\nGrazie per aver scelto Pink Lemon!");
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -98,7 +111,7 @@ public class AuthController {
     public ResponseEntity<?> forgotPassword(@Valid @RequestBody ForgotPasswordRequest forgotPasswordRequest) {
         System.out.println(forgotPasswordRequest.getEmail());
         String email = forgotPasswordRequest.getEmail();
-        if(!userService.existsByEmailIgnoreCase(email)) {
+        if (!userService.existsByEmailIgnoreCase(email)) {
             return new ResponseEntity<>("Error: Unregistered Email", HttpStatus.BAD_REQUEST);
         }
         ConfirmationToken confirmationToken = confirmationTokenService.createConfirmationToken(email);
@@ -106,9 +119,10 @@ public class AuthController {
         System.out.println(confirmationToken.getConfirmationToken());
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+            simpleMailMessage.setFrom(emailFrom);
             simpleMailMessage.setTo(email);
-            simpleMailMessage.setSubject("Password Recovery");
-            simpleMailMessage.setText("To reset your password, please click here: " + "http://localhost:5173/reset-password/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setSubject("Recupero della password");
+            simpleMailMessage.setText("Per reimpostare la password, fare clic su questo collegamento: " + domain + "/reset-password/" + confirmationToken.getConfirmationToken());
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -117,15 +131,15 @@ public class AuthController {
     }
 
     @PostMapping("/signup/resend-email")
-    public ResponseEntity<?> resendVerificationLink(@Valid @RequestBody ResendVerificationLinkRequest resendVerificationLinkRequest)
-    {
+    public ResponseEntity<?> resendVerificationLink(
+            @Valid @RequestBody ResendVerificationLinkRequest resendVerificationLinkRequest) {
         String email = resendVerificationLinkRequest.getEmail();
-        if(!userService.existsByEmailIgnoreCase(email)) {
+        if (!userService.existsByEmailIgnoreCase(email)) {
             return new ResponseEntity<>("Error: Unregistered Email", HttpStatus.BAD_REQUEST);
         }
         User user = userService.getUserByEmailIgnoreCase(email);
 
-        if(user.getVerificationLimit() < 1) {
+        if (user.getVerificationLimit() < 1) {
             return new ResponseEntity<>("The Verification Limit has been exceeded", HttpStatus.NOT_ACCEPTABLE);
         }
 
@@ -133,30 +147,32 @@ public class AuthController {
 
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+            simpleMailMessage.setFrom(emailFrom);
             simpleMailMessage.setTo(email);
-            simpleMailMessage.setSubject("Verify your email address to complete registration");
-            simpleMailMessage.setText("To confirm your account, please click here: " + "http://localhost:5173/verify-email/" + confirmationToken.getConfirmationToken());
+            simpleMailMessage.setSubject("Verifica la tua email per completare la registrazione con Pink Lemon");
+            simpleMailMessage.setText("Salve,\nper confermare il tuo account è necessario cliccare su questo link: " + domain + "/verify-email/" + confirmationToken.getConfirmationToken() + "\n\nGrazie per aver scelto Pink Lemon!");
             emailService.sendEmail(simpleMailMessage);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         userService.updateVerificationLimit(email, user.getVerificationLimit() - 1);
-        return new ResponseEntity<>("New verification email is successfully sen. Please check your email...", HttpStatus.OK);
+        return new ResponseEntity<>("New verification email is successfully sen. Please check your email...",
+                HttpStatus.OK);
     }
 
     @PostMapping("/reset-password")
     public ResponseEntity<?> resetPassword(@Valid @RequestBody ResetPasswordRequest resetPasswordRequest) {
         ConfirmationToken token = confirmationTokenService.findByConfirmationToken(resetPasswordRequest.getToken());
 
-        if(token == null) {
+        if (token == null) {
             return ResponseEntity.badRequest().body("Error:  Invalid token.");
         }
 
-        if(confirmationTokenService.isExpired(token)) {
+        if (confirmationTokenService.isExpired(token)) {
             return new ResponseEntity<>("Token is expired", HttpStatus.FORBIDDEN);
         }
 
-        if(!userService.existsByEmailIgnoreCase(token.getEmail())) {
+        if (!userService.existsByEmailIgnoreCase(token.getEmail())) {
             return ResponseEntity.badRequest().body("Error: Unregistered user");
         }
 
@@ -169,17 +185,17 @@ public class AuthController {
     @GetMapping("/signup/verify-email")
     public ResponseEntity<?> confirmEmail(@RequestParam("token") String token) {
 
-        if(token == null) {
+        if (token == null) {
             return ResponseEntity.badRequest().body("Error:  Couldn't verify email");
         }
 
-        if(!confirmationTokenService.existConfirmationToken(token)) {
+        if (!confirmationTokenService.existConfirmationToken(token)) {
             return new ResponseEntity<>("Invalid Token", HttpStatus.FORBIDDEN);
         }
 
         ConfirmationToken confirmationToken = confirmationTokenService.findByConfirmationToken(token);
 
-        if(confirmationTokenService.isExpired(confirmationToken)) {
+        if (confirmationTokenService.isExpired(confirmationToken)) {
             return new ResponseEntity<>("Token is expired", HttpStatus.FORBIDDEN);
         }
 

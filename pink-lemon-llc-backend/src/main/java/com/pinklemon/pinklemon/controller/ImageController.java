@@ -7,7 +7,6 @@ import com.pinklemon.pinklemon.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,9 +14,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.InputStream;
 import java.util.List;
 import java.util.Objects;
+import com.pinklemon.pinklemon.utills.MultipartinputStreamFileResource;
 
 @RestController
 @RequestMapping("/api/images")
@@ -147,21 +146,3 @@ public class ImageController {
     }
 }
 
-class MultipartinputStreamFileResource extends InputStreamResource {
-    private final String filename;
-
-    MultipartinputStreamFileResource(InputStream inputStream, String filename) {
-        super(inputStream);
-        this.filename = filename;
-    }
-
-    @Override
-    public String getFilename() {
-        return this.filename;
-    }
-
-    @Override
-    public long contentLength() {
-        return -1;
-    }
-}

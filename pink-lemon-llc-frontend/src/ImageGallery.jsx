@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import './ImageGallery.css';
 import Button from '@mui/material/Button';
-import myImage from './images/profilo di donna.jpg'; // Percorso dell'immagine
+import myImage from './images/profilo_di_donna.jpg'; // Percorso dell'immagine
 import myImage2 from './images/img1bis.png'; // Percorso dell'immagine
 import myImage3 from './images/img1.png'; // Percorso dell'immagine
 import myImage4 from './images/img2.png'; // Percorso dell'immagine

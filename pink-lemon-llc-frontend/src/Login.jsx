@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 
 import axios from 'axios';
 import './registration.css';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import Footer from './Footer';
 import { useAppContext } from './context/app';
 
@@ -23,7 +23,7 @@ const Login = () => {
 
             try {
                 const response = await axios.post(
-                    `${API_URL}/auth/login`,
+                    `${API_BASE_URL}/auth/login`,
                     { email, password },
                     {
                         headers: {

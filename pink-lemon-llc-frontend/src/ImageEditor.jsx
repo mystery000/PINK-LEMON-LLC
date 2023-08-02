@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { API_URL } from './config';
+import { API_BASE_URL } from './config';
 import { useAppContext } from './context/app';
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
 
 const ImageEditor = () => {
     const [image, setImage] = useState(null);
@@ -33,7 +35,7 @@ const ImageEditor = () => {
         formData.append('n', '1');
 
         try {
-            const response = await axios.post(`${API_URL}/images/edits`, formData, {
+            const response = await axios.post(`${API_BASE_URL}/images/edits`, formData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'multipart/form-data'
@@ -48,33 +50,54 @@ const ImageEditor = () => {
     };
 
     return (
-        <div>
-            <h2>Image Editor</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Image:
-                    <input type="file" accept="image/*" onChange={handleImageChange} />
-                </label>
-                <br />
-                <label>
-                    Mask:
-                    <input type="file" accept="image/*" onChange={handleMaskChange} />
-                </label>
-                <br />
-                <label>
-                    Prompt:
-                    <input type="text" value={prompt} onChange={handlePromptChange} />
-                </label>
-                <br />
-                <button type="submit">Edit Image</button>
-            </form>
-            {editedImage && (
-                <div>
-                    <h3>Edited Image:</h3>
-                    <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
-                </div>
-            )}
-        </div>
+        <>
+            <div className='blog1'>
+
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        <span className='p-pink'>Carica l'immagine iniziale, 1024x1024 pixel, formato PNG</span><br></br>
+                        <Input type="file" accept="image/*" onChange={handleImageChange}
+                        />
+                    </label>
+                    <br></br><br></br>
+                    <label>
+                        <span className='p-pink'>Carica la maschera, 1024x1024 pixel, formato PNG</span><br></br>
+                        <Input type="file" accept="image/*" onChange={handleMaskChange} />
+                    </label>
+                    <br /> <br />
+                    <label>
+                        <span className='p-pink'>Descrivi l'immagine che vuoi ottenere</span><br></br>
+                        <input type="text" value={prompt} onChange={handlePromptChange}
+                            placeholder="Descrivi l'immagine da generare"
+                            className="text-generation"
+                        />
+                    </label>
+
+                    <Button type="submit" variant="contained" color="secondary">Edita</Button>
+                </form>
+                {editedImage && (
+                    <div>
+                        <h3>Edited Image:</h3>
+                        <img src={editedImage} alt="Edited" style={{ maxWidth: '100%' }} />
+                    </div>
+                )}
+            </div>
+            <div className='blog1'>
+                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del muose, pulsante destro,  e selezionare "salva con nome". </p>
+            </div>
+            <p>
+                <b>COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE</b>
+            </p>
+            <p>
+                <b> Carica un'immagine di 1024x1024 pixel, formato PNG:</b> In questo modo PinkLemon potrà generare una variazione
+                ovvero una seconda immagine che avrà lo stesso formato dell'immagine di partenza, con lo stesso stile e colori ma conterrà alcuni
+                elementi di novità. <br></br>
+                <br></br>
+                <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
+                caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
+            </p>
+
+        </>
     );
 };
 

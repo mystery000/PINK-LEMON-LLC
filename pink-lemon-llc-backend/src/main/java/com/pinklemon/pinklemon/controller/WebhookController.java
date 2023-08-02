@@ -1,12 +1,12 @@
 package com.pinklemon.pinklemon.controller;
 
-import com.pinklemon.pinklemon.model.User;
 import com.pinklemon.pinklemon.service.UserService;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.model.Event;
 import com.stripe.model.checkout.Session;
 import com.stripe.net.Webhook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class WebhookController {
-    private static final String WEBHOOK_SECRET = "whsec_oQpHTYpRtC6V4miJuSKpPvdv70G7K7k3";
+
+    @Value("${webhook.secretKey}")
+    private String WEBHOOK_SECRET;
 
     @Autowired
     private UserService userService;
