@@ -9,14 +9,13 @@ function Error() {
             </div>
             <p>
                 Prova a controllare se email e password sono corrette ed effettua nuovamente il
-                login.{' '}
+                login.
             </p>
             <br></br>
             <br></br>
             <br></br>
             <br></br>
             <br></br>
-
             <Footer></Footer>
         </>
     );

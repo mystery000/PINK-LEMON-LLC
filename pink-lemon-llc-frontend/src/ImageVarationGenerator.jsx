@@ -60,7 +60,7 @@ const ImageVariationGenerator = () => {
                 </form>
             </div>
             <div className="blog1">
-                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del muose, pulsante destro e selezionare "salva con nome". </p>
+                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
             </div>
             {imageUrls.length > 0 && (
                 <div>
@@ -92,8 +92,6 @@ const ImageVariationGenerator = () => {
                 <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
                 caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
                 <br></br>
-
-
             </p>
         </div>
     );

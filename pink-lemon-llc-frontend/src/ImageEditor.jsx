@@ -1,9 +1,10 @@
 import { useState } from 'react';
+
 import axios from 'axios';
 import { API_BASE_URL } from './config';
-import { useAppContext } from './context/app';
-import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
+import Button from '@mui/material/Button';
+import { useAppContext } from './context/app';
 
 const ImageEditor = () => {
     const [image, setImage] = useState(null);
@@ -52,7 +53,6 @@ const ImageEditor = () => {
     return (
         <>
             <div className='blog1'>
-
                 <form onSubmit={handleSubmit}>
                     <label>
                         <span className='p-pink'>Carica l'immagine iniziale, 1024x1024 pixel, formato PNG</span><br></br>
@@ -72,7 +72,6 @@ const ImageEditor = () => {
                             className="text-generation"
                         />
                     </label>
-
                     <Button type="submit" variant="contained" color="secondary">Edita</Button>
                 </form>
                 {editedImage && (
@@ -83,7 +82,7 @@ const ImageEditor = () => {
                 )}
             </div>
             <div className='blog1'>
-                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del muose, pulsante destro,  e selezionare "salva con nome". </p>
+                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro,  e selezionare "salva con nome". </p>
             </div>
             <p>
                 <b>COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE</b>
@@ -96,7 +95,6 @@ const ImageEditor = () => {
                 <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
                 caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
             </p>
-
         </>
     );
 };

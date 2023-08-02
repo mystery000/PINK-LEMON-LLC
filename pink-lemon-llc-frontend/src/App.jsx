@@ -22,7 +22,6 @@ import ForgotPassword from './ForgotPassword';
 import { ManagedAppContext } from './context/app';
 import Errorregister from './Errorregister';
 
-
 function App() {
     return (
         <>

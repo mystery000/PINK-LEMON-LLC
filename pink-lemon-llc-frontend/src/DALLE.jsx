@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
 import React, { useCallback, useState } from 'react';
-import axios from 'axios';
-import Button from '@mui/material/Button';
+
 import './home.css';
+import axios from 'axios';
 import { API_BASE_URL } from './config';
+import Button from '@mui/material/Button';
 import { useAppContext } from './context/app';
 
 const DALLE = () => {
@@ -72,8 +73,7 @@ const DALLE = () => {
                 </Button>
             </div>
             <div className="blog1">
-                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del muose, pulsante destro e selezionare "salva con nome". </p>
-
+                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
             </div>
             <div className="generation-form">
                 {generatedImage && (
@@ -113,5 +113,5 @@ const DALLE = () => {
     );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export default DALLE;
