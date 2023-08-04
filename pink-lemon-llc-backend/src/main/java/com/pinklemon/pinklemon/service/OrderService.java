@@ -1,5 +1,6 @@
 package com.pinklemon.pinklemon.service;
 
+import com.pinklemon.pinklemon.enums.OrderState;
 import com.pinklemon.pinklemon.model.Order;
 import com.pinklemon.pinklemon.repository.OrderRepository;
 import com.stripe.Stripe;
@@ -11,8 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-
+import java.util.Date;
 
 @Service
 public class OrderService {
@@ -31,7 +31,7 @@ public class OrderService {
     }
 
     public Session createSession(String priceId, boolean isSubscription, int tokens) throws StripeException {
-        
+
         // supply success and failure url for stripe
         String successURL = domain + "/Pinkpic";
         String cancelURL = domain + "/Prices";
@@ -53,5 +53,16 @@ public class OrderService {
         }
 
         return Session.create(paramsBuilder.build());
+    }
+
+    public void save(Order order) {
+        orderRepository.save(order);
+    }
+
+    public void updateState(String orderId, OrderState state) {
+        Order order = orderRepository.findOrderByOrderId(orderId);
+        order.setState(state);
+        order.setModified(new Date());
+        orderRepository.save(order);
     }
 }
