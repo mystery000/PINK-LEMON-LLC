@@ -1,8 +1,12 @@
 package com.pinklemon.pinklemon.controller;
 
 import com.pinklemon.pinklemon.model.CheckoutResponse;
+import com.pinklemon.pinklemon.model.Order;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
+import com.pinklemon.pinklemon.enums.Currency;
+import com.pinklemon.pinklemon.enums.OrderState;
+import com.pinklemon.pinklemon.enums.OrderType;
 import com.pinklemon.pinklemon.model.CheckoutRequest;
 import com.pinklemon.pinklemon.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +34,16 @@ public class OrderController {
 
     @PostMapping("/create-checkout-session")
     public ResponseEntity<CheckoutResponse> createCheckout(@RequestBody CheckoutRequest checkoutRequest) throws StripeException {
-        Session session = orderService.createSession(checkoutRequest.getPriceId(), checkoutRequest.getIsSubscription(),checkoutRequest.getTokens());        
+       
+        // Create checkout serssion
+        Session session = orderService.createSession(checkoutRequest.getPriceId(), checkoutRequest.getIsSubscription(),checkoutRequest.getTokens()); 
+
+        // Save the order
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String email = userDetails.getUsername();
+        Order order = new Order(session.getId(), email, checkoutRequest.getIsSubscription()? OrderType.Subscription : OrderType.Package,  Currency.EUR, checkoutRequest.getTokens(), OrderState.Initialized, checkoutRequest.getPriceId());       
+        orderService.save(order);
+
         return new ResponseEntity<>(new CheckoutResponse(session.getId()), HttpStatus.OK);
     }
 }

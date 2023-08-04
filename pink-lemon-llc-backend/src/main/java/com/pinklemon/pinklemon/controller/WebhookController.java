@@ -1,5 +1,7 @@
 package com.pinklemon.pinklemon.controller;
 
+import com.pinklemon.pinklemon.enums.OrderState;
+import com.pinklemon.pinklemon.service.OrderService;
 import com.pinklemon.pinklemon.service.UserService;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.model.Event;
@@ -22,12 +24,17 @@ public class WebhookController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private OrderService orderService;
+
     @PostMapping("/api/webhook")
     public ResponseEntity<String> handleWebhook(@RequestHeader("Stripe-Signature") String sigHeader, @RequestBody String payload) {
         Event event = null;
+        Session session = null;
 
         try {
             event = Webhook.constructEvent(payload, sigHeader, WEBHOOK_SECRET);
+            session = (Session) event.getData().getObject();
         } catch (SignatureVerificationException e) {
             // Invalid signature
             return ResponseEntity.badRequest().build();
@@ -36,12 +43,13 @@ public class WebhookController {
         // Handle the event
         switch (event.getType()) {
             case "checkout.session.completed":
-                Session session = (Session) event.getData().getObject();
                 int tokens = Integer.parseInt(session.getMetadata().get("tokens"));
                 String email = session.getCustomerDetails().getEmail();
                 userService.addCredit(email, tokens);
+                orderService.updateState(session.getId(), OrderState.Completed);
                 break;
             case "checkout.session.expired":
+                orderService.updateState(session.getId(), OrderState.Failed);
                 break;
             default:
                 System.out.println("Unhandled event type:" + event.getType());
