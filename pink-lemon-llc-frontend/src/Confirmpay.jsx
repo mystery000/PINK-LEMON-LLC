@@ -1,12 +1,8 @@
-/* eslint-disable prettier/prettier */
-
 import './home.css';
 import Footer from './Footer';
 import ImageGallery from './ImageGallery';
 
 const Confirmpay = () => {
-    
-
     return (
         <>
             <div className="blog1">
@@ -16,7 +12,7 @@ const Confirmpay = () => {
             </div>
             <div className="blog1">
                 <p>
-                   Ora puoi andare alla pagina di Login e iniziare ad utilizzare i tuoi token.
+                    Ora puoi andare alla pagina di Login e iniziare ad utilizzare i tuoi token.
                     <br></br>
                     <br></br>
                     <br></br>

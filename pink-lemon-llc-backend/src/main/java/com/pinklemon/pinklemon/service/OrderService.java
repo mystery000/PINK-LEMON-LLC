@@ -33,7 +33,7 @@ public class OrderService {
     public Session createSession(String priceId, boolean isSubscription, int tokens) throws StripeException {
 
         // supply success and failure url for stripe
-        String successURL = domain + "/Pinkpic";
+        String successURL = domain + "/Confirmpay";
         String cancelURL = domain + "/Prices";
 
         SessionCreateParams.Builder paramsBuilder = SessionCreateParams.builder()
