@@ -1,26 +1,26 @@
-/* eslint-disable prettier/prettier */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import './App.css';
 import Home from './Home';
-import Contacts from './Contacts';
 import Navbar from './Navbar';
-import Registration from './Registration';
+import Contacts from './Contacts';
 import Login from './Login';
-import Success from './Success';
+import Registration from './Registration';
+import Successregister from './Successregister';
 import Error from './Error';
+import Success from './Success';
+import Prices from './Prices';
 import Pinkpic from './Pinkpic';
 import PinkVar from './PinkVar';
 import PinkEdit from './PinkEdit';
-import Prices from './Prices';
-import './App.css';
-import Successregister from './Successregister';
 import Confirm from './Confirm';
+import Confirmpay from './Confirmpay';
 import { Toaster } from 'react-hot-toast';
-import EmailVerification from './EmailVerification';
+import Errorregister from './Errorregister';
 import Resetpassword from './ResetPassword';
 import ForgotPassword from './ForgotPassword';
 import { ManagedAppContext } from './context/app';
-import Errorregister from './Errorregister';
+import EmailVerification from './EmailVerification';
 
 function App() {
     return (
@@ -42,6 +42,7 @@ function App() {
                         <Route path="/Pinkedit" element={<PinkEdit />} />
                         <Route path="/Prices" element={<Prices />} />
                         <Route path="/Confirm" element={<Confirm />} />
+                        <Route path="/Confirmpay" element={<Confirmpay />} />
                         <Route path="/verify-email/:token" element={<EmailVerification />} />
                         <Route path="/forgot-password" element={<ForgotPassword />} />
                         <Route path="/reset-password/:token" element={<Resetpassword />} />

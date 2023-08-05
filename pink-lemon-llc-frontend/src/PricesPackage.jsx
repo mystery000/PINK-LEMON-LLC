@@ -138,7 +138,6 @@ export default function PricesPackage() {
                                     variant={tier.buttonVariant}
                                     color="secondary"
                                     onClick={async () => {
-                                        console.log(accessToken)
                                         if (accessToken.length < 1) {
                                             toast.error('Per acquistare token devi fare il login');
                                             return;
