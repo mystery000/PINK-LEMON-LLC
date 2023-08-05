@@ -21,6 +21,7 @@ import Resetpassword from './ResetPassword';
 import ForgotPassword from './ForgotPassword';
 import { ManagedAppContext } from './context/app';
 import Errorregister from './Errorregister';
+import Confirmpay from './Confirmpay';
 
 function App() {
     return (
@@ -42,6 +43,7 @@ function App() {
                         <Route path="/Pinkedit" element={<PinkEdit />} />
                         <Route path="/Prices" element={<Prices />} />
                         <Route path="/Confirm" element={<Confirm />} />
+                        <Route path="/Confirmpay" element={<Confirmpay />} />
                         <Route path="/verify-email/:token" element={<EmailVerification />} />
                         <Route path="/forgot-password" element={<ForgotPassword />} />
                         <Route path="/reset-password/:token" element={<Resetpassword />} />
