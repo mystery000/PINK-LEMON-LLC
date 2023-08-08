@@ -14,34 +14,20 @@ function PinkEdit() {
                 <h1 className="h1-description">Modifica un'immagine con l'AI</h1>
             </div>
 
+            <div className='container'> 
             <div className="blog1">
-                <h2 className="h2-description">Fai l'upload dell' immagine originale</h2>
+               <div className='home'> 
+               
+               <img src={myImage} alt="Descrizione dell'immagine" className='donna'/>
+               </div>
+               <div className='home1'> E' possibile modificare un'immagine con Pink Lemon in modo che 
+               venga generato un nuovo elemento al posto di uno spazio appositamente lasciato vuoto.<br></br>
+               Per modificare un'immagine occorre un'immagine di partenza di 1024x1024 pixel, formato
+               png, una seconda immagine con uno spazio vuoto sempre dello stesso formato e una breve descrizione testuale.
+               <br></br>In questo modo è possibile descrivere le proprie immaginazioni e realizzarle. L'immagine con lo spazio vuoto si chiama "maschera".</div>
             </div>
-            <div className="contaier">
-                <div className="blog2">
-                    <div>
-                        <img src={myImage} alt="Descrizione dell'immagine" className="img" />
-                    </div>
-                    <div>
-                        <p className="img-description">
-                            <div className="img-span">Immagine originale generata con l'AI</div>
-                            Le dimesioni dell'immagine originale e della maschera devono coincedere
-                            e per utilizzare PinkLemon devono essere di 1024x1024 pixel, formato
-                            png.
-                            <br></br> Oltre a caricare due immagini è necessario descrivere
-                            l'immagine si vuole ottenere riempendo lo spazio lasciato vuoto nella
-                            maschera: si tratta un prompt analogo a quello usato per la generazione
-                            di immagini da zero. <br></br>
-                            Un'immagine di partenza, una maschera e un prompt: e la magia si
-                            realizza.
-                        </p>
-                    </div>
-                </div>
-                <div className="blog1">
-                    <h2 className="h2-description">
-                        Fai l'upload anche della maschera e scrivi un prompt preciso
-                    </h2>
-                </div>
+            </div>
+
                 <div className="blog1">
                     <h2 className="h2-description">"Genera un'anguria sulla poltrona"</h2>
                 </div>
@@ -52,7 +38,7 @@ function PinkEdit() {
                         <img src={myImage2} alt="Descrizione dell'immagine" className="img" />
                     </div>
                 </div>
-            </div>
+            
 
             <Footer></Footer>
         </>
