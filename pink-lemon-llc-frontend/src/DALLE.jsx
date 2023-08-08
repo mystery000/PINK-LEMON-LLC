@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
 import React, { useCallback, useState } from 'react';
@@ -72,43 +73,49 @@ const DALLE = () => {
                     {isLoading ? 'Generating...' : 'Genera ora'}
                 </Button>
             </div>
-            <div className="blog1">
-                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
+            <div className="container">
+                <p className='p-page1'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
             </div>
             <div className="generation-form">
                 {generatedImage && (
                     <div>
-                        <img src={generatedImage.src} alt="Generated" />
+                        <img src={generatedImage.src} alt="Generated" className='generated' />
                     </div>
                 )}
             </div>
-            <p>
-                <b>CONSIGLI PER GENERARE IMMAGINI MIGLIORI</b>
-            </p>
-            <p>
-                <b> Specifica chiaramente l'intento:</b> Inizia il tuo prompt descrivendo in modo
+
+            <div className='container'> 
+            <p className='p-page'>
+              CONSIGLI PER GENERARE IMMAGINI MIGLIORI <br></br><br></br>
+                1.Specifica chiaramente l'intento:Inizia il tuo prompt descrivendo in modo
                 chiaro e conciso ciò che desideri generare.
                 <br></br><br></br>
-                <b> Utilizza descrizioni dettagliate:</b> Più i dettagli sono specifici, migliori
+                2.Utilizza descrizioni dettagliate: Più i dettagli sono specifici, migliori
                 saranno le probabilità di ottenere un'immagine che corrisponde alle tue aspettative.
                 <br></br><br></br>
-                <b> Sperimenta con gli attributi di stile:</b> Ad esempio, puoi richiedere
+                3.Sperimenta con gli attributi di stile: Ad esempio, puoi richiedere
                 uno stile pittorico, un aspetto da cartoon o una resa realistica.
                 <br></br> <br></br>
-                <b>Esempi di riferimento: </b>Puoi fornire esempi di immagini che si
+                4.Esempi di riferimento: Puoi fornire esempi di immagini che si
                 avvicinano a ciò che stai cercando di generare.
                 <br></br><br></br>
-                <b>Esperimenti progressivi:</b> Se l'immagine generata non soddisfa completamente le
+                5.Esperimenti progressivi:Se l'immagine generata non soddisfa completamente le
                 tue aspettative, puoi provare ad affinare il prompt in modo incrementale.
-                <br></br>
-                <br></br>
-                <b> Sii paziente e sperimenta:</b> LemonPink può generare immagini
+                <br></br><br></br>
+                
+                6.Sii paziente e sperimenta:LemonPink può generare immagini
                 sorprendenti, ma potrebbe richiedere alcuni tentativi per ottenere i risultati
                 desiderati.<br></br><br></br>
-                <b>Esempio di prompt:</b> "Immagine di una foresta con i colori blu e viola che ricordi il film The BlairWitch Project".
-                <br></br>
-
+                Esempio di prompt:"Immagine di una foresta con i colori blu e viola che ricordi il film The BlairWitch Project".
+                <br></br><br></br>
+            
             </p>
+            </div>
+           
+           
+
+
+           
         </div>
     );
 };

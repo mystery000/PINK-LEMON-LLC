@@ -81,27 +81,23 @@ const ImageEditor = () => {
                 </div>
             )}
 
-            <div className='blog1'>
-                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro,  e selezionare "salva con nome". </p>
+<div className="container">
+                <p className='p-page1'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
             </div>
-            <p>
-                <b>COME FUNZIONA L'EDITING DI UN'IMMAGINE</b>
-            </p>
-            <p>
-                <b> Carica un'immagine di 1024x1024 pixel formato PNG, senza zone vuote come base:</b> In questo modo PinkLemon può effettuare l'editing
+            <div className='container'> 
+            <p className='p-page'>
+            COME FUNZIONA L'EDITING DI UN'IMMAGINE <br></br><br></br>
+                1.Carica un'immagine di 1024x1024 pixel formato PNG, senza zone vuote come base: in questo modo PinkLemon può effettuare l'editing
                 a partire da un riferimento.
-                <br></br>
-                <br></br>
-
-                <b> Carica un'immagine, la maschera, di 1024x1024 pixel formato PNG, con una zona vuota:</b> In questo modo PinkLemon può effettuare l'editing
+                <br></br><br></br>
+                2.Carica un'immagine, la maschera, di 1024x1024 pixel formato PNG, con una zona vuota: In questo modo PinkLemon può effettuare l'editing
                 sapendo già dove generare nuovo elemento.
-                <br></br>
-                <br></br>
-                <b> Descrivi nel campo di testo l'elemento che vuoi generare nello spazio vuoto.</b> Ad esempio:"crea un gatto nero seduto in poltrona".
-                <br></br>
-                <br></br>
-
+                <br></br><br></br>
+                3.Descrivi nel campo di testo l'elemento che vuoi generare nello spazio vuoto. Ad esempio:"crea un gatto nero seduto in poltrona".
+                <br></br> <br></br>
+            
             </p>
+            </div>
         </>
     );
 };

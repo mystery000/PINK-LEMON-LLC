@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
@@ -59,8 +60,8 @@ const ImageVariationGenerator = () => {
                     </Button>
                 </form>
             </div>
-            <div className="blog1">
-                <p className='p-pink'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
+            <div className="container">
+                <p className='p-page1'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
             </div>
             {imageUrls.length > 0 && (
                 <div>
@@ -69,30 +70,38 @@ const ImageVariationGenerator = () => {
                             <img
                                 key={index}
                                 src={url}
+                        
                                 alt={`Generated Variation ${index}`}
                                 style={{
                                     width: '1024px',
                                     height: '1024px',
                                     marginleft: '20px',
                                     marginRight: '20px'
-                                }}
+                                
+                                }
+                            
+                            }
                             />
                         ))}
                     </div>
                 </div>
             )}
-            <p>
-                <b>COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE</b>
-            </p>
-            <p>
-                <b> Carica un'immagine di 1024x1024 pixel, formato PNG:</b> In questo modo PinkLemon potrà generare una variazione
+             <div className='container'> 
+            <p className='p-page'>
+            COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE<br></br><br></br>
+                1.Carica un'immagine di 1024x1024 pixel, formato PNG: In questo modo PinkLemon potrà generare una variazione
                 ovvero una seconda immagine che avrà lo stesso formato dell'immagine di partenza, con lo stesso stile e colori ma conterrà alcuni
-                elementi di novità. <br></br>
-                <br></br>
-                <b> Come ottenere più variazioni:</b> Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
-                caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale. <br></br>
-                <br></br>
+                elementi di novità.
+                <br></br><br></br>
+                2.Come ottenere più variazioni:Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
+                caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale.
+                <br></br><br></br>
+        
+            
             </p>
+            </div>
+            
+    
         </div>
     );
 };
