@@ -56,24 +56,24 @@ const ImageEditor = () => {
             <div className='blog1'>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        <span className='p-pink'>Carica l'immagine iniziale, 1024x1024 pixel, formato PNG</span><br></br>
+                        <span className='p-pink'>Upload first image, as basis.</span><br></br>
                         <Input type="file" accept="image/*" onChange={handleImageChange}
                         />
                     </label>
                     <br></br><br></br>
                     <label>
-                        <span className='p-pink'>Carica la maschera, 1024x1024 pixel, formato PNG</span><br></br>
+                        <span className='p-pink'>Upload "mask" image, with an empty space</span><br></br>
                         <Input type="file" accept="image/*" onChange={handleMaskChange} />
                     </label>
                     <br /> <br />
                     <label>
-                        <span className='p-pink'>Descrivi l'immagine che vuoi ottenere</span><br></br>
+                        <span className='p-pink'>Describe image you want to create</span><br></br>
                         <input type="text" value={prompt} onChange={handlePromptChange}
                             placeholder="Descrivi l'immagine da generare"
                             className="text-generation"
                         />
                     </label>
-                    <Button type="submit" variant="contained" color="secondary">Edita</Button>
+                    <Button type="submit" variant="contained" color="secondary">Edit</Button>
                 </form> </div>
             {editedImage && (
                 <div className='blog1'>
@@ -82,20 +82,20 @@ const ImageEditor = () => {
             )}
 
 <div className="container">
-                <p className='p-page1'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
+                <p className='p-page1'>The image is generated below: size 1024x1024 pixels, PNG format. To save the image, simply hover over it with the mouse pointer, right-click, and select "Save As." </p>
             </div>
             <div className='container'> 
             <p className='p-page'>
-            COME FUNZIONA L'EDITING DI UN'IMMAGINE <br></br><br></br>
-                1.Carica un'immagine di 1024x1024 pixel formato PNG, senza zone vuote come base: in questo modo PinkLemon può effettuare l'editing
-                a partire da un riferimento.
+            HOW IMAGE EDITING WORKS <br></br><br></br>
+                1.Upload a 1024x1024 pixel PNG format image without empty areas as a 
+                base: This way, PinkLemon can perform editing with a reference image.
                 <br></br><br></br>
-                2.Carica un'immagine, la maschera, di 1024x1024 pixel formato PNG, con una zona vuota: In questo modo PinkLemon può effettuare l'editing
-                sapendo già dove generare nuovo elemento.
+                2.Upload an image, the mask, of 1024x1024 pixel PNG format, with an empty area: 
+                This allows PinkLemon to perform editing while already knowing where to generate a new element.
                 <br></br><br></br>
-                3.Descrivi nel campo di testo l'elemento che vuoi generare nello spazio vuoto. Ad esempio:"crea un gatto nero seduto in poltrona".
+                3.Describe in the text field the element you want to generate in the empty space. For example: "Create a black cat sitting in an armchair."
                 <br></br> <br></br>
-            
+        
             </p>
             </div>
         </>

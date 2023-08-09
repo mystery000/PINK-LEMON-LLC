@@ -1,7 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import axios from 'axios';
+import ImageGallery from './ImageGallery';
+
 
 // Import components and stylesheets
 import './registration.css';
@@ -36,17 +39,17 @@ const Registration = () => {
 
     return (
         <>
-            <h1 className="h1-description"> REGISTRATI E RICEVI 5 TOKEN GRATUITI</h1>
-            <h2 className="h2-description"> Crea, varia e modifica immagini di 1024x1024 pixel</h2>
+            <h1 className="h1-description"> SIGN UP AND RECEIVE 5 FREE TOKENS</h1>
+            <h2 className="h2-description"> Create, modify, and edit images of 1024x1024 pixels</h2>
             <div className="form-container">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>   
                     <label>
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
-                            placeholder="NOME"
+                            placeholder="NAME"
                         />
                     </label>
                     <br></br>
@@ -56,7 +59,7 @@ const Registration = () => {
                             value={surname}
                             onChange={(e) => setSurname(e.target.value)}
                             required
-                            placeholder="COGNOME"
+                            placeholder="SURNAME"
                         />
                     </label>
                     <br></br>
@@ -67,6 +70,7 @@ const Registration = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                             placeholder="PASSWORD"
+                            className='text-area'
                         />
                     </label>
                     <br></br>
@@ -86,7 +90,11 @@ const Registration = () => {
                         </Button>
                     </div>
                 </form>
+                
             </div>
+            <div className="h2-description">Pink Lemon Album</div>
+            <ImageGallery></ImageGallery>
+           
             <Footer></Footer>
         </>
     );

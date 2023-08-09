@@ -5,6 +5,11 @@
     padding: 20px;
     background-color: #f4f4f4;
     border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* Stile dei campi di input */
@@ -12,7 +17,7 @@
 .form-container input[type='email'],
 .form-container input[type='password'],
 .form-container textarea {
-    width: 100%;
+
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -20,9 +25,15 @@
     box-sizing: border-box;
 }
 
+.text-area{
+
+    width: 480;
+}
+
+
 /* Stile del pulsante di invio */
 .form-container input[type='submit'] {
-    width: 100%;
+    
     padding-left: 10px;
     background-color: #4caf50;
     color: white;
@@ -43,6 +54,10 @@
     margin-top: 10px;
 }
 
+
+
 .btn-cen {
-    margin-left: 120px;
+    width: 60px;
+    text-align: center;
+    margin: 0 auto;
 }

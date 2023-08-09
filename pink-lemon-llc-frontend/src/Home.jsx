@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unescaped-entities */
 import './home.css';
-
 import Footer from './Footer';
 import Button from '@mui/material/Button';
 import ImageGallery from './ImageGallery';
@@ -16,12 +15,12 @@ function Home() {
         <>
         
             <div className="blog1">
-                <h1 className="h1-description">Immagina, Descrivi, Realizza.</h1>
+                <h1 className="h1-description">Immagine, Describe, Create</h1>
             </div>
 
             <div className="blog1">
                 <h2 className="h2-description">
-                    Espandi le possibilità della tua creatività con l'IA.
+                Expand the possibilities of your creativity with AI
                 </h2>
             </div>
           
@@ -32,13 +31,7 @@ function Home() {
                
                <img src={myImage} alt="Descrizione dell'immagine" className='donna'/>
                </div>
-               <div className='home1'>  Molti elementi di questa immagine sono stati generati
-            spontamentamente a partire da una breve descrizione testuale.
-            La donna ha gli occhi chiusi, forse sta dormendo. O forse come in una tragedia di
-            Shakespeare la donna sogna di sognare. Anche la definizione del profilo, il fatto che la nuca si perda
-            nella notte dello sfondo è del tutto casuale. Forse la descrizione testuale era già
-            l'abbozzo di un sogno. Il sogno di una donna che sta dormendo, i cui pensieri volano via
-            col vento. Con l'intelligenza artificiale è possibile descrivere le proprie immaginazioni e realizzarle.</div>
+               <div className='home1'> Many elements of this image have been generated from a brief textual description. The woman has her eyes closed, perhaps she is sleeping. Or perhaps, like in a Shakespearean tragedy, the woman dreams of dreaming. Even the definition of the profile, the fact that the nape disappears into the night of the background, is entirely random. Maybe the textual description was already the outline of a dream. The dream of a woman who is sleeping, whose thoughts fly away with the wind. With artificial intelligence, it is possible to describe one's imaginings and bring them to life.</div>
             </div>
             </div>
            
@@ -46,17 +39,17 @@ function Home() {
             <div className="blog1">
                 <div className="action">
                     <div className="h3-action">
-                        RICEVI 5 TOKEN GRATUITI E GENERA IMMAGINI UNICHE*
+                        SIGN UP AND CREATE 5 IMAGES FOR FREE*
                     </div>
                     <Button variant="contained" color="secondary" onClick={handleClick}>
-                        PROVA ORA
+                        TRY NOW
                     </Button>
                     <br></br>
-                    <p className="p-action">*Non è richiesta la carta di credito.</p>
+                    <p className="p-action">*Credit card not required.</p>
                 </div>
             </div>
 
-            <div className="h2-description">Raccolta di immagini create con Pink Lemon</div>
+            <div className="h2-description">Pink Lemon Album</div>
 
             <ImageGallery></ImageGallery>
 

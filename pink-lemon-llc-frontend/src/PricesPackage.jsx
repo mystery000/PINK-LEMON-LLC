@@ -27,9 +27,9 @@ const tiers = [
     {
         name: 'PinkShot',
         description: [
-            '80 token validi un anno',
-            'Immagini 1024x1024 pixel',
-            'Nessun abbonamento'
+            '80 token for one year',
+            'Images 1024x1024 pixel',
+            'No subscription'
         ],
         price: {
             amount: 5,
@@ -38,16 +38,16 @@ const tiers = [
         items: {
             tokens: 80
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained',
         color: 'secondary'
     },
     {
         name: 'PinkWeek',
         description: [
-            '200 token validi un anno',
-            'Immagini 1024x1024 pixel',
-            'Nessun abbonamento'
+            '200 token for one year',
+            'Images 1024x1024 pixel',
+            'No subscription'
         ],
         price: {
             amount: 10,
@@ -56,15 +56,15 @@ const tiers = [
         items: {
             tokens: 200
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     },
     {
         name: 'PinkLove',
         description: [
-            '500 token validi un anno',
-            'Immagini 1024x1024 pixel',
-            'Nessun abbonamento'
+            '500 token for one year',
+            'Images 1024x1024 pixel',
+            'No subscription'
         ],
         price: {
             amount: 20,
@@ -73,7 +73,7 @@ const tiers = [
         items: {
             tokens: 500
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     }
 ];

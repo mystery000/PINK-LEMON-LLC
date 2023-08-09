@@ -18,12 +18,12 @@ const TabMenuPrices = () => {
                 <button
                     className={activeTab === 'componente1' ? 'active' : ''}
                     onClick={() => handleTabClick('componente1')}>
-                    PACCHETTI
+                    ONE TIME PURCHASE
                 </button>
                 <button
                     className={activeTab === 'componente2' ? 'active' : ''}
                     onClick={() => handleTabClick('componente2')}>
-                    ABBONAMENTI
+                    SUBSCRIPTION
                 </button>
 
             </div>

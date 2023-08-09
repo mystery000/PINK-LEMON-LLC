@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 import { useNavigate } from 'react-router-dom';
 import { React, useCallback, useState } from 'react';
+import ImageGallery from './ImageGallery';
+import Footer from './Footer';
+
 
 import './recovery.css';
 import axios from 'axios';
@@ -34,15 +38,27 @@ const ForgotPassword = () => {
 
     return (
         <>
-            <h1 className="h1-description">Aggiorna la tua password</h1>
-            <h2 className="h2-description"> Inserisci la tua email e seleziona invia</h2>
+            <h1 className="h1-description">Update your password</h1>
+            <h2 className="h2-description"> Insert your email and click "send" button</h2>
+            <br></br><br></br>
             <div className='recovery'>
-                <input type="email" placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email"  className='text-recovery' placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <div className='recovery'>
-                    <button onClick={() => navigate(-1)}> Reset</button>
-                    <button onClick={sendEmail}> Invia </button>
+                    
+                    <button onClick={sendEmail} className='btn-recovery'> Send </button>
+                    <button onClick={() => navigate(-1)} className='btn-recovery'> Reset</button>
                 </div>
             </div>
+            <br></br><br></br>
+            <br></br><br></br>
+            <div className="h2-description">Pink Lemon Album</div>
+
+     
+
+            <ImageGallery></ImageGallery>
+            <Footer></Footer>
+
+
         </>
     );
 };

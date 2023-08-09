@@ -8,6 +8,9 @@
 .gallery-image {
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .box-gallery {
@@ -22,7 +25,32 @@
 
     display: flex;
     justify-content: center;
+    text-align: center;
     margin-top: 30px;
     padding-top: 30px;
+    align-items: center;
+    margin: 0 auto;
+   
+}
+
+    .container-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+
+}
+
+
+@media all and (max-width: 1400px) {
+
+.box-gallery {
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+}
 
 }

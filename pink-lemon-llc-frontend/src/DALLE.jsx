@@ -74,7 +74,7 @@ const DALLE = () => {
                 </Button>
             </div>
             <div className="container">
-                <p className='p-page1'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
+                <p className='p-page1'>The image is generated below: size 1024x1024 pixels, PNG format. To save the image, simply hover over it with the mouse pointer, right-click, and select "Save As."</p>
             </div>
             <div className="generation-form">
                 {generatedImage && (
@@ -86,27 +86,23 @@ const DALLE = () => {
 
             <div className='container'> 
             <p className='p-page'>
-              CONSIGLI PER GENERARE IMMAGINI MIGLIORI <br></br><br></br>
-                1.Specifica chiaramente l'intento:Inizia il tuo prompt descrivendo in modo
-                chiaro e conciso ciò che desideri generare.
+                TIPS FOR GENERATING BETTER IMAGES <br></br><br></br>
+                1.Clearly specify intent: Start your prompt by clearly and concisely describing what you want to generate.
                 <br></br><br></br>
-                2.Utilizza descrizioni dettagliate: Più i dettagli sono specifici, migliori
-                saranno le probabilità di ottenere un'immagine che corrisponde alle tue aspettative.
+                2.Use detailed descriptions: The more specific the details, the better the chances of 
+                getting an image that meets your expectations.
                 <br></br><br></br>
-                3.Sperimenta con gli attributi di stile: Ad esempio, puoi richiedere
-                uno stile pittorico, un aspetto da cartoon o una resa realistica.
+                3.Experiment with style attributes: For instance, you can request a 
+                painterly style, a cartoonish look, or a realistic rendering.
                 <br></br> <br></br>
-                4.Esempi di riferimento: Puoi fornire esempi di immagini che si
-                avvicinano a ciò che stai cercando di generare.
+                4.Reference examples: You can provide sample images that resemble what you're trying to generate.
                 <br></br><br></br>
-                5.Esperimenti progressivi:Se l'immagine generata non soddisfa completamente le
-                tue aspettative, puoi provare ad affinare il prompt in modo incrementale.
+                5.Progressive experimentation: If the generated image doesn't fully meet your expectations, you can try refining the prompt incrementally.
                 <br></br><br></br>
                 
-                6.Sii paziente e sperimenta:LemonPink può generare immagini
-                sorprendenti, ma potrebbe richiedere alcuni tentativi per ottenere i risultati
-                desiderati.<br></br><br></br>
-                Esempio di prompt:"Immagine di una foresta con i colori blu e viola che ricordi il film The BlairWitch Project".
+                6.Be patient and experiment: LemonPink can produce amazing images, but it might take a few attempts to achieve the desired results.<br></br><br></br>
+
+                Example prompt: "Image of a forest with blue and purple hues reminiscent of The Blair Witch Project film."
                 <br></br><br></br>
             
             </p>

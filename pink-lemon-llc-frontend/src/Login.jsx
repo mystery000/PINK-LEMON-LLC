@@ -2,6 +2,7 @@
 /* eslint-disable prettier/prettier */
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ImageGallery from './ImageGallery';
 
 import axios from 'axios';
 import './registration.css';
@@ -42,7 +43,7 @@ const Login = () => {
 
     return (
         <>
-            <h2 className="h1-description">Accedi</h2>
+            <h2 className="h1-description">Login</h2>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -69,7 +70,7 @@ const Login = () => {
                             margin: '16px 0px',
                             cursor: 'pointer'
                         }}>
-                        Password dimenticata?
+                        Forgot Password?
                     </div>
                     <div
                         onClick={() => navigate('/Registration')}
@@ -79,7 +80,7 @@ const Login = () => {
                             margin: '16px 0px',
                             cursor: 'pointer'
                         }}>
-                        Registrati
+                        Sign up now
                     </div>
                     <div className="btn-cen">
                         <Button variant="contained" color="secondary" type="submit">
@@ -88,6 +89,12 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+            <br></br>
+            <br></br>
+            <div className="h2-description">Pink Lemon Album</div>
+
+            <ImageGallery></ImageGallery>
+
             <Footer></Footer>
         </>
     );

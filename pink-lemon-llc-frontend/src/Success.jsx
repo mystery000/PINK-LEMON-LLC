@@ -36,7 +36,7 @@ const Success = () => {
                 <>
                     <div className="blog1">
                         <p className='p-pink'>
-                            Ciao {`${user.name} ${user.surname}`}, il tuo credito attuale è:{' '}
+                            Hi {`${user.name} ${user.surname}`}, your balance is:{' '}
                             {credit} token
                         </p>
                     </div>

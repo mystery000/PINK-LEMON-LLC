@@ -26,9 +26,11 @@ const tiers = [
     {
         name: 'PinkStart',
         description: [
-            '100 token al mese',
-            'Immagini 1024x1024 pixel',
-            'Abbonamento 12 mesi'
+            
+            '100 token / month',
+            'Images 1024x1024 pixel',
+            '1 year subscription'
+            
 
         ],
         price: {
@@ -38,16 +40,17 @@ const tiers = [
         items: {
             tokens: 100
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained',
         color: 'secondary'
     },
     {
         name: 'PinkPro',
         description: [
-            '250 token al mese',
-            'Immagini 1024x1024 pixel',
-            'Abbonamento 12 mesi'
+
+            '250 token / month',
+            'Images 1024x1024 pixel',
+            '1 year subscription'
 
         ],
         price: {
@@ -57,15 +60,15 @@ const tiers = [
         items: {
             tokens: 250
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     },
     {
         name: 'PinkStar',
         description: [
-            '600 token al mese',
-            'Immagini 1024x1024 pixel',
-            'Abbonamento 12 mesi'
+            '600 token / month',
+            'Images 1024x1024 pixel',
+            '1 year subscription'
         ],
         price: {
             amount: 20,
@@ -74,7 +77,7 @@ const tiers = [
         items: {
             tokens: 600
         },
-        buttonText: 'Acquista',
+        buttonText: 'Purchase',
         buttonVariant: 'contained'
     }
 ];
@@ -118,7 +121,7 @@ export default function Pricing() {
                                         ${tier.price.amount}
                                     </Typography>
                                     <Typography variant="h6" color="text.secondary">
-                                        /al mese
+                                        /month
                                     </Typography>
                                 </Box>
                                 <PricingList>
