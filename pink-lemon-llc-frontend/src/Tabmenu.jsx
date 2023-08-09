@@ -18,22 +18,22 @@ const TabMenu = () => {
                 <button
                     className={activeTab === 'componente1' ? 'active' : ''}
                     onClick={() => handleTabClick('componente1')}>
-                    PINKPIC
+                    CREATE
                 </button>
                 <button
                     className={activeTab === 'componente2' ? 'active' : ''}
                     onClick={() => handleTabClick('componente2')}>
-                    PINKVAR
+                    VARIATE
                 </button>
                 <button
                     className={activeTab === 'componente3' ? 'active' : ''}
                     onClick={() => handleTabClick('componente3')}>
-                    PINKEDIT
+                   EDIT
                 </button>
                 <button
                     className={activeTab === 'componente4' ? 'active' : ''}
                     onClick={() => handleTabClick('componente4')}>
-                    ACQUISTA TOKEN
+                    PURCHASE TOKEN
                 </button>
             </div>
 

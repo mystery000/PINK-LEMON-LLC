@@ -39,7 +39,7 @@ const Successregister = () => {
     return (
         <>
             <div className="blog1">
-                <h2 className="h2-description2">Complimenti hai quasi finito</h2>
+                <h2 className="h2-description2">Everything is almost done!</h2>
             </div>
             <div className="blog1">
                 <p>
@@ -60,7 +60,7 @@ const Successregister = () => {
                             {sending ? 'Sending...' : 'Resend Verification Email'}
                         </button>
                     </div>
-                    Buon divertimento dallo staff di PinkLemon!
+                    Welcome from PinkLemon Staff!
                 </p>
             </div>
             <ImageGallery></ImageGallery>
