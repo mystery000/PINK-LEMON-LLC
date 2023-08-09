@@ -7,17 +7,16 @@ const Confirmpay = () => {
         <>
             <div className="blog1">
                 <h2 className="h2-description2">
-                    Complimenti, il pagamento è andato a buon fine!
+                Congratulations, the payment was successful!
                 </h2>
             </div>
             <div className="blog1">
                 <p>
-                    Ora puoi andare alla pagina di Login e iniziare ad utilizzare i tuoi token.
+                Now you can proceed to the Login page and start using your tokens.
                     <br></br>
                     <br></br>
                     <br></br>
-                    Buon divertimento dallo staff di PinkLemon!
-                </p>
+                    Enjoy your time with PinkLemon!
             </div>
             <ImageGallery></ImageGallery>
             <Footer></Footer>

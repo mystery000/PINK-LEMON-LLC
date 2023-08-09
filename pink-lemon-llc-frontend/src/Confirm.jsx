@@ -10,16 +10,18 @@ const Confirm = () => {
         <>
             <div className="blog1">
                 <h2 className="h2-description2">
-                    Complimenti, la registrazione è andata a buon fine!
+                Congratulations, your registration was successful! 
                 </h2>
             </div>
             <div className="blog1">
                 <p>
-                    Ora puoi andare alla pagina di Login e iniziare ad utilizzare i tuoi token.
+                You can now proceed to the Login page and start using your tokens.
+
                     <br></br>
                     <br></br>
                     <br></br>
-                    Buon divertimento dallo staff di PinkLemon!
+                   
+            Enjoy your time with PinkLemon!
                 </p>
             </div>
             <ImageGallery></ImageGallery>
