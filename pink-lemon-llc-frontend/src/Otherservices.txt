@@ -110,3 +110,40 @@
 
 
       margin-right: 300px;
+
+
+      paragrafo immagine + testo
+
+      <div className="blog2">
+                    <div>
+                        <img src={myImage} alt="Descrizione dell'immagine" className="img" />
+                    </div>
+                    <div>
+                        <p className="img-description">
+                            <div className="img-span">Profilo di donna con i capelli al vento</div>
+                            Tutti gli elementi di questa immagine sono stati generati
+                            spontamentamente dall'IA, a partire da una breve descrizione testuale.
+                            La donna ha gli occhi chiusi, forse sta dormendo.<br></br> O forse, come
+                            in una tragedia di Shakespeare, la donna sogna di sognare. Anche la
+                            definizione del profilo, il fatto che la nuca si perda nella notte dello
+                            sfondo è stata generata dall'IA.<br></br> Forse la descrizione testuale
+                            era già l'abbozzo di un sogno. Il sogno di una donna che sta sognando, i
+                            cui pensieri volano via nella notte.
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+testo 1 pinkpic
+
+ La generazioni di immagini attraverso l'intelligenza artificiale non ha
+                            limiti: grandi potenzialità che possono sfruttare con una corretta
+                            descrizione (prompt) della propria idea.
+                            <br></br> Tipo di prospettiva, colori da utilizzare, immagine che si
+                            vuole creare, riferimenti estetici e stile sono elementi fondamentali
+                            per ottenere ottimi risultati.
+                            <br></br>
+                            Si instaura tra chi pensa e descrive l'immagine e la rete neuronale che
+                            interpreta la richiesta un rapporto creativo. E la magia si realizza.

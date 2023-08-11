@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 import Home from './Home';
-import Navbar from './Navbar';
 import Contacts from './Contacts';
 import Login from './Login';
 import Registration from './Registration';
@@ -21,13 +20,14 @@ import Resetpassword from './ResetPassword';
 import ForgotPassword from './ForgotPassword';
 import { ManagedAppContext } from './context/app';
 import EmailVerification from './EmailVerification';
+import Navbar2 from './Navbar2';
 
 function App() {
     return (
         <>
             <ManagedAppContext>
                 <BrowserRouter>
-                    <Navbar />
+                    <Navbar2 />
                     <Routes>
                         <Route exact path="/" element={<Home />} />
                         <Route path="/Contacts" element={<Contacts />} />

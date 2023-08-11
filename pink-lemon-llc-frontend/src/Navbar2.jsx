@@ -8,9 +8,6 @@ import 'bootstrap/scss/bootstrap.scss';
 import './navbar2.css'; 
 import Logo from './images/PinkLemonLogo.png'; // Percorso dell'immagine
 
- 
-
-
 function Navbar2() {
   return (
    <div className='navbar-position'>

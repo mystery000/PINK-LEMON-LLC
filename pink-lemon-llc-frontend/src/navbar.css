@@ -1,62 +1,33 @@
 /* NUOVA NAVBAR */
 
 .navbar-position {
-    
-       justify-content: center;
-       display: flex;
-     
+    justify-content: center;
+    display: flex;
+}
 
-    }
+.logo {
+    color: rgb(218, 20, 142);
+    font-family: 'system-ui';
+}
 
+.link {
+    margin-right: 50px;
+    margin-left: 50px;
+    font-family: 'system-ui';
+    font-size: 20px;
+    font-weight: 200;
+}
 
-
-    .logo {
-
-        color:rgb(218, 20, 142);
-        font-family: 'system-ui';
-
-
-        
-
-    
-            
-     }
-     
-
-     .link {
-
-      margin-right: 50px;
-      margin-left:  50px;
-      font-family: 'system-ui';
-      font-size: 20px;
-      font-weight: 200;
-
-     
-
-     }
-
-
-
-   .navback {
-
-    background-color:#ffffff;
+.navback {
+    background-color: #ffffff;
     color: blanchedalmond;
-
-
-   }
-
-
-
-
+}
 
 .navbar-app1 {
-    
     justify-content: center;
     padding-top: 20px;
     align-items: center;
-
-      }
-
+}
 
 .footbar-app {
     display: flex;
@@ -76,7 +47,6 @@
 }
 
 .navbar-link {
-
     font-family: 'system-ui';
     font-size: 20px;
     font-weight: 200;
@@ -109,50 +79,41 @@
 
 .logo4 {
     margin-right: auto;
-    margin-left:  auto; /*300px;*/
+    margin-left: auto; /*300px;*/
     font-family: 'system-ui';
     font-size: 20px;
     font-weight: 600;
     color: rgb(243, 113, 221);
 }
 
-
 .logo2 {
-   margin-right: 20px;
+    margin-right: 20px;
 }
-
-
 
 a {
     text-decoration: none;
 }
 
 .container1 {
-    
     display: flex;
-    justify-content: space-between  ;
- 
+    justify-content: space-between;
 }
 
 .footer-link {
-  
     font-family: 'system-ui';
     font-size: 16px;
     font-weight: 180;
     color: grey;
-
 }
 
-
 @media all and (max-width: 1280px) {
-
     .navbar-app {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-top: 20px;
     }
-    
+
     .footbar-app {
         display: flex;
         justify-content: center;
@@ -164,12 +125,12 @@ a {
         /*margin-left: 100px;
         margin-right: 100px;*/
     }
-    
+
     .nav {
         display: flex;
-       /* margin-right: 300px;*/
+        /* margin-right: 300px;*/
     }
-    
+
     .navbar-link {
         display: flex;
         /*margin-left: 90px;*/
@@ -178,7 +139,7 @@ a {
         font-weight: 200;
         color: grey;
     }
-    
+
     .navbar-link-logo {
         display: flex;
         font-family: 'system-ui';
@@ -186,7 +147,7 @@ a {
         font-weight: 200;
         color: grey;
     }
-    
+
     .navbar-link-login {
         display: flex;
         margin-left: 0px;
@@ -195,7 +156,7 @@ a {
         font-weight: 400;
         color: rgb(212, 7, 144);
     }
-    
+
     .logo {
         margin-right: auto;
         /*margin-left: 300px;*/
@@ -207,44 +168,36 @@ a {
     a {
         text-decoration: none;
     }
-    
+
     .container {
         display: flex;
     }
-    
+
     .footer-link {
-      
         font-family: 'system-ui';
         font-size: 16px;
         font-weight: 180;
         color: grey;
-    
     }
-    
 }
 
 @media all and (max-width: 1000px) {
+    .footbar-app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        margin-top: 50px;
+        border-top: 2px solid rgb(229, 5, 162);
+        border-radius: 5px;
+        margin-left: 210px;
+        margin-right: 210px;
+    }
 
-.footbar-app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    margin-top: 50px;
-    border-top: 2px solid rgb(229, 5, 162);
-    border-radius: 5px;
-    margin-left: 210px;
-    margin-right: 210px;
-}
-
-
-.footer-link {
-      
-    font-family: 'system-ui';
-    font-size: 12px;
-    font-weight: 180;
-    color: grey;
-
-} 
-
+    .footer-link {
+        font-family: 'system-ui';
+        font-size: 12px;
+        font-weight: 180;
+        color: grey;
+    }
 }

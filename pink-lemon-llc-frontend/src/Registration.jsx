@@ -86,7 +86,7 @@ const Registration = () => {
                     <br></br>
                     <div className="btn-cen">
                         <Button variant="contained" color="secondary" type="submit">
-                            Invia
+                            SEND
                         </Button>
                     </div>
                 </form>

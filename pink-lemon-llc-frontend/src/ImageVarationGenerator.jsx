@@ -56,12 +56,12 @@ const ImageVariationGenerator = () => {
                         onChange={handleFileChange}
                     />
                     <Button type="submit" variant="contained" color="secondary">
-                        Genera una variazione
+                        Send
                     </Button>
                 </form>
             </div>
             <div className="container">
-                <p className='p-page1'>L'immagine viene generata qui sotto: dimesione 1024x1024 pixel, formato PNG. Per salvare l'immagine basta andarci sopra col puntatore del mouse, pulsante destro e selezionare "salva con nome". </p>
+                <p className='p-page1'>The image is generated below: size 1024x1024 pixels, PNG format. To save the image, simply hover over it with the mouse pointer, right-click, and select "Save As."</p>
             </div>
             {imageUrls.length > 0 && (
                 <div>
@@ -88,13 +88,10 @@ const ImageVariationGenerator = () => {
             )}
              <div className='container'> 
             <p className='p-page'>
-            COME FUNZIONA LA GENERAZIONE DI VARIAZIONI DI IMMAGINE<br></br><br></br>
-                1.Carica un'immagine di 1024x1024 pixel, formato PNG: In questo modo PinkLemon potrà generare una variazione
-                ovvero una seconda immagine che avrà lo stesso formato dell'immagine di partenza, con lo stesso stile e colori ma conterrà alcuni
-                elementi di novità.
+            HOW IMAGE VARIATION GENERATION WORKS<br></br><br></br>
+                1.Upload an image of size 1024x1024 pixels, PNG format: This way, PinkLemon can generate a variation, which is a second image that will have the same format as the original image, with the same style and colors, but will contain some new elements.
                 <br></br><br></br>
-                2.Come ottenere più variazioni:Ti consigliamo di utilizzare sempre la stessa immagine di partenza se vuoi ottenere più variazioni e non di
-                caricare, ad esempio, una variazione. Questo ti permetterà di valutare più alternative rispetto ad un'immagine iniziale.
+                2.How to obtain more variations: We recommend using the same original image if you want to obtain multiple variations, rather than uploading a variation itself. This will allow you to explore more alternatives compared to starting from a single image.
                 <br></br><br></br>
         
             

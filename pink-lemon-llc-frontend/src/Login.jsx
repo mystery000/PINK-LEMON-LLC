@@ -84,7 +84,7 @@ const Login = () => {
                     </div>
                     <div className="btn-cen">
                         <Button variant="contained" color="secondary" type="submit">
-                            INVIA
+                            SEND
                         </Button>
                     </div>
                 </form>

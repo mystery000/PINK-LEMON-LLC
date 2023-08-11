@@ -1,0 +1,25 @@
+.container1 {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image {
+    flex: 1;
+    padding: 10px;
+    text-align: right; /* Allinea l'immagine a destra */
+  }
+  
+  .image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text {
+    flex: 1;
+    padding: 10px;
+  }
+  

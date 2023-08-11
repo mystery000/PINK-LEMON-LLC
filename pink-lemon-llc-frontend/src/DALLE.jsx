@@ -70,7 +70,7 @@ const DALLE = () => {
                     color="secondary"
                     onClick={generateImage}
                     disabled={isLoading}>
-                    {isLoading ? 'Generating...' : 'Genera ora'}
+                    {isLoading ? 'Generating...' : 'Send'}
                 </Button>
             </div>
             <div className="container">
