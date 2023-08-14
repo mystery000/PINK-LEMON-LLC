@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-// eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
@@ -70,35 +68,35 @@ const ImageVariationGenerator = () => {
                             <img
                                 key={index}
                                 src={url}
-                        
+
                                 alt={`Generated Variation ${index}`}
                                 style={{
                                     width: '1024px',
                                     height: '1024px',
                                     marginleft: '20px',
                                     marginRight: '20px'
-                                
+
                                 }
-                            
-                            }
+
+                                }
                             />
                         ))}
                     </div>
                 </div>
             )}
-             <div className='container'> 
-            <p className='p-page'>
-            HOW IMAGE VARIATION GENERATION WORKS<br></br><br></br>
-                1.Upload an image of size 1024x1024 pixels, PNG format: This way, PinkLemon can generate a variation, which is a second image that will have the same format as the original image, with the same style and colors, but will contain some new elements.
-                <br></br><br></br>
-                2.How to obtain more variations: We recommend using the same original image if you want to obtain multiple variations, rather than uploading a variation itself. This will allow you to explore more alternatives compared to starting from a single image.
-                <br></br><br></br>
-        
-            
-            </p>
+            <div className='container'>
+                <p className='p-page'>
+                    HOW IMAGE VARIATION GENERATION WORKS<br></br><br></br>
+                    1.Upload an image of size 1024x1024 pixels, PNG format: This way, PinkLemon can generate a variation, which is a second image that will have the same format as the original image, with the same style and colors, but will contain some new elements.
+                    <br></br><br></br>
+                    2.How to obtain more variations: We recommend using the same original image if you want to obtain multiple variations, rather than uploading a variation itself. This will allow you to explore more alternatives compared to starting from a single image.
+                    <br></br><br></br>
+
+
+                </p>
             </div>
-            
-    
+
+
         </div>
     );
 };

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 
 import axios from 'axios';
@@ -81,22 +80,22 @@ const ImageEditor = () => {
                 </div>
             )}
 
-<div className="container">
+            <div className="container">
                 <p className='p-page1'>The image is generated below: size 1024x1024 pixels, PNG format. To save the image, simply hover over it with the mouse pointer, right-click, and select "Save As." </p>
             </div>
-            <div className='container'> 
-            <p className='p-page'>
-            HOW IMAGE EDITING WORKS <br></br><br></br>
-                1.Upload a 1024x1024 pixel PNG format image without empty areas as a 
-                base: This way, PinkLemon can perform editing with a reference image.
-                <br></br><br></br>
-                2.Upload an image, the mask, of 1024x1024 pixel PNG format, with an empty area: 
-                This allows PinkLemon to perform editing while already knowing where to generate a new element.
-                <br></br><br></br>
-                3.Describe in the text field the element you want to generate in the empty space. For example: "Create a black cat sitting in an armchair."
-                <br></br> <br></br>
-        
-            </p>
+            <div className='container'>
+                <p className='p-page'>
+                    HOW IMAGE EDITING WORKS <br></br><br></br>
+                    1.Upload a 1024x1024 pixel PNG format image without empty areas as a
+                    base: This way, PinkLemon can perform editing with a reference image.
+                    <br></br><br></br>
+                    2.Upload an image, the mask, of 1024x1024 pixel PNG format, with an empty area:
+                    This allows PinkLemon to perform editing while already knowing where to generate a new element.
+                    <br></br><br></br>
+                    3.Describe in the text field the element you want to generate in the empty space. For example: "Create a black cat sitting in an armchair."
+                    <br></br> <br></br>
+
+                </p>
             </div>
         </>
     );

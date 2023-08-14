@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import './home.css';
 import Footer from './Footer';
 import ImageGallery from './ImageGallery';

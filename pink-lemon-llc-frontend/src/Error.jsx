@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import './home.css';
 import Footer from './Footer';
 
@@ -9,7 +8,7 @@ function Error() {
                 <h2 className="h2-description2">Invalid credentials: access denied.</h2>
             </div>
             <p>
-            Please check if the email and password are correct and try logging in again.
+                Please check if the email and password are correct and try logging in again.
             </p>
             <br></br>
             <br></br>

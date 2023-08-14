@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/no-unescaped-entities */
 import './home.css';
 import Footer from './Footer';
 import Button from '@mui/material/Button';
@@ -13,28 +11,28 @@ function Home() {
 
     return (
         <>
-        
+
             <div className="blog1">
                 <h1 className="h1-description">Immagine, Describe, Create</h1>
             </div>
 
             <div className="blog1">
                 <h2 className="h2-description">
-                Expand the possibilities of your creativity with AI
+                    Expand the possibilities of your creativity with AI
                 </h2>
             </div>
-          
 
-          <div className='container'> 
-            <div className="blog1">
-               <div className='home'> 
-               
-               <img src={myImage} alt="Descrizione dell'immagine" className='donna'/>
-               </div>
-               <div className='home1'> Many elements of this image have been generated from a brief textual description. The woman has her eyes closed, perhaps she is sleeping. Or perhaps, like in a Shakespearean tragedy, the woman dreams of dreaming. Even the definition of the profile, the fact that the nape disappears into the night of the background, is entirely random. Maybe the textual description was already the outline of a dream. The dream of a woman who is sleeping, whose thoughts fly away with the wind. With artificial intelligence, it is possible to describe one's imaginings and bring them to life.</div>
+
+            <div className='container'>
+                <div className="blog1">
+                    <div className='home'>
+
+                        <img src={myImage} alt="Descrizione dell'immagine" className='donna' />
+                    </div>
+                    <div className='home1'> Many elements of this image have been generated from a brief textual description. The woman has her eyes closed, perhaps she is sleeping. Or perhaps, like in a Shakespearean tragedy, the woman dreams of dreaming. Even the definition of the profile, the fact that the nape disappears into the night of the background, is entirely random. Maybe the textual description was already the outline of a dream. The dream of a woman who is sleeping, whose thoughts fly away with the wind. With artificial intelligence, it is possible to describe one's imaginings and bring them to life.</div>
+                </div>
             </div>
-            </div>
-           
+
 
             <div className="blog1">
                 <div className="action">
@@ -54,7 +52,7 @@ function Home() {
             <ImageGallery></ImageGallery>
 
             <Footer></Footer>
-           
+
         </>
     );
 }

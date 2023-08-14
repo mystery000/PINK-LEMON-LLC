@@ -1,7 +1,3 @@
-/* eslint-disable prettier/prettier */
-
-/* eslint-disable react/no-unescaped-entities */
-
 import './card.css';
 
 import TabMenuPrices from './TabMenuPrices';

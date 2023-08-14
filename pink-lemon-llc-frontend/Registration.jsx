@@ -42,7 +42,7 @@ const Registration = () => {
             <h1 className="h1-description"> SIGN UP AND RECEIVE 5 FREE TOKENS</h1>
             <h2 className="h2-description"> Create, modify, and edit images of 1024x1024 pixels</h2>
             <div className="form-container">
-                <form onSubmit={handleSubmit}>   
+                <form onSubmit={handleSubmit}>
                     <label>
                         <input
                             type="text"
@@ -90,11 +90,11 @@ const Registration = () => {
                         </Button>
                     </div>
                 </form>
-                
+
             </div>
             <div className="h2-description">Pink Lemon Album</div>
             <ImageGallery></ImageGallery>
-           
+
             <Footer></Footer>
         </>
     );

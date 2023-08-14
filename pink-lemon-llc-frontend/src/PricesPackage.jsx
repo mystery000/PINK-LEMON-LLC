@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
