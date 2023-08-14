@@ -28,7 +28,7 @@ const TabMenu = () => {
                 <button
                     className={activeTab === 'componente3' ? 'active' : ''}
                     onClick={() => handleTabClick('componente3')}>
-                    EDIT
+                   EDIT
                 </button>
                 <button
                     className={activeTab === 'componente4' ? 'active' : ''}

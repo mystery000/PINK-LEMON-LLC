@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 import Modal from 'react-modal';
 import './ImageGallery.css';

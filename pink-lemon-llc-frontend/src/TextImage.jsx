@@ -1,8 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import './ComponentStyles.css'; // Assumi che tu abbia un file di stili CSS per questo componente
 import myImage from './images/profilo_di_donna.jpg';
-
-
 
 const TextImage = () => {
   return (

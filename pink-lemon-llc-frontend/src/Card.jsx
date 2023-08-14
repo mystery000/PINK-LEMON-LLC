@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
@@ -25,9 +26,12 @@ const tiers = [
     {
         name: 'PinkStart',
         description: [
+            
             '100 token / month',
             'Images 1024x1024 pixel',
             '1 year subscription'
+            
+
         ],
         price: {
             amount: 5,

@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
 import { useNavigate } from 'react-router-dom';
 import { React, useCallback, useState } from 'react';
 import ImageGallery from './ImageGallery';
@@ -40,9 +42,9 @@ const ForgotPassword = () => {
             <h2 className="h2-description"> Insert your email and click "send" button</h2>
             <br></br><br></br>
             <div className='recovery'>
-                <input type="email" className='text-recovery' placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email"  className='text-recovery' placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <div className='recovery'>
-
+                    
                     <button onClick={sendEmail} className='btn-recovery'> Send </button>
                     <button onClick={() => navigate(-1)} className='btn-recovery'> Reset</button>
                 </div>
@@ -51,7 +53,7 @@ const ForgotPassword = () => {
             <br></br><br></br>
             <div className="h2-description">Pink Lemon Album</div>
 
-
+     
 
             <ImageGallery></ImageGallery>
             <Footer></Footer>

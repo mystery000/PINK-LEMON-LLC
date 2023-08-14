@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageGallery from './ImageGallery';

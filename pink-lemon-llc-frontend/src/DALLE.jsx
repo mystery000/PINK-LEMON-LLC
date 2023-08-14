@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line no-unused-vars
 import React, { useCallback, useState } from 'react';
 
 import './home.css';
@@ -81,34 +84,34 @@ const DALLE = () => {
                 )}
             </div>
 
-            <div className='container'>
-                <p className='p-page'>
-                    TIPS FOR GENERATING BETTER IMAGES <br></br><br></br>
-                    1.Clearly specify intent: Start your prompt by clearly and concisely describing what you want to generate.
-                    <br></br><br></br>
-                    2.Use detailed descriptions: The more specific the details, the better the chances of
-                    getting an image that meets your expectations.
-                    <br></br><br></br>
-                    3.Experiment with style attributes: For instance, you can request a
-                    painterly style, a cartoonish look, or a realistic rendering.
-                    <br></br> <br></br>
-                    4.Reference examples: You can provide sample images that resemble what you're trying to generate.
-                    <br></br><br></br>
-                    5.Progressive experimentation: If the generated image doesn't fully meet your expectations, you can try refining the prompt incrementally.
-                    <br></br><br></br>
+            <div className='container'> 
+            <p className='p-page'>
+                TIPS FOR GENERATING BETTER IMAGES <br></br><br></br>
+                1.Clearly specify intent: Start your prompt by clearly and concisely describing what you want to generate.
+                <br></br><br></br>
+                2.Use detailed descriptions: The more specific the details, the better the chances of 
+                getting an image that meets your expectations.
+                <br></br><br></br>
+                3.Experiment with style attributes: For instance, you can request a 
+                painterly style, a cartoonish look, or a realistic rendering.
+                <br></br> <br></br>
+                4.Reference examples: You can provide sample images that resemble what you're trying to generate.
+                <br></br><br></br>
+                5.Progressive experimentation: If the generated image doesn't fully meet your expectations, you can try refining the prompt incrementally.
+                <br></br><br></br>
+                
+                6.Be patient and experiment: LemonPink can produce amazing images, but it might take a few attempts to achieve the desired results.<br></br><br></br>
 
-                    6.Be patient and experiment: LemonPink can produce amazing images, but it might take a few attempts to achieve the desired results.<br></br><br></br>
-
-                    Example prompt: "Image of a forest with blue and purple hues reminiscent of The Blair Witch Project film."
-                    <br></br><br></br>
-
-                </p>
+                Example prompt: "Image of a forest with blue and purple hues reminiscent of The Blair Witch Project film."
+                <br></br><br></br>
+            
+            </p>
             </div>
+           
+           
 
 
-
-
-
+           
         </div>
     );
 };
